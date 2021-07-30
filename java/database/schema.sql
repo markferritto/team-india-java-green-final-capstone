@@ -1,10 +1,10 @@
 BEGIN TRANSACTION;
 
 DROP TABLE IF EXISTS users CASCADE;
-DROP TABLE IF EXISTS reviews;
-DROP TABLE IF EXISTS beers;
-DROP TABLE IF EXISTS brewery_beers;
-DROP TABLE IF EXISTS owned_brewery;
+DROP TABLE IF EXISTS reviews CASCADE;
+DROP TABLE IF EXISTS beers CASCADE;
+DROP TABLE IF EXISTS brewery_beers CASCADE;
+DROP TABLE IF EXISTS owned_brewery CASCADE;
 DROP TABLE IF EXISTS brewer CASCADE;
 DROP TABLE IF EXISTS brewery CASCADE;
 DROP SEQUENCE IF EXISTS seq_user_id;
@@ -44,21 +44,21 @@ CREATE TABLE users (
 	CONSTRAINT PK_user PRIMARY KEY (user_id)
 );
 
-CREATE TABLE brewer (
-	brewer_id int DEFAULT nextval('seq_brewer_id'::regclass) NOT NULL,
-	name varchar(50) NOT NULL,
-	description varchar(400) NOT NULL,
-	CONSTRAINT PK_brewer PRIMARY KEY (brewer_id)
-);
-
 CREATE TABLE brewery (
 	brewery_id int DEFAULT nextval('seq_brewery_id'::regclass) NOT NULL,
 	name varchar(50) NOT NULL,
 	description varchar(400) NOT NULL,
 	address varchar(50) NOT NULL,
-	brewer_id int NOT NULL,
-	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id),
-	CONSTRAINT FK_brewer_id FOREIGN KEY (brewer_id) REFERENCES brewer(brewer_id)
+	CONSTRAINT PK_brewery PRIMARY KEY (brewery_id)
+);
+
+CREATE TABLE brewer (
+	brewer_id int DEFAULT nextval('seq_brewer_id'::regclass) NOT NULL,
+	name varchar(50) NOT NULL,
+	description varchar(400) NOT NULL,
+	brewery_id int NOT NULL,
+	CONSTRAINT PK_brewer_id PRIMARY KEY (brewer_id),
+        CONSTRAINT FK_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 );
 
 CREATE TABLE owned_brewery (
@@ -91,8 +91,8 @@ CREATE TABLE reviews (
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
 INSERT INTO users (username,password_hash,role) VALUES ('admin','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_ADMIN');
 
-INSERT INTO brewer (brewer_id, name, description) VALUES (1, 'Jim Doe', 'Loves Beer');
-INSERT INTO brewery (brewery_id, name, description, address, brewer_id) VALUES (1, 'Jim Doe Beer', 'Place for all tall dark and handsome men', 'Shareeques House', 1);
+INSERT INTO brewery (brewery_id, name, description, address) VALUES (1, 'Jim Doe Beer', 'Place for all tall dark and handsome men', 'Shareeques House');
+INSERT INTO brewer (brewer_id, name, description, brewery_id) VALUES (1, 'Jim Doe', 'Loves Beer', 1);
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (1, 1);
 INSERT INTO beers (beer_id, name, description) VALUES (1, 'Coaches Beer', 'A real booger of a beer');
 INSERT INTO brewery_beers (beer_id, brewery_id) VALUES (1, 1);

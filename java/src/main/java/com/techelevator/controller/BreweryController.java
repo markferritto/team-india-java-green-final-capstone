@@ -19,6 +19,10 @@ public class BreweryController {
 
 
 
+
+
+
+
     @PreAuthorize("permitAll")
     @RequestMapping(path = "brewery", method = RequestMethod.GET)
     public List<Brewery> retrieveBreweries() { return breweryDAO.getAllBreweries();

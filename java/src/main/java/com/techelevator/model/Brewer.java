@@ -1,18 +1,17 @@
 package com.techelevator.model;
 
-public class Brewery {
-    private int brewery_id;
+public class Brewer {
+    private int brewer_id;
     private String name;
     private String description;
-    private String address;
-    //List<brewer> brewers
+    private int brewery_id;
 
-    public int getBrewery_id() {
-        return brewery_id;
+    public int getBrewer_id() {
+        return brewer_id;
     }
 
-    public void setBrewery_id(int brewery_id) {
-        this.brewery_id = brewery_id;
+    public void setBrewer_id(int brewer_id) {
+        this.brewer_id = brewer_id;
     }
 
     public String getName() {
@@ -31,11 +30,11 @@ public class Brewery {
         this.description = description;
     }
 
-    public String getAddress() {
-        return address;
+    public int getBrewery_id() {
+        return brewery_id;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setBrewery_id(int brewery_id) {
+        this.brewery_id = brewery_id;
     }
 }

@@ -12,19 +12,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 //@CrossOrigin
-@PreAuthorize("isAuthenticated()")
 @RestController
+@PreAuthorize("isAuthenticated()")
 public class BrewerController {
 
     @Autowired
     private BrewerDAO brewerDAO;
 
-
-
-
+    //Method retrieves a list of brewers from the database
     @PreAuthorize("permitAll")
     @RequestMapping(path = "brewer", method = RequestMethod.GET)
-    public List<Brewer> retrieveBrewers() { return brewerDAO.retrieveBrewers();
-        //lists
+    public List<Brewer> retrieveBrewers() {
+        return brewerDAO.retrieveBrewers();
     }
 }

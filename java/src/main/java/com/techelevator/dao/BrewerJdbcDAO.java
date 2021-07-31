@@ -18,18 +18,27 @@ public class BrewerJdbcDAO implements BrewerDAO{
 
     @Override
     public List<Brewer> retrieveBrewers() {
+
         List<Brewer> brewerList = new ArrayList<>();
+
         String sql = "SELECT brewer_id, name, description, brewery_id FROM brewer";
+
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
+
         while (rows.next()) {
+
             Brewer brewer = mapRowBrewer(rows);
+
             brewerList.add(brewer);
         }
+
         return brewerList;
     }
 
     private Brewer mapRowBrewer(SqlRowSet rows) {
+
         Brewer brewer = new Brewer();
+
         brewer.setBrewery_id(rows.getInt("brewer_id"));
         brewer.setName(rows.getString("name"));
         brewer.setDescription(rows.getString("description"));

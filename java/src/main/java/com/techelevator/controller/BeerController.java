@@ -22,11 +22,9 @@ public class BeerController {
     @Autowired
     private BeerDAO beerDAO;
 
-
-
+    //Method retrieves a list of beers from the database
     @PreAuthorize("permitAll")
     @RequestMapping(path = "beer", method = RequestMethod.GET)
     public List<Beer> getBeerList() { return beerDAO.retrieveBeers();
-        //lists
     }
 }

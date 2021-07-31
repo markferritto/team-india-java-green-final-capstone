@@ -14,21 +14,12 @@ import java.util.List;
 public class BreweryController {
 
     @Autowired
-   private BreweryDAO breweryDAO;
+    private BreweryDAO breweryDAO;
 
-
-
-
-
-
-
-
+    //Method retrieves a list of breweries from the database
     @PreAuthorize("permitAll")
     @RequestMapping(path = "brewery", method = RequestMethod.GET)
-    public List<Brewery> retrieveBreweries() { return breweryDAO.getAllBreweries();
-    //lists
+    public List<Brewery> retrieveBreweries() {
+        return breweryDAO.getAllBreweries();
     }
-
-
-
 }

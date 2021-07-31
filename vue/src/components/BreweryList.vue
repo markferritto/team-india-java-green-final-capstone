@@ -9,11 +9,11 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
-        <td>{{brewery.name}}</td>
-        <td>{{brewery.description}}</td>
-        <td>{{brewery.address}}</td>
-        <td>{{brewery.brewers}}</td>
+      <tr v-for="brewery in Breweries" v-bind:key="brewery.id">
+        <td>{{ brewery.name }}</td>
+        <td>{{ brewery.description }}</td>
+        <td>{{ brewery.address }}</td>
+        <td>{{ brewery.brewers }}</td>
       </tr>
     </tbody>
   </table>
@@ -21,36 +21,37 @@
 
 <script>
 import breweryService from "../services/BreweryService.js";
+
 export default {
   name: "brewery-list",
   data() {
     return {
-      breweryFilter: '',
+      breweryFilter: "",
       breweries: [],
       isLoading: true,
     };
   },
   computed: {
-  filteredBreweries() {
-           
-           return this.breweries.filter(brewery => {
-               return this.breweryFilter == '' ? true : this.breweryFilter == brewery.name;
-           });
-
-        },
-
+    filteredBreweries() {
+      return this.breweries.filter((brewery) => {
+        return this.breweryFilter == ""
+          ? true
+          : this.breweryFilter == brewery.name;
+      });
     },
+  },
 
   created() {
     breweryService.retrieve().then((response) => {
       this.breweries = response.data;
+      response.addHeader("Access-Control-Allow-Origin", "*");
       this.isLoading = false;
     });
   },
 };
 </script>
 
-<style style="scoped">
+<style scoped>
 table.cinereousTable {
   border: 6px solid #948473;
   background-color: #ffe3c6;

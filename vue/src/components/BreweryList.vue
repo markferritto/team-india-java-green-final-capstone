@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in breweries" v-bind:key="brewery.id">
+      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
         <td>{{brewery.name}}</td>
         <td>{{brewery.description}}</td>
         <td>{{brewery.address}}</td>
@@ -25,10 +25,22 @@ export default {
   name: "brewery-list",
   data() {
     return {
+      breweryFilter: '',
       breweries: [],
       isLoading: true,
     };
   },
+  computed: {
+  filteredBreweries() {
+           
+           return this.breweries.filter(brewery => {
+               return this.breweryFilter == '' ? true : this.breweryFilter == brewery.name;
+           });
+
+        },
+
+    },
+
   created() {
     breweryService.retrieve().then((response) => {
       this.breweries = response.data;

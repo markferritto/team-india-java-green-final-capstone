@@ -1,5 +1,6 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Brewer;
 import com.techelevator.model.Brewery;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -30,6 +31,9 @@ public class BreweryJdbcDAO implements BreweryDAO {
         return breweryList;
     }
 
+
+
+
     private Brewery mapRowBrewery(SqlRowSet rows) {
         Brewery brewery = new Brewery();
         brewery.setBrewery_id(rows.getInt("brewery_id"));
@@ -39,4 +43,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         return brewery;
     }
+
+
+
 }

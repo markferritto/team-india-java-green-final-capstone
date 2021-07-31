@@ -1,11 +1,22 @@
 package com.techelevator.model;
 
+import java.util.List;
+
 public class Brewery {
     private int brewery_id;
     private String name;
     private String description;
     private String address;
-    //List<brewer> brewers
+    private List<Brewer> brewers;
+
+
+    public List<Brewer> getBrewers() {
+        return brewers;
+    }
+
+    public void setBrewers(List<Brewer> brewers) {
+        this.brewers = brewers;
+    }
 
     public int getBrewery_id() {
         return brewery_id;

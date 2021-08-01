@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in Breweries" v-bind:key="brewery.id">
+      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
         <td>{{ brewery.name }}</td>
         <td>{{ brewery.description }}</td>
         <td>{{ brewery.address }}</td>
@@ -42,12 +42,12 @@ export default {
   },
 
   created() {
-    breweryService.retrieve().then((response) => {
-      this.breweries = response.data;
-      response.addHeader("Access-Control-Allow-Origin", "*");
-      this.isLoading = false;
-    });
-  },
+      breweryService.retrieve().then(response => {
+        this.breweries = response.data;
+        this.isLoading = false;
+      })
+    }
+
 };
 </script>
 

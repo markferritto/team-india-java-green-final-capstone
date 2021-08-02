@@ -12,8 +12,8 @@
       <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
         <td>{{ brewery.name }}</td>
         <td>{{ brewery.description }}</td>
-        <td>{{ brewery.address }}</td>
-        <td>{{ brewery.brewers }}</td>
+        <td>{{ brewery.website_url }}</td>
+        <td>{{ brewery.state }}</td>
       </tr>
     </tbody>
   </table>

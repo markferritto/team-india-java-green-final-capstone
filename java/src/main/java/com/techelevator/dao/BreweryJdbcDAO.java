@@ -26,7 +26,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
 
         //This will query for all breweries in the database
-        String sql = "SELECT brewery.brewery_id, brewery.name, brewery.description, type.name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
+        String sql = "SELECT brewery.brewery_id, brewery.name, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
                 "FROM brewery " +
                 "JOIN type ON type.type_id = brewery.type_id";
 
@@ -65,7 +65,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
         brewery.setBrewery_id(rows.getInt("brewery_id"));
         brewery.setName(rows.getString("name"));
         brewery.setDescription(rows.getString("description"));
-       // brewery.setTypeName(rows.getString("type.name"));
+        brewery.setTypeName(rows.getString("type_name"));
         brewery.setWebsite_url(rows.getString("website_url"));
         brewery.setPhone_number(rows.getString("phone_number"));
         brewery.setStreet_address(rows.getString("street_address"));

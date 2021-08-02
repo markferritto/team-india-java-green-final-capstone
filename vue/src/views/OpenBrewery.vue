@@ -1,0 +1,21 @@
+<template>
+  <div>
+      <brewery-call />
+  </div>
+</template>
+
+<script>
+
+import OpenBrewery from '@/components/OpenBreweryInfo.vue';
+
+export default {
+    components: {
+        OpenBrewery
+    }
+}
+</script>
+
+<style>
+
+</style>
+

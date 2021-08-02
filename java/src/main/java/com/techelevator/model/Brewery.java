@@ -7,21 +7,37 @@ public class Brewery {
     private int brewery_id;
     private String name;
     private String description;
-    private int type_id;
+    private String typeName;
     private String  website_url;
     private String phone_number;
     private String street_address;
     private String city;
     private String state;
     private String zip;
+    private  List<Beer> beerList;
 
-    public int getType_id() {
-        return type_id;
+
+
+
+
+    public List<Beer> getBeerList() {
+        return beerList;
     }
 
-    public void setType_id(int type_id) {
-        this.type_id = type_id;
+    public void setBeerList(List<Beer> beerList) {
+        this.beerList = beerList;
     }
+
+
+
+    public String getTypeName() {
+        return typeName;
+    }
+
+    public void setTypeName(String typeName) {
+        this.typeName = typeName;
+    }
+
 
     public String getWebsite_url() {
         return website_url;

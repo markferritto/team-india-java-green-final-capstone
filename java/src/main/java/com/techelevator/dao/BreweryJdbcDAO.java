@@ -1,6 +1,6 @@
 package com.techelevator.dao;
 
-import com.techelevator.model.Brewer;
+import com.techelevator.model.Beer;
 import com.techelevator.model.Brewery;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.support.rowset.SqlRowSet;
@@ -22,10 +22,13 @@ public class BreweryJdbcDAO implements BreweryDAO {
     public List<Brewery> getAllBreweries() {
 
         List<Brewery> breweryList = new ArrayList<>();
-        List<Brewer> brewerList = new ArrayList<>();
+        List<Beer> beerList = new ArrayList<>();
+
 
         //This will query for all breweries in the database
-        String sql = "SELECT brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip FROM  brewery";
+        String sql = "SELECT brewery.brewery_id, brewery.name, brewery.description, type.name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
+                "FROM brewery " +
+                "JOIN type ON type.type_id = brewery.type_id";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
 
@@ -33,22 +36,23 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
             Brewery brewery = mapRowBrewery(rows);
 
-//            //Query is to assign the correct brewers to the breweries
-//            String sqlBrewer = "SELECT brewer_id, name, description, brewery_id " +
-//                               "FROM brewer " +
-//                               "WHERE brewery_id=?";
-//
-//            SqlRowSet brewerRows = jdbcTemplate.queryForRowSet(sqlBrewer, brewery.getBrewery_id());
-//
-//            while(brewerRows.next()){
-//                Brewer brewer = mapRowBrewer(brewerRows);
-//
-//                brewerList.add(brewer);
-//            }
-//            //Sets the brewer list on the brewery object
-//            brewery.setBrewers(brewerList);
-//
-//            //Adds brewery to list that will be returned
+            //Query is to assign the correct brewers to the breweries
+            String sqlBeer = "SELECT beers.beer_id, name, description " +
+                    "FROM beers " +
+                    "JOIN brewery_beers ON brewery_beers.beer_id = beers.beer_id " +
+                    "WHERE brewery_id = ?";
+
+            SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBrewery_id());
+
+            while(beerRows.next()){
+                Beer beer = mapRowBeer(beerRows);
+
+                beerList.add(beer);
+            }
+            //Sets the brewer list on the brewery object
+            brewery.setBeerList(beerList);
+
+            //Adds brewery to list that will be returned
             breweryList.add(brewery);
         }
         return breweryList;
@@ -61,7 +65,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
         brewery.setBrewery_id(rows.getInt("brewery_id"));
         brewery.setName(rows.getString("name"));
         brewery.setDescription(rows.getString("description"));
-        brewery.setType_id(rows.getInt("type_id"));
+       // brewery.setTypeName(rows.getString("type.name"));
         brewery.setWebsite_url(rows.getString("website_url"));
         brewery.setPhone_number(rows.getString("phone_number"));
         brewery.setStreet_address(rows.getString("street_address"));
@@ -71,12 +75,16 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         return brewery;
     }
-    private Brewer mapRowBrewer(SqlRowSet rows) {
-        Brewer brewer = new Brewer();
-        brewer.setBrewer_id(rows.getInt("brewer_id"));
-        brewer.setName(rows.getString("name"));
-        brewer.setDescription(rows.getString("description"));
-        brewer.setBrewery_id(rows.getInt("brewery_id"));
-        return brewer;
+
+    private Beer mapRowBeer(SqlRowSet rows) {
+
+        Beer beer= new Beer();
+
+        beer.setBeer_id(rows.getInt("beer_id"));
+        beer.setName(rows.getString("name"));
+        beer.setDescription(rows.getString("description"));
+
+        return beer;
     }
+
 }

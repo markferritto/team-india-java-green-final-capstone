@@ -3,15 +3,18 @@
     <h1>{{ brewery.name }}</h1>
     <h3>{{ brewery.description }}</h3>
     <p>{{ brewery.address }}</p>
-    <p>{{ brewery.brewers }}</p>
+    <p>{{ brewery.beers }}</p>
   </div>
 </template>
 
 <script>
-import breweryService from "../services/BreweryService.js";
+//import breweryService from "../services/BreweryService.js";
 export default {
   name: "brewery",
-  props: ["brewery-display"],
+    props: {
+        brewery: Object,
+        },
+    
   methods: {
 
   }

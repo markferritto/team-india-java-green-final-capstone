@@ -9,8 +9,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
-        <router-link v-bind:to="{ name: 'single-brewery', params: { id: brewery.id } }">{{ brewery.name }}</router-link>
+      <tr v-for="brewery in filteredBreweries" v-on:click="sendToBrewery(id)" v-bind:key="brewery.brewery_id">
+        <!-- <router-link v-bind:to="{ name: 'single-brewery', params: { id: brewery.id } }">{{ brewery.name }}</router-link> -->
+        <td>{{ brewery.name }}</td>
         <td>{{ brewery.description }}</td>
         <td>{{ brewery.website_url }}</td>
         <td>{{ brewery.state }}</td>
@@ -40,7 +41,11 @@ export default {
       });
     },
   },
-
+  methods: {
+    sendToBrewery(id) {
+      this.$router.push(`/brewery/${id}`);
+    }
+  },
   created() {
       breweryService.retrieve().then(response => {
         this.breweries = response.data;

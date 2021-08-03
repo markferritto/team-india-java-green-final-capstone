@@ -1,5 +1,6 @@
 BEGIN TRANSACTION;
 
+DROP TABLE IF EXISTS beer_type CASCADE;
 DROP TABLE IF EXISTS type CASCADE;
 DROP TABLE IF EXISTS brewer CASCADE;
 DROP TABLE IF EXISTS users CASCADE;
@@ -12,6 +13,7 @@ DROP SEQUENCE IF EXISTS seq_type_id;
 DROP SEQUENCE IF EXISTS seq_user_id;
 DROP SEQUENCE IF EXISTS seq_beer_id;
 DROP SEQUENCE IF EXISTS seq_brewery_id;
+DROP SEQUENCE IF EXISTS seq_beer_type_id;
 
 CREATE SEQUENCE seq_user_id
   INCREMENT BY 1
@@ -37,11 +39,22 @@ CREATE SEQUENCE seq_type_id
   NO MINVALUE
   CACHE 1;
   
+CREATE SEQUENCE seq_beer_type_id
+  INCREMENT BY 1
+  NO MAXVALUE
+  NO MINVALUE
+  CACHE 1;
   
 CREATE TABLE type (
 	type_id int DEFAULT nextval('seq_type_id'::regclass) NOT NULL,
 	name varchar(50) NOT NULL,
 	CONSTRAINT PK_type_id PRIMARY KEY (type_id)
+);
+
+CREATE TABLE beer_type (
+	beer_type_id int DEFAULT nextval('seq_beer_type_id'::regclass) NOT NULL,
+	name varchar(50) NOT NULL,
+	CONSTRAINT PK_beer_type_id PRIMARY KEY (beer_type_id)
 );
 
 CREATE TABLE users (
@@ -77,7 +90,9 @@ CREATE TABLE owned_brewery (
 CREATE TABLE beers (
 	beer_id int DEFAULT nextval('seq_beer_id'::regclass) NOT NULL,
 	name varchar(50) NOT NULL,
+	beer_type_id int NOT NULL,
 	description varchar(400) NOT NULL,
+	CONSTRAINT FK_beer_type_id FOREIGN KEY (beer_type_id) REFERENCES beer_type(beer_type_id),
 	CONSTRAINT PK_beer_id PRIMARY KEY (beer_id)
 );
 
@@ -118,12 +133,19 @@ INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (1, 1);
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (2, 2);
 
-INSERT INTO beers (beer_id, name, description) VALUES (1, 'Coaches Beer', 'A real booger of a beer');
-INSERT INTO beers (beer_id, name, description) VALUES (2, 'Kevins Beer', 'He will give you a gif');
-INSERT INTO beers (beer_id, name, description) VALUES (3, 'Shareeques Beer', 'Air Force One of a beer');
-INSERT INTO beers (beer_id, name, description) VALUES (4, 'Mark Beer', 'Stop dorkin around');
-INSERT INTO beers (beer_id, name, description) VALUES (5, 'Anthony Beer', 'Couch would approve this beer');
-INSERT INTO beers (beer_id, name, description) VALUES (6, 'Rumeysas Beer', 'Couch would not approve this beer');
+INSERT INTO beer_type (beer_type_id, name) VALUES (1, 'Pale Ale');
+INSERT INTO beer_type (beer_type_id, name) VALUES (2, 'Lager');
+INSERT INTO beer_type (beer_type_id, name) VALUES (3, 'Indian Pale Ale');
+INSERT INTO beer_type (beer_type_id, name) VALUES (4, 'Stout');
+INSERT INTO beer_type (beer_type_id, name) VALUES (5, 'Pilsner');
+INSERT INTO beer_type (beer_type_id, name) VALUES (6, 'Porter');
+
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (1, 'Coaches Beer', 1, 'A real booger of a beer');
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (2, 'Kevins Beer', 2, 'He will give you a gif');
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (3, 'Shareeques Beer', 3, 'Air Force One of a beer');
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (4, 'Mark Beer', 4, 'Stop dorkin around');
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (5, 'Anthony Beer', 5, 'Couch would approve this beer');
+INSERT INTO beers (beer_id, name, beer_type_id, description) VALUES (6, 'Rumeysas Beer', 6, 'Couch would not approve this beer');
 
 INSERT INTO brewery_beers (beer_id, brewery_id) VALUES (1, 6);
 INSERT INTO brewery_beers (beer_id, brewery_id) VALUES (2, 5);
@@ -139,16 +161,16 @@ INSERT INTO brewery_beers (beer_id, brewery_id) VALUES (5, 2);
 INSERT INTO brewery_beers (beer_id, brewery_id) VALUES (6, 6);
 
 INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (1, 'A beer you dont want to dork around with', 5, 'Best beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you do want to dork around with', 5, 'Worst beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you maybe want to dork around with', 5, 'Meh beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you absolutely want to dork around with', 5, 'Alright beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you do want to dork around with', 2, 'Worst beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you maybe want to dork around with', 3, 'Meh beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you absolutely want to dork around with', 1, 'Alright beer', '1');
 INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A beer you absolutely do not want to dork around with', 5, 'Booger beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you are curious to dork around with', 5, 'Dork beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you want coach to dork around with', 5, 'Terrible beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you want Kevin to dork around with', 5, 'Wonderful beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you want a dork to dork around with', 5, 'Blast beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A beer you never want to dork around with', 5, 'Bomb beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you never not want to dork around with', 5, 'Pirate beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you are curious to dork around with', 4, 'Dork beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you want coach to dork around with', 3, 'Terrible beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you want Kevin to dork around with', 1, 'Wonderful beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you want a dork to dork around with', 0, 'Blast beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A beer you never want to dork around with', 1, 'Bomb beer', '1');
+INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you never not want to dork around with', 4, 'Pirate beer', '1');
 INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (1, 'A beer you will want to dork around with', 5, 'Bootleg beer', '1');
 
 COMMIT TRANSACTION;

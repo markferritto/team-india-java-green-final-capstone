@@ -1,16 +1,26 @@
 package com.techelevator.model;
 
 public class Beer {
-    private int beer_id;
+    private int beerId;
     private String name;
+    private double stars;
+    private String beerType;
     private String description;
 
-    public int getBeer_id() {
-        return beer_id;
+    public int getBeerId() {
+        return beerId;
     }
 
-    public void setBeer_id(int beer_id) {
-        this.beer_id = beer_id;
+    public void setBeerId(int beerId) {
+        this.beerId = beerId;
+    }
+
+    public double getStars() {
+        return stars;
+    }
+
+    public void setStars(double stars) {
+        this.stars = stars;
     }
 
     public String getName() {
@@ -19,6 +29,14 @@ public class Beer {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getBeerType() {
+        return beerType;
+    }
+
+    public void setBeerType(String beerType) {
+        this.beerType = beerType;
     }
 
     public String getDescription() {

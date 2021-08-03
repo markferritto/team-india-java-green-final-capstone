@@ -1,24 +1,20 @@
 package com.techelevator.model;
 
 import java.util.List;
-import java.util.SplittableRandom;
 
 public class Brewery {
-    private int brewery_id;
+    private int breweryId;
     private String name;
+    private double rating;
     private String description;
     private String typeName;
-    private String  website_url;
-    private String phone_number;
-    private String street_address;
+    private String websiteUrl;
+    private String phoneNumber;
+    private String streetAddress;
     private String city;
     private String state;
     private String zip;
-    private  List<Beer> beerList;
-
-
-
-
+    private List<Beer> beerList;
 
     public List<Beer> getBeerList() {
         return beerList;
@@ -28,8 +24,6 @@ public class Brewery {
         this.beerList = beerList;
     }
 
-
-
     public String getTypeName() {
         return typeName;
     }
@@ -38,29 +32,36 @@ public class Brewery {
         this.typeName = typeName;
     }
 
-
-    public String getWebsite_url() {
-        return website_url;
+    public double getRating() {
+        return rating;
     }
 
-    public void setWebsite_url(String website_url) {
-        this.website_url = website_url;
+    public void setRating(double rating) {
+        this.rating = rating;
     }
 
-    public String getPhone_number() {
-        return phone_number;
+    public String getWebsiteUrl() {
+        return websiteUrl;
     }
 
-    public void setPhone_number(String phone_number) {
-        this.phone_number = phone_number;
+    public void setWebsiteUrl(String websiteUrl) {
+        this.websiteUrl = websiteUrl;
     }
 
-    public String getStreet_address() {
-        return street_address;
+    public String getPhoneNumber() {
+        return phoneNumber;
     }
 
-    public void setStreet_address(String street_address) {
-        this.street_address = street_address;
+    public void setPhoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber;
+    }
+
+    public String getStreetAddress() {
+        return streetAddress;
+    }
+
+    public void setStreetAddress(String streetAddress) {
+        this.streetAddress = streetAddress;
     }
 
     public String getCity() {
@@ -87,12 +88,12 @@ public class Brewery {
         this.zip = zip;
     }
 
-    public int getBrewery_id() {
-        return brewery_id;
+    public int getBreweryId() {
+        return breweryId;
     }
 
-    public void setBrewery_id(int brewery_id) {
-        this.brewery_id = brewery_id;
+    public void setBreweryId(int breweryId) {
+        this.breweryId = breweryId;
     }
 
     public String getName() {
@@ -110,6 +111,4 @@ public class Brewery {
     public void setDescription(String description) {
         this.description = description;
     }
-
-
 }

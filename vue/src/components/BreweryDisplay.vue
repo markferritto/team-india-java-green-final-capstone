@@ -28,7 +28,7 @@ export default {
   },
   created() {
       breweryService.retrieve().then(response => {
-        this.brewery = response.data;
+        this.breweries.brewery = response.data;
         this.isLoading = false;
       })
     }

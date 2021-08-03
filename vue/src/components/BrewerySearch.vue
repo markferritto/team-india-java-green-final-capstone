@@ -10,7 +10,7 @@
     </thead>
     <tbody>
       <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
-        <router-link v-bind:to="{ name: 'brewery-display', params: { id: brewery.id } }">{{ brewery.name }}</router-link>
+        <router-link v-bind:to="{ name: 'single-brewery', params: { id: brewery.id } }">{{ brewery.name }}</router-link>
         <td>{{ brewery.description }}</td>
         <td>{{ brewery.website_url }}</td>
         <td>{{ brewery.state }}</td>

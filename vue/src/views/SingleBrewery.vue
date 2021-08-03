@@ -9,9 +9,9 @@
 import BreweryDisplay from "../components/BreweryDisplay.vue";
 
 export default {
-  name: "brewery",
+  name: "single-brewery",
   components: {
-    BreweryDisplay,
-  },
+    BreweryDisplay
+  }
 };
 </script>

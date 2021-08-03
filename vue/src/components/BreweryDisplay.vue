@@ -15,6 +15,7 @@
 import breweryService from "../services/BreweryService.js";
 export default {
   name: "brewery-display",
+  prop: ['breweries'],
   data() {
     return {
       brewery: {
@@ -28,7 +29,7 @@ export default {
   },
   created() {
       breweryService.retrieve().then(response => {
-        this.breweries.brewery = response.data;
+        this.brewery = response.data;
         this.isLoading = false;
       })
     }

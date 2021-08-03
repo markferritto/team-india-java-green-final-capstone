@@ -9,8 +9,8 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-on:click: v-bind:key="brewery.id">
-        <td>{{ brewery.name }}</td>
+      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
+        <router-link v-bind:to="{ name: 'brewery-display', params: { id: brewery.id } }">{{ brewery.name }}</router-link>
         <td>{{ brewery.description }}</td>
         <td>{{ brewery.website_url }}</td>
         <td>{{ brewery.state }}</td>
@@ -91,4 +91,5 @@ table.cinereousTable thead th:first-child {
 table.cinereousTable tfoot td {
   font-size: 16px;
 }
+
 </style>

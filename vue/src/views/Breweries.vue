@@ -9,9 +9,9 @@
 import BrewerySearch from "../components/BrewerySearch.vue";
 
 export default {
-      name: "breweries",
+  name: "breweries",
   components: {
-    BrewerySearch
-  }
+    BrewerySearch,
+  },
 };
 </script>

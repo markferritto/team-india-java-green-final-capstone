@@ -6,11 +6,11 @@
 
 <script>
 
-import OpenBrewery from '@/components/OpenBreweryInfo.vue';
+//import OpenBrewery from '@/components/OpenBreweryInfo.vue';
 
 export default {
     components: {
-        OpenBrewery
+        //OpenBrewery
     }
 }
 </script>

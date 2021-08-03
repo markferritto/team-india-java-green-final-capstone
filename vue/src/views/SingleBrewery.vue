@@ -1,7 +1,7 @@
 <template>
   <div class="brewery">
     <h1>Brewery</h1>
-    <brewery />
+    <brewery-display />
   </div>
 </template>
 
@@ -9,9 +9,9 @@
 import BreweryDisplay from "../components/BreweryDisplay.vue";
 
 export default {
-      name: "brewery",
+  name: "brewery",
   components: {
-    BreweryDisplay
-  }
+    BreweryDisplay,
+  },
 };
 </script>

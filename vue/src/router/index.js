@@ -5,8 +5,8 @@ import Login from '../views/Login.vue'
 import Logout from '../views/Logout.vue'
 import Register from '../views/Register.vue'
 import store from '../store/index'
-import Breweries from '@/views/Breweries'
-import BreweryDisplay from '@/views/SingleBrewery.vue'
+import Breweries from '@/views/Breweries.vue'
+import SingleBrewery from '@/views/SingleBrewery.vue'
 import OpenBrewery from '@/views/OpenBrewery.vue'
 
 Vue.use(Router)
@@ -64,7 +64,7 @@ const router = new Router({
     {
       path: '/brewery/:id',
       name: 'brewery',
-      component: Breweries
+      component: SingleBrewery
     },
     {
       path: "/openbrewery",

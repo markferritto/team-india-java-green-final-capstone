@@ -1,17 +1,17 @@
 <template>
   <div class="breweries">
     <h1>Breweries</h1>
-    <brewery-list />
+    <brewery-search />
   </div>
 </template>
 
 <script>
-import BreweryList from "../components/BreweryList.vue";
+import BrewerySearch from "../components/BrewerySearch.vue";
 
 export default {
       name: "breweries",
   components: {
-    BreweryList
+    BrewerySearch
   }
 };
 </script>

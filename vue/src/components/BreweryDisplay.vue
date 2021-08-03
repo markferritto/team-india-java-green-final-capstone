@@ -8,10 +8,10 @@
 </template>
 
 <script>
-// import breweryService from "../services/BreweryService.js";
+import breweryService from "../services/BreweryService.js";
 export default {
-  name: "brewery-display",
-  props: ["brewery"],
+  name: "brewery",
+  props: ["brewery-display"],
   methods: {
 
   }

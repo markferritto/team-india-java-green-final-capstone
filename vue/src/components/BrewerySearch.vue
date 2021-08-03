@@ -9,7 +9,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-bind:key="brewery.id">
+      <tr v-for="brewery in filteredBreweries" v-on:click: v-bind:key="brewery.id">
         <td>{{ brewery.name }}</td>
         <td>{{ brewery.description }}</td>
         <td>{{ brewery.website_url }}</td>
@@ -23,7 +23,7 @@
 import breweryService from "../services/BreweryService.js";
 
 export default {
-  name: "brewery-list",
+  name: "brewery-",
   data() {
     return {
       breweryFilter: "",

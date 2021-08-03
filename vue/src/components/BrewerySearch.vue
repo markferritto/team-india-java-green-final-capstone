@@ -23,7 +23,7 @@
 import breweryService from "../services/BreweryService.js";
 
 export default {
-  name: "brewery-",
+  name: "brewery-search",
   data() {
     return {
       breweryFilter: "",

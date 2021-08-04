@@ -4,12 +4,15 @@
     
     v-bind:key="brewery.id"
   >
-    <!-- <h1>{{ brewery.name }}</h1> -->
+    <h1>{{ brewery.name }}</h1>
     <h3>{{ brewery.description }}</h3>
-        <h3>{{ brewery.typeName }}</h3>
-
-    <p>{{ brewery.address }}</p>
-    <p>{{ brewery.beers }}</p>
+    <h3>{{ brewery.typeName }}</h3>
+    <p>{{ brewery.websiteUrl }}</p>
+    <p>{{ brewery.phoneNumber }}</p>
+    <p>{{ brewery.streetAddress }}</p>
+    <p>{{ brewery.city }}, {{ brewery.state }}</p>
+    <p>{{ brewery.zip }}</p>
+    <p>{{ brewery.beerList }}</p>
   </div>
 </template>
 
@@ -33,5 +36,8 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
+h1 {
+  font-size: 70px;
+}
 </style>

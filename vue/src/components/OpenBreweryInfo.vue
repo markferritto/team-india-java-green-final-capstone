@@ -46,16 +46,16 @@ fetch('https://api.openbrewerydb.org/breweries?by_state=ohio&per_page=50')
       response.json().then((data) => {
         console.log(data);
         this.brewery = data;
-        breweryList = JSON.Parse(data);
-        breweryList.forEach(brewery => {
-        breweryId = brewery.id;
-        name = brewery.name;
-        typeName = brewery.brewery_type;
-        streetAddress = brewery.street;
-        city = brewery.city;
-        state = brewery.state;
-        zip = brewery.zip;
-        websiteUrl = brewery.website_url;
+        this.breweryList = JSON.Parse(data);
+        this.breweryList.forEach(brewery => {
+        this.breweryId = brewery.id;
+        this.name = brewery.name;
+        this.typeName = brewery.brewery_type;
+        this.streetAddress = brewery.street;
+        this.city = brewery.city;
+        this.state = brewery.state;
+        this.zip = brewery.zip;
+        this.websiteUrl = brewery.website_url;
         this.openBreweries.push(brewery);
         });
       });

@@ -9,6 +9,7 @@
 // import OpenBrewery from '@/components/OpenBreweryInfo.vue';
 
 export default {
+    name: "open-brewery",
     components: {
         // OpenBrewery
     }

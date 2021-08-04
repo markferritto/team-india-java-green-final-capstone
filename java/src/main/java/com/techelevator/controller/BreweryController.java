@@ -22,4 +22,10 @@ public class BreweryController {
     public List<Brewery> retrieveBreweries() {
         return breweryDAO.getAllBreweries();
     }
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "brewery/{id}", method = RequestMethod.GET)
+    public Brewery retrieveBreweries(@PathVariable int id) {
+        return breweryDAO.getBreweryById(id);
+    }
 }

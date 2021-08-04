@@ -1,7 +1,7 @@
 <template>
   <div class="brewery">
     <h1>Brewery</h1>
-    <brewery-display />
+    <breweryDisplay />
   </div>
 </template>
 

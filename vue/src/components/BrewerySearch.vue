@@ -5,16 +5,17 @@
         <th>Name</th>
         <th>Description</th>
         <th>Address</th>
-        <th>Brewers</th>
+        <th>Website</th>
+        <th>Average Rating of Beers</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-on:click="sendToBrewery(id)" v-bind:key="brewery.brewery_id">
-        <!-- <router-link v-bind:to="{ name: 'single-brewery', params: { id: brewery.id } }">{{ brewery.name }}</router-link> -->
+      <tr v-for="brewery in filteredBreweries" v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
         <td>{{ brewery.name }}</td>
-        <td>{{ brewery.description }}</td>
-        <td>{{ brewery.website_url }}</td>
-        <td>{{ brewery.state }}</td>
+        <td>{{ brewery.typeName }}: {{ brewery.description }}</td>
+        <td>{{ brewery.streetAddress }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.zip }} </td>
+        <td>{{ brewery.websiteUrl }}</td>
+        <td>{{ brewery.rating }}</td>
       </tr>
     </tbody>
   </table>
@@ -42,8 +43,8 @@ export default {
     },
   },
   methods: {
-    sendToBrewery(id) {
-      this.$router.push(`/brewery/${id}`);
+    sendToBrewery(breweryId) {
+      this.$router.push(`/brewery/${breweryId}`);
     }
   },
   created() {

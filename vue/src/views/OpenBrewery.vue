@@ -1,22 +1,17 @@
 <template>
-  <div>
-      <open-brewery />
+  <div class="open-brewery">
+      <h1>Open Brewery display</h1>
+      <open-brewery-info />
   </div>
 </template>
 
 <script>
-
-// import OpenBrewery from '@/components/OpenBreweryInfo.vue';
+import OpenBreweryInfo from '../components/OpenBreweryInfo.vue';
 
 export default {
     name: "open-brewery",
     components: {
-        // OpenBrewery
-    }
-}
+        OpenBreweryInfo,
+    },
+};
 </script>
-
-<style>
-
-</style>
-

@@ -67,12 +67,9 @@ const router = new Router({
       component: SingleBrewery
     },
     {
-      path: "/openbrewery",
+      path: "/OpenBrewery",
       name: "open-brewery",
       component: OpenBrewery,
-      meta: {
-        requiresAuth: false
-      }
     },
   ]
 })

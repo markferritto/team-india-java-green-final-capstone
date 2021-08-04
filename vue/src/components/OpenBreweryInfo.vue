@@ -3,19 +3,19 @@
     <thead>
       <tr>
         <th>Name</th>
-        <th>Description</th>
+        <th>Brewery Type</th>
         <th>Address</th>
         <th>Website</th>
-        <th>Average Rating of Beers</th>
+        <th>Phone Number</th>
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in openBreweries" v-on:click="sendToBrewery(brewery.websiteUrl)" v-bind:key="brewery.breweryId">
+      <tr v-for="brewery in openBreweries" v-on:click="sendToBrewery(brewery.website_url)" v-bind:key="brewery.breweryId">
         <td>{{ brewery.name }}</td>
-        <td>{{ brewery.typeName }}: {{ brewery.description }}</td>
-        <td>{{ brewery.streetAddress }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.zip }} </td>
-        <td>{{ brewery.websiteUrl }}</td>
-        <td>{{ brewery.rating }}</td>
+        <td>{{ brewery.brewery_type }} {{ brewery.description }}</td>
+        <td>{{ brewery.street }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.postal_code }} </td>
+        <td>{{ brewery.website_url }}</td>
+        <td>{{ brewery.phone }}</td>
       </tr>
     </tbody>
   </table>
@@ -23,9 +23,8 @@
 
 <script>
 
-
 export default {
-  name: "open-brewery",
+  name: "open-brewery-search",
 
   data() {
     return {
@@ -44,9 +43,8 @@ fetch('https://api.openbrewerydb.org/breweries?by_state=ohio&by_city=columbus&pe
 
       // Examine the text in the response
       response.json().then((data) => {
-        console.log(data);
         this.brewery = data;
-        this.breweryList = JSON.Parse(data);
+        this.breweryList = JSON.parse(JSON.stringify(data));
         this.breweryList.forEach(brewery => {
         this.breweryId = brewery.id;
         this.name = brewery.name;
@@ -61,16 +59,16 @@ fetch('https://api.openbrewerydb.org/breweries?by_state=ohio&by_city=columbus&pe
       });
     }
   )
-// [{"id":14417,"obdb_id":"snow-belt-brew-chardon","name":"Snow Belt Brew","brewery_type":"micro","street":"9511 Kile Rd","address_2":null,
-// "address_3":null,"city":"Chardon","state":"Ohio","county_province":null,"postal_code":"44024","country":"United States",
-// "longitude":null,"latitude":null,"phone":null,"website_url":null,"updated_at":"2018-07-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"}
+// [{"id":8234,"obdb_id":"actual-brewing-company-llc-columbus","name":"Actual Brewing Company, LLC","brewery_type":"micro","street":"655 N James Rd",
+// "address_2":null,"address_3":null,"city":"Columbus","state":"Ohio","county_province":null,"postal_code":"43219-1837","country":"United States","longitude":"-82.9080986","latitude":"39.9868523",
+// "phone":"6146363825","website_url":"http://wwww.actualbeer.com","updated_at":"2018-07-24T00:00:00.000Z","created_at":"2018-07-24T00:00:00.000Z"},
   .catch((err) => {
     console.log('Fetch Error', err);
   });
   },
   methods: {
-    sendToBrewery(websiteUrl) {
-      this.$router.push(`/brewery/${websiteUrl}`);
+    sendToBrewery(website_url) {
+      this.$router.push(`${website_url}`);
     }
   },
 };

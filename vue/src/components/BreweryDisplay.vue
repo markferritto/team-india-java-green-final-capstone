@@ -1,8 +1,7 @@
 <template>
   <div
     class="brewery"
-    v-bind:class="{ brewery: breweries.brewery }"
-    v-bind:key="brewery.id"
+    v-bind:key="brewery.breweryId"
   >
     <h1>{{ brewery.name }}</h1>
     <h3>{{ brewery.description }}</h3>
@@ -15,25 +14,36 @@
 import breweryService from "../services/BreweryService.js";
 export default {
   name: "brewery-display",
-  prop: ['breweries'],
   data() {
     return {
       brewery: {
-        name: '',
-        description: '',
-        address: '',
-        beers: '',
+        name: "",
+        rating: "",
+        description: "",
+        typeName: "",
+        websiteUrl: "",
+        phoneNumber: "",
+        streetAddress: "",
+        city: "",
+        state: "",
+        zip: "",
+        beerList: {
+          beerId: "",
+          name: "", 
+          stars: "",
+          beerType: "",
+          description: ""
+        }
       },
-      isLoading: true,
     };
   },
   created() {
-      breweryService.retrieve().then(response => {
-        this.brewery = response.data;
-        this.isLoading = false;
-      })
-    }
+    breweryService.get(this.$route.params.id).then((response) => {
+      this.brewery = response.data;
+    });
+  }
 };
+
 </script>
 
 <style>

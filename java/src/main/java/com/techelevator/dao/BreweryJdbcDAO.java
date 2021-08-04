@@ -72,6 +72,15 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         //This will query for all breweries in the database
         String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(reviews.stars), 2) AS average_beer_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
+<<<<<<< HEAD
+                "FROM brewery " +
+                "JOIN brewery_beers ON brewery_beers.brewery_id = brewery.brewery_id " +
+                "JOIN beers ON beers.beer_id = brewery_beers.beer_id " +
+                "JOIN reviews ON reviews.beer_id = beers.beer_id " +
+                "JOIN type ON type.type_id = brewery.type_id " +
+                "WHERE brewery.brewery_id = ?" +
+                "GROUP BY brewery.brewery_id, type.name";
+=======
                      "FROM brewery " +
                      "JOIN brewery_beers ON brewery_beers.brewery_id = brewery.brewery_id " +
                      "JOIN beers ON beers.beer_id = brewery_beers.beer_id " +
@@ -79,6 +88,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
                      "JOIN type ON type.type_id = brewery.type_id " +
                      "WHERE brewery.brewery_id = ?" +
                      "GROUP BY brewery.brewery_id, type.name";
+>>>>>>> 1e1bbab9623613e50c0bcdbf8c4e25b05b9eed3d
 
 
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, id);
@@ -109,7 +119,10 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         return brewery;
     }
+<<<<<<< HEAD
+=======
 
+>>>>>>> 1e1bbab9623613e50c0bcdbf8c4e25b05b9eed3d
     private Brewery mapRowBrewery(SqlRowSet rows) {
 
         Brewery brewery = new Brewery();

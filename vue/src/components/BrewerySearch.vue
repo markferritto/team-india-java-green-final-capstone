@@ -10,12 +10,14 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="brewery in filteredBreweries" v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
+      <tr v-for="brewery in filteredBreweries"  v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
+              <!-- <router-link v-bind:to="{ name: 'single-brewery' ,params: { id:brewery.breweryId}}"> -->
         <td>{{ brewery.name }}</td>
         <td>{{ brewery.typeName }}: {{ brewery.description }}</td>
         <td>{{ brewery.streetAddress }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.zip }} </td>
         <td>{{ brewery.websiteUrl }}</td>
         <td>{{ brewery.rating }}</td>
+        <!-- </router-link> -->
       </tr>
     </tbody>
   </table>

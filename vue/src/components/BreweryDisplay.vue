@@ -1,10 +1,13 @@
 <template>
   <div
     class="brewery"
-    v-bind:key="brewery.breweryId"
+    
+    v-bind:key="brewery.id"
   >
-    <h1>{{ brewery.name }}</h1>
+    <!-- <h1>{{ brewery.name }}</h1> -->
     <h3>{{ brewery.description }}</h3>
+        <h3>{{ brewery.typeName }}</h3>
+
     <p>{{ brewery.address }}</p>
     <p>{{ brewery.beers }}</p>
   </div>
@@ -14,27 +17,12 @@
 import breweryService from "../services/BreweryService.js";
 export default {
   name: "brewery-display",
+  
+  
   data() {
     return {
-      brewery: {
-        name: "",
-        rating: "",
-        description: "",
-        typeName: "",
-        websiteUrl: "",
-        phoneNumber: "",
-        streetAddress: "",
-        city: "",
-        state: "",
-        zip: "",
-        beerList: {
-          beerId: "",
-          name: "", 
-          stars: "",
-          beerType: "",
-          description: ""
-        }
-      },
+      brewery: {},
+      isLoading: true,
     };
   },
   created() {
@@ -43,7 +31,6 @@ export default {
     });
   }
 };
-
 </script>
 
 <style>

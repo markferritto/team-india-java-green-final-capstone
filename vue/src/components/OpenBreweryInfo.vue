@@ -34,7 +34,7 @@ export default {
   },
   created() {
 
-fetch('https://api.openbrewerydb.org/breweries?by_state=ohio&per_page=50')
+fetch('https://api.openbrewerydb.org/breweries?by_state=ohio&by_city=columbus&per_page=50')
   .then((response) => {
       if (response.status !== 200) {
         console.log('Looks like there was a problem. Status Code: ' +

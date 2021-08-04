@@ -23,10 +23,9 @@ public class BreweryController {
         return breweryDAO.getAllBreweries();
     }
 
-<<<<<<< HEAD
-=======
+
     //Method retrieves a specific brewery
->>>>>>> 1e1bbab9623613e50c0bcdbf8c4e25b05b9eed3d
+
     @PreAuthorize("permitAll")
     @RequestMapping(path = "brewery/{id}", method = RequestMethod.GET)
     public Brewery retrieveBreweries(@PathVariable int id) {

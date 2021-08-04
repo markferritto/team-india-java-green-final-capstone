@@ -12,7 +12,9 @@
     <p>{{ brewery.streetAddress }}</p>
     <p>{{ brewery.city }}, {{ brewery.state }}</p>
     <p>{{ brewery.zip }}</p>
-    <p>{{ brewery.beerList }}</p>
+        <h3>Beers</h3>
+    <p>{{ brewery.beerList[1][name] }}  {{ brewery.beerList[1].stars }}     {{ brewery.beerList[1].beerType }}          {{ brewery.beerList[1].name }}          {{ brewery.beerList[1].description }}</p>
+  
   </div>
 </template>
 

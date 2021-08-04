@@ -22,15 +22,9 @@ export default {
 </script>
 
 <style scoped>
- img {
-     width: 20%;
-     height: auto;
-     display: block;
-     margin-left: auto;
-     margin-right: auto;
- }
-
-
+* {
+    background-color: #15b467;
+}
 nav {
     display: flex;
     justify-content: center;
@@ -39,12 +33,11 @@ nav {
 nav a {
     padding: 15px 25px;
     background-color: #15b467;
-    color:red;
+    color:black;
 }
 
 nav a:hover {
     background-color: rgb(8, 104, 8);
     color: white;
 }
-
 </style>

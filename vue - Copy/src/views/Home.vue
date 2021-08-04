@@ -1,12 +1,22 @@
 <template>
-  <div class="home">
-    <h1>Home</h1>
-    <p>You must be authenticated to see this</p>
-  </div>
+    <section>
+      <div :style="{backgroundImage:'url(../../pictures/frontpage.jpg)'}"></div>
+    </section>
 </template>
 
 <script>
 export default {
-  name: "home"
-};
+  name: "home",
+        data() {
+            return {
+            };
+        }
+    };
 </script>
+
+<style>
+section {
+  background-image: "url(../../pictures/frontpage.jpg)";
+}
+
+</style>

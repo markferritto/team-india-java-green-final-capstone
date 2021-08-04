@@ -1,8 +1,8 @@
 <template>
   <div
     class="brewery"
-    v-bind:class="{ brewery: breweries.brewery }"
-    v-bind:key="brewery.id"
+    v-bind:class="{ brewery: breweries.breweryId }"
+    v-bind:key="brewery.breweryId"
   >
     <h1>{{ brewery.name }}</h1>
     <h3>{{ brewery.description }}</h3>
@@ -15,7 +15,6 @@
 import breweryService from "../services/BreweryService.js";
 export default {
   name: "brewery-display",
-  prop: ['breweries'],
   data() {
     return {
       brewery: {

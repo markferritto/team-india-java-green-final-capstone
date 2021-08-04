@@ -62,7 +62,7 @@ const router = new Router({
       component: Breweries
     },
     {
-      path: '/brewery/:id',
+      path: '/brewery/:breweryId',
       name: 'single-brewery',
       component: SingleBrewery
     },

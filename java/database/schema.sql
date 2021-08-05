@@ -168,11 +168,7 @@ INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A 
 INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you never not want to dork around with', 4, 'Pirate beer', '1');
 INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (1, 'A beer you will want to dork around with', 5, 'Bootleg beer', '1');
 
---SELECT * , beer_type.name
---FROM beers
---JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id
---JOIN brewery on brewery.brewery_id = beers.brewery_id
---WHERE brewery.brewery_id = ?
+GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
 
 SELECT beer_id, brewery.brewery_id, beer_type.name, beers.name, beers.description
 FROM beers

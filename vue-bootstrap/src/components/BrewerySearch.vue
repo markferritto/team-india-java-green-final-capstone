@@ -1,24 +1,41 @@
 <template>
-  <table class="cinereousTable">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Address</th>
-        <th>Website</th>
-        <th>Average Rating of Beers</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr v-for="brewery in filteredBreweries"  v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
-        <td>{{ brewery.name }}</td>
-        <td>{{ brewery.typeName }}: {{ brewery.description }}</td>
-        <td>{{ brewery.streetAddress }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.zip }} </td>
-        <td>{{ brewery.websiteUrl }}</td>
-        <td>{{ brewery.rating }}</td>
-      </tr>
-    </tbody>
-  </table>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-sm-4 py-3"
+        v-for="brewery in filteredBreweries"
+        v-on:click="sendToBrewery(brewery.breweryId)"
+        v-bind:key="brewery.breweryId"
+      >
+        <div class="card card-body h-100" style="width: 18rem">
+          <img class="card-img-top" src="/img/bg1.jpg" alt="Card image cap" />
+          <div class="card-body">
+            <h5 class="card-title">{{ brewery.name }}</h5>
+            <p class="card-text description">
+              {{ brewery.description }}
+            </p>
+          </div>
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item">{{ brewery.typeName }}</li>
+            <li class="list-group-item">
+              {{ brewery.streetAddress }}. {{ brewery.city }},
+              {{ brewery.state }}
+              {{ brewery.zip }}
+            </li>
+            <li class="list-group-item">
+              <a href="#">
+                <div class="stars">
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i> <i class="fa fa-star"></i>
+                  {{ brewery.rating }}
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script>
@@ -45,57 +62,37 @@ export default {
   methods: {
     sendToBrewery(breweryId) {
       this.$router.push(`/brewery/${breweryId}`);
-    }
+    },
   },
   created() {
-      breweryService.retrieve().then(response => {
-        this.breweries = response.data;
-        this.isLoading = false;
-      })
-    }
-
+    breweryService.retrieve().then((response) => {
+      this.breweries = response.data;
+      this.isLoading = false;
+    });
+  },
 };
 </script>
 
-<style scoped>
-table.cinereousTable {
-  border: 6px solid #948473;
-  background-color: #ffe3c6;
-  width: 100%;
-  text-align: center;
-}
-table.cinereousTable td,
-table.cinereousTable th {
-  border: 1px solid #948473;
-  padding: 4px 4px;
-}
-table.cinereousTable tbody td {
-  font-size: 13px;
-}
-table.cinereousTable thead {
-  background: #948473;
-  background: -moz-linear-gradient(top, #afa396 0%, #9e9081 66%, #948473 100%);
-  background: -webkit-linear-gradient(
-    top,
-    #afa396 0%,
-    #9e9081 66%,
-    #948473 100%
-  );
-  background: linear-gradient(to bottom, #afa396 0%, #9e9081 66%, #948473 100%);
-}
-table.cinereousTable thead th {
-  font-size: 17px;
-  font-weight: bold;
-  color: #f0f0f0;
-  text-align: left;
-  border-left: 2px solid #948473;
-}
-table.cinereousTable thead th:first-child {
-  border-left: none;
+<style>
+@import url("https://fonts.googleapis.com/css?family=Open+Sans&display=swap");
+
+.ratings {
+  background-color: #fff;
+  padding: 54px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 10px 10px #e0e0e0;
 }
 
-table.cinereousTable tfoot td {
-  font-size: 16px;
+.product-rating {
+  font-size: 50px;
 }
 
+.stars i {
+  font-size: 18px;
+  color: #28a745;
+}
+
+.rating-text {
+  margin-top: 10px;
+}
 </style>

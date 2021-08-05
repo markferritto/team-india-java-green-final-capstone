@@ -24,7 +24,7 @@
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-      <router-link v-popover:popover1 class="navbar-brand" to="/">
+      <router-link v-popover:popover1 class="navbar-brand" to="/breweries">
         Breweries
       </router-link>
       </li>

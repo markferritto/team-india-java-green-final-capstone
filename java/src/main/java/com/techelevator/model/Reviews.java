@@ -2,18 +2,18 @@ package com.techelevator.model;
 
 public class Reviews {
 
-    private int beerId;
+    private int breweryId;
     private int stars;
     private String title;
-    private String username;
+    private String userId;
     private String description;
 
-    public int getBeerId() {
-        return beerId;
+    public int getBreweryId() {
+        return breweryId;
     }
 
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
+    public void setBreweryId(int breweryId) {
+        this.breweryId = breweryId;
     }
 
     public int getStars() {
@@ -32,12 +32,12 @@ public class Reviews {
         this.title = title;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserId() {
+        return userId;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setUserId(String userId) {
+        this.userId = userId;
     }
 
     public String getDescription() {

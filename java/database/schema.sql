@@ -93,19 +93,20 @@ CREATE TABLE beers (
 	name varchar(50) NOT NULL,
 	beer_type_id int NOT NULL,
 	description varchar(400) NOT NULL,
+	ABV varchar(5),
 	CONSTRAINT FK_beer_type_id FOREIGN KEY (beer_type_id) REFERENCES beer_type(beer_type_id),
 	CONSTRAINT FK_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id),
 	CONSTRAINT PK_beer_id PRIMARY KEY (beer_id)
 );
 
 CREATE TABLE reviews (
-	beer_id int NOT NULL,
+	brewery_id int NOT NULL,
 	description varchar(200) NOT NULL,
 	stars int NOT NULL,
 	title varchar(100) NOT NULL,
 	user_id int NOT NULL,
 	CONSTRAINT FK_user_id FOREIGN KEY (user_id) REFERENCES users(user_id),
-	CONSTRAINT FK_beer_id FOREIGN KEY (beer_id) REFERENCES beers(beer_id)
+	CONSTRAINT FK_brewery_id FOREIGN KEY (brewery_id) REFERENCES brewery(brewery_id)
 );
 
 INSERT INTO users (username,password_hash,role) VALUES ('user','$2a$08$UkVvwpULis18S19S5pZFn.YHPZt3oaqHZnDwqbCW9pft6uFtkXKDC','ROLE_USER');
@@ -155,25 +156,20 @@ INSERT INTO beers (beer_id, brewery_id, name, beer_type_id, description) VALUES 
 INSERT INTO beers (beer_id, brewery_id, name, beer_type_id, description) VALUES (18, 3, 'API IPA', 1, 'A Palindrome to Put you to REST');
 
 
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (1, 'A beer you dont want to dork around with', 5, 'Best beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you do want to dork around with', 2, 'Worst beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you maybe want to dork around with', 3, 'Meh beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you absolutely want to dork around with', 1, 'Alright beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A beer you absolutely do not want to dork around with', 5, 'Average beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you are curious to dork around with', 4, 'Dork beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (2, 'A beer you want coach to dork around with', 3, 'Terrible beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (3, 'A beer you want Kevin to dork around with', 1, 'Wonderful beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (4, 'A beer you want a dork to dork around with', 0, 'Blast beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (5, 'A beer you never want to dork around with', 1, 'Bomb beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (6, 'A beer you never not want to dork around with', 4, 'Pirate beer', '1');
-INSERT INTO reviews (beer_id, description, stars, title, user_id) VALUES (1, 'A beer you will want to dork around with', 5, 'Bootleg beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (1, 'A beer you dont want to dork around with', 5, 'Best beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (2, 'A beer you do want to dork around with', 2, 'Worst beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (3, 'A beer you maybe want to dork around with', 3, 'Meh beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (4, 'A beer you absolutely want to dork around with', 1, 'Alright beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (5, 'A beer you absolutely do not want to dork around with', 5, 'Average beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (6, 'A beer you are curious to dork around with', 4, 'Dork beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (2, 'A beer you want coach to dork around with', 3, 'Terrible beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (3, 'A beer you want Kevin to dork around with', 1, 'Wonderful beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (4, 'A beer you want a dork to dork around with', 0, 'Blast beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (5, 'A beer you never want to dork around with', 1, 'Bomb beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (6, 'A beer you never not want to dork around with', 4, 'Pirate beer', '1');
+INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (1, 'A beer you will want to dork around with', 5, 'Bootleg beer', '1');
 
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
 
-SELECT beer_id, brewery.brewery_id, beer_type.name, beers.name, beers.description
-FROM beers
-JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id
-JOIN brewery on brewery.brewery_id = beers.brewery_id
-WHERE brewery.brewery_id = ?;
 
 COMMIT TRANSACTION;

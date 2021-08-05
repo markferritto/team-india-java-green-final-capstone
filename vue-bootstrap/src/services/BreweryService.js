@@ -8,5 +8,8 @@ export default {
     },
     get(id) {
         return axios.get(`/brewery/${id}`)
-      }
+    },
+    retrieveBeersPerBrewery(id) {
+        return axios.get(`/beer/${id}`)
+    }
 }

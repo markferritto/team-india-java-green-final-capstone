@@ -83,29 +83,29 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         SqlRowSet row = jdbcTemplate.queryForRowSet(sql, id);
 
-        while (row.next()) {
-
-            brewery = mapRowBrewery(row);
-
-            //Query is to assign the correct beers to the breweries
-            String sqlBeer = "SELECT beers.beer_id, beers.name AS beer_name, reviews.stars, beer_type.name AS beer_type, beers.description " +
-                    "FROM beers " +
-                    "JOIN brewery_beers ON brewery_beers.beer_id = beers.beer_id " +
-                    "JOIN reviews ON reviews.beer_id = beers.beer_id " +
-                    "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                    "WHERE brewery_id = ?";
-
-            SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBreweryId());
-
-            while (beerRows.next()) {
-                Beer beer = mapRowBeer(beerRows);
-
-                beerList.add(beer);
-            }
-            //Sets the brewer list on the brewery object
-            brewery.setBeerList(beerList);
-
-        }
+//        while (row.next()) {
+//
+//            brewery = mapRowBrewery(row);
+//
+//            //Query is to assign the correct beers to the breweries
+//            String sqlBeer = "SELECT beers.beer_id, beers.name AS beer_name, reviews.stars, beer_type.name AS beer_type, beers.description " +
+//                    "FROM beers " +
+//                    "JOIN brewery_beers ON brewery_beers.beer_id = beers.beer_id " +
+//                    "JOIN reviews ON reviews.beer_id = beers.beer_id " +
+//                    "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
+//                    "WHERE brewery_id = ?";
+//
+//            SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBreweryId());
+//
+//            while (beerRows.next()) {
+//                Beer beer = mapRowBeer(beerRows);
+//
+//                beerList.add(beer);
+//            }
+//            //Sets the brewer list on the brewery object
+//            brewery.setBeerList(beerList);
+//
+//        }
 
         return brewery;
     }

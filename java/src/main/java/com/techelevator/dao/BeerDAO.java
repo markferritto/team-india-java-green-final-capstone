@@ -6,8 +6,8 @@ import com.techelevator.model.Brewery;
 import java.util.List;
 
 public interface BeerDAO {
-    List<Beer> retrieveBeers();
 
+    List<Beer> retrieveBeers(int breweryId);
 
 
 }

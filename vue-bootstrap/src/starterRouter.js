@@ -10,7 +10,7 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'index',
+      name: 'landing-page',
       components: {
         default: Starter,
         header: StarterNavbar,

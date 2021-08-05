@@ -18,14 +18,14 @@
         trigger="hover"
       >
         <div class="popover-body">
-          This is a cool pop-up.
+          Take Me Home!
         </div>
       </el-popover>
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
       <router-link v-popover:popover1 class="navbar-brand" to="/">
-        Route Beer
+        Breweries
       </router-link>
       </li>
       <drop-down
@@ -51,8 +51,8 @@
               icon="now-ui-icons design_image"
               class="nav-item"
       >
-        <nav-link to="/landing">
-          <i class="now-ui-icons education_paper"></i> Landing
+        <nav-link to="/index">
+          <i class="now-ui-icons education_paper"></i> Index
         </nav-link>
         <nav-link to="/login">
           <i class="now-ui-icons users_circle-08"></i> Login
@@ -77,8 +77,7 @@
           rel="tooltip"
           title="Follow us on Twitter"
           data-placement="bottom"
-          href="https://twitter.com/CreativeTim"
-          target="_blank"
+          href="#"
         >
           <i class="fab fa-twitter"></i>
           <p class="d-lg-none d-xl-none">Twitter</p>
@@ -90,8 +89,7 @@
           rel="tooltip"
           title="Like us on Facebook"
           data-placement="bottom"
-          href="https://www.facebook.com/CreativeTim"
-          target="_blank"
+          href="#"
         >
           <i class="fab fa-facebook-square"></i>
           <p class="d-lg-none d-xl-none">Facebook</p>
@@ -103,8 +101,7 @@
           rel="tooltip"
           title="Follow us on Instagram"
           data-placement="bottom"
-          href="https://www.instagram.com/CreativeTimOfficial"
-          target="_blank"
+          href="#"
         >
           <i class="fab fa-instagram"></i>
           <p class="d-lg-none d-xl-none">Instagram</p>

@@ -21,9 +21,9 @@
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">Featured Breweries</h2>
             <h5 class="description">
-              Ohio is known for many things, but one of the main things is it's
+              Ohio is known for many things, but one of the main things is its
               talent for brewing great craft beer. This week, we will be
-              featuringbreweries from the Columbus area.
+              featuring breweries from the Columbus area.
             </h5>
           </div>
         </div>
@@ -52,13 +52,22 @@
                   dedication to quality continue to raise the bar for the
                   Columbus brewing community.
                 </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+                <a
+                  href="https://twitter.com/seventhsonbrew?lang=en"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
                 ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+                <a
+                  href="https://www.instagram.com/seventh_son_brewing/?hl=en"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-instagram"></i
                 ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+                <a
+                  href="https://www.facebook.com/SeventhSonBrewing/"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-facebook-square"></i
                 ></a>
               </div>
@@ -81,11 +90,23 @@
                   of amazing folks, namely, Compton Construction and Mode
                   Architects.
                 </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+                <a
+                  href="https://twitter.com/landgrantbeer?lang=en"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
                 ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-linkedin"></i
+                <a
+                  href="https://www.instagram.com/landgrantbrewing/?hl=en"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/landgrantbrewingco/"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
+                  ><i class="fab fa-facebook-square"></i
                 ></a>
               </div>
             </div>
@@ -109,14 +130,23 @@
                   built our new brewery to make more beer, but also to allow us
                   to explore new frontiers.
                 </p>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-google-plus"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
-                  ><i class="fab fa-youtube"></i
-                ></a>
-                <a href="#pablo" class="btn btn-primary btn-icon btn-round"
+                <a
+                  href="https://twitter.com/ColumbusBrewing"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
                   ><i class="fab fa-twitter"></i
+                ></a>
+                <a
+                  href="https://www.instagram.com/columbusbrewingcompany/?hl=en"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
+                  ><i class="fab fa-instagram"></i
+                ></a>
+                <a
+                  href="https://www.facebook.com/columbusbrewing/"
+                  target="_blank"
+                  class="btn btn-primary btn-icon btn-round"
+                  ><i class="fab fa-facebook-square"></i
                 ></a>
               </div>
             </div>
@@ -148,5 +178,4 @@ export default {
 </script>
 
 <style>
-
 </style>

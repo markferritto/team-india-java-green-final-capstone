@@ -7,7 +7,7 @@
         v-on:click="sendToBrewery(brewery.breweryId)"
         v-bind:key="brewery.breweryId"
       >
-        <div class="card card-body h-100" style="width: 18rem">
+        <div class="card card-body h-100" style="width: 23rem">
           <img class="card-img-top" src="/img/bg1.jpg" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">{{ brewery.name }}</h5>

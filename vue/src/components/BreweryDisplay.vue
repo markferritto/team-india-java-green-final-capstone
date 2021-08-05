@@ -13,8 +13,9 @@
     <p>{{ brewery.city }}, {{ brewery.state }}</p>
     <p>{{ brewery.zip }}</p>
         <h3>Beers</h3>
-    <p>{{ brewery.beerList[1][name] }}  {{ brewery.beerList[1].stars }}     {{ brewery.beerList[1].beerType }}          {{ brewery.beerList[1].name }}          {{ brewery.beerList[1].description }}</p>
-  
+    <p>{{beers[0].name}}: {{beers[0].description}}  </p>
+    <p>{{beers[1].name}}: {{beers[1].description}}</p>
+    <p>{{beers[2].name}}:  {{beers[2].description}}</p>
   </div>
 </template>
 
@@ -27,6 +28,7 @@ export default {
   data() {
     return {
       brewery: {},
+      beers: [],
       isLoading: true,
     };
   },
@@ -34,7 +36,11 @@ export default {
     breweryService.get(this.$route.params.id).then((response) => {
       this.brewery = response.data;
     });
-  }
+    breweryService.retrieveBeersPerBrewery(this.$route.params.id).then((response) => {
+      this.beers = response.data;
+    });
+  },
+
 };
 </script>
 

@@ -38,7 +38,7 @@
     </div>
   </div>
   
-  <div class="openContainer">
+  <div class="container">
     <div class="row">
       <div
         class="col-sm-4 py-3"
@@ -46,7 +46,7 @@
         v-on:click="sendToOpenBrewery(brewery.breweryId)"
         v-bind:key="brewery.breweryId"
       >
-        <div class="card card-body h-100" style="width: 18rem">
+        <div class="card card-body h-100" style="width: 23rem">
           <img class="card-img-top" src="/img/bg1.jpg" alt="Card image cap" />
           <div class="card-body">
             <h5 class="card-title">{{ brewery.name }}</h5>
@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     sendToBrewery(breweryId) {
-      this.$router.push(`/brewery/${breweryId}`);
+      this.$router.push(`/breweries/${breweryId}`);
     },
     sendToOpenBrewery(website_url) {
       this.$router.push(`${website_url}`);

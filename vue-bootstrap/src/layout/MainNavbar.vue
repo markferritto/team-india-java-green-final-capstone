@@ -28,7 +28,7 @@
         Breweries
       </router-link>
       </li>
-      <drop-down
+      <!-- <drop-down
         tag="li"
         title="Components"
         icon="now-ui-icons design_app"
@@ -60,12 +60,11 @@
         <nav-link to="/profile">
           <i class="now-ui-icons users_single-02"></i> Profile
         </nav-link>
-      </drop-down>
+      </drop-down> -->
       <li class="nav-item">
         <a
           class="nav-link btn btn-neutral"
-          href="https://www.creative-tim.com/product/vue-now-ui-kit-pro"
-          target="_blank"
+          href="#"
         >
           <p>LOGIN</p>
         </a>
@@ -112,7 +111,8 @@
 </template>
 
 <script>
-import { DropDown, Navbar, NavLink } from '@/components';
+import { Navbar } from '@/components';
+// import { DropDown, Navbar, NavLink } from '@/components';
 import { Popover } from 'element-ui';
 export default {
   name: 'main-navbar',
@@ -121,9 +121,9 @@ export default {
     colorOnScroll: Number
   },
   components: {
-    DropDown,
+    // DropDown,
     Navbar,
-    NavLink,
+    // NavLink,
     [Popover.name]: Popover
   }
 };

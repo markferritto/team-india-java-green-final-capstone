@@ -93,7 +93,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
                     "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +
                     "JOIN reviews ON reviews.brewery_id = brewery.brewery_id " +
                     "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                    "WHERE brewery_id = ?";
+                    "WHERE brewery.brewery_id = ?";
 
             SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBreweryId());
 

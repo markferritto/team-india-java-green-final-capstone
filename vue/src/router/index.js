@@ -8,6 +8,9 @@ import store from '../store/index'
 import Breweries from '@/views/Breweries.vue'
 import SingleBrewery from '@/views/SingleBrewery.vue'
 import OpenBrewery from '@/views/OpenBrewery.vue'
+import Review from '@/views/Review.vue'
+
+
 
 Vue.use(Router)
 
@@ -70,6 +73,11 @@ const router = new Router({
       path: "/OpenBrewery",
       name: "open-brewery",
       component: OpenBrewery,
+    },
+    {
+      path: "/review",
+      name: "review",
+      component: Review,
     },
   ]
 })

@@ -8,6 +8,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @CrossOrigin
 @PreAuthorize("isAuthenticated()")
 @RestController
@@ -15,6 +17,18 @@ public class ReviewController {
 
     @Autowired
     private ReviewDAO reviewDAO;
+
+
+
+
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "reviews", method = RequestMethod.GET)
+    public List<Reviews> retrieveReviews() {
+        return reviewDAO.getAllReviews();
+    }
+
+
+
 
 
 

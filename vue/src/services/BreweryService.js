@@ -11,5 +11,8 @@ export default {
     },
     retrieveBeersPerBrewery(id) {
         return axios.get(`/beer/${id}`)
-    }
+    },
+
+   
+
 }

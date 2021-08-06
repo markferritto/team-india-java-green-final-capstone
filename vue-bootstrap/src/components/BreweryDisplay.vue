@@ -15,7 +15,7 @@
         <h3>Beers</h3>
     <p>{{beers[0].name}}: {{beers[0].description}}  </p>
     <p>{{beers[1].name}}: {{beers[1].description}}</p>
-    <p>{{beers[2].name}}:  {{beers[2].description}}</p>
+    <p>{{beers[2]}}:  {{beers[2].description}}</p>
   </div>
 </template>
 

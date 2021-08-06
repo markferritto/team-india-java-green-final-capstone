@@ -11,8 +11,10 @@ import BreweryDisplay from "../components/BreweryDisplay.vue";
 
 export default {
   name: "single-brewery",
+  bodyClass: "brewery",
   components: {
     BreweryDisplay
   }
+  
 };
 </script>

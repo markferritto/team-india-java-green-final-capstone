@@ -34,7 +34,7 @@ import BrewerySearch from "../components/BrewerySearch.vue";
 export default {
   components: { BrewerySearch },
   name: "breweries",
-  bodyClass: "index-page",
+  bodyClass: "breweries",
 };
 </script>
 

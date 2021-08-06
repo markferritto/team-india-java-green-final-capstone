@@ -1,6 +1,5 @@
 <template>
   <div class="brewery">
-    HI!!!!
     <!-- <h1>Brewery</h1> -->
     <breweryDisplay />
   </div>

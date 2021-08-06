@@ -102,7 +102,7 @@ export default {
   },
   methods: {
     sendToBrewery(breweryId) {
-      this.$router.push(`/brewery/${breweryId}`);
+      this.$router.push(`/breweries/${breweryId}`);
     },
     sendToOpenBrewery(website_url) {
       this.$router.push(`${website_url}`);

@@ -1,19 +1,17 @@
 <template>
-<div>
- <add-review/>
- </div>
+  <div>
+    <add-review />
+  </div>
 </template>
 
 <script>
-import AddReview from '../components/AddReview.vue'
+import AddReview from "../components/AddReview.vue";
 export default {
   components: {
-       AddReview 
-       },
-
-}
+    AddReview,
+  },
+};
 </script>
 
 <style>
-
 </style>

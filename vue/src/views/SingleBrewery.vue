@@ -6,12 +6,14 @@
 </template>
 
 <script>
+import AddReview from "../components/AddReview.vue";
 import BreweryDisplay from "../components/BreweryDisplay.vue";
 
 export default {
   name: "single-brewery",
   components: {
-    BreweryDisplay
-  }
+    BreweryDisplay,
+    AddReview,
+  },
 };
 </script>

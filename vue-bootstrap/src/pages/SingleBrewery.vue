@@ -12,7 +12,7 @@ export default {
   name: "single-brewery",
   bodyClass: "brewery",
   components: {
-    BreweryDisplay
+    BreweryDisplay,
   }
   
 };

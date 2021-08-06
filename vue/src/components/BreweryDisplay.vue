@@ -16,6 +16,17 @@
     <p>{{beers[0].name}}: {{beers[0].description}}  </p>
     <p>{{beers[1].name}}: {{beers[1].description}}</p>
     <p>{{beers[2].name}}:  {{beers[2].description}}</p>
+
+<router-link v-bind:to="{name:'review'}">Add Review</router-link>
+
+ 
+    
+  
+
+
+
+
+
   </div>
 </template>
 
@@ -30,6 +41,7 @@ export default {
       brewery: {},
       beers: [],
       isLoading: true,
+    errorMsg: '',
     };
   },
   created() {

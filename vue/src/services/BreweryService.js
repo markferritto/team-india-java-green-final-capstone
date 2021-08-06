@@ -11,5 +11,10 @@ export default {
     },
     retrieveBeersPerBrewery(id) {
         return axios.get(`/beer/${id}`)
+    },
+
+    create(review) {
+        return axios.post(`/review`, review)
     }
+
 }

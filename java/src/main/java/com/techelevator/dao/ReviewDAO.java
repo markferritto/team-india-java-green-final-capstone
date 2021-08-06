@@ -10,5 +10,5 @@ public interface ReviewDAO {
 
     List<Reviews> getAllReviews();
 
-
+    List<Reviews> getReviewsByBreweryId(int id);
 }

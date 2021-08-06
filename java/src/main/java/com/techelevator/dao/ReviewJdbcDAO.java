@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Component
-public class ReviewJdbcDAO implements ReviewDAO{
+public class ReviewJdbcDAO implements ReviewDAO {
     private JdbcTemplate jdbcTemplate;
 
     public ReviewJdbcDAO(JdbcTemplate jdbcTemplate) {
@@ -20,9 +20,9 @@ public class ReviewJdbcDAO implements ReviewDAO{
     @Override
     public void addReview(Reviews review) {
 
-        String sql="INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (?, ?, ?, ?, ?) ";
+        String sql = "INSERT INTO reviews (brewery_id, description, stars, title, user_id) VALUES (?, ?, ?, ?, ?) ";
 
-        jdbcTemplate.update(sql,review.getBreweryId(),review.getDescription(), review.getStars(),review.getTitle(),review.getUserId());
+        jdbcTemplate.update(sql, review.getBreweryId(), review.getDescription(), review.getStars(), review.getTitle(), review.getUsername());
 
     }
 
@@ -31,13 +31,33 @@ public class ReviewJdbcDAO implements ReviewDAO{
 
         List<Reviews> reviewList = new ArrayList<>();
 
-        String sql=" SELECT brewery_id, description, stars, title, user_id FROM public.reviews;" ;
+        String sql = " SELECT brewery_id, description, stars, title, username FROM public.reviews;";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
 
         while (rows.next()) {
 
-            Reviews review=mapRowReviews(rows);
+            Reviews review = mapRowReviews(rows);
+            reviewList.add(review);
+        }
+
+        return reviewList;
+    }
+
+    @Override
+    public List<Reviews> getReviewsByBreweryId(int id) {
+
+        List<Reviews> reviewList = new ArrayList<>();
+
+        String sql = "SELECT brewery_id, description, stars, title, username " +
+                     "FROM public.reviews " +
+                     "WHERE brewery_id = ?";
+
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
+
+        while (rows.next()) {
+
+            Reviews review = mapRowReviews(rows);
             reviewList.add(review);
         }
 
@@ -45,14 +65,14 @@ public class ReviewJdbcDAO implements ReviewDAO{
     }
 
 
-    private Reviews mapRowReviews(SqlRowSet rows){
-        Reviews review=new Reviews();
+    private Reviews mapRowReviews(SqlRowSet rows) {
+        Reviews review = new Reviews();
 
         review.setBreweryId(rows.getInt("brewery_id"));
         review.setDescription(rows.getString("description"));
         review.setStars(rows.getInt("stars"));
         review.setTitle(rows.getString("title"));
-        review.setUserId(rows.getInt("user_id"));
+        review.setUsername(rows.getString("username"));
 
         return review;
     }

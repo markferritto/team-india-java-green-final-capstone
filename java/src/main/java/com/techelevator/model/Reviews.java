@@ -5,7 +5,7 @@ public class Reviews {
     private int breweryId;
     private int stars;
     private String title;
-    private int  userId;
+    private String username;
     private String description;
 
     public int getBreweryId() {
@@ -32,15 +32,13 @@ public class Reviews {
         this.title = title;
     }
 
-    public int getUserId() {
-        return userId;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserId(int userId) {
-        this.userId = userId;
+    public void setUsername(String username) {
+        this.username = username;
     }
-
-
 
     public String getDescription() {
         return description;

@@ -7,6 +7,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+
 @CrossOrigin
 
 @PreAuthorize("isAuthenticated()")
@@ -23,9 +24,7 @@ public class BreweryController {
         return breweryDAO.getAllBreweries();
     }
 
-
     //Method retrieves a specific brewery
-
     @PreAuthorize("permitAll")
     @RequestMapping(path = "brewery/{id}", method = RequestMethod.GET)
     public Brewery retrieveBreweries(@PathVariable int id) {

@@ -13,8 +13,6 @@ export default {
         return axios.get(`/beer/${id}`)
     },
 
-    create(review) {
-        return axios.post(`/review`, review)
-    }
+   
 
 }

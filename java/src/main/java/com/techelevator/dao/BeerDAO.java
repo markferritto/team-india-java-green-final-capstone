@@ -9,5 +9,5 @@ public interface BeerDAO {
 
     List<Beer> retrieveBeers(int breweryId);
 
-
+    void newBeer(Beer beer, int id);
 }

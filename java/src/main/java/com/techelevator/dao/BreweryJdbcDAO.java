@@ -22,16 +22,14 @@ public class BreweryJdbcDAO implements BreweryDAO {
     public List<Brewery> getAllBreweries() {
 
         List<Brewery> breweryList = new ArrayList<>();
-        List<Beer> beerList = new ArrayList<>();
-
 
         //This will query for all breweries in the database
-        String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(reviews.stars), 2) AS average_beer_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
-                "FROM brewery " +
-                "JOIN beers ON beers.brewery_id = brewery.brewery_id " +
-                "JOIN reviews ON reviews.brewery_id = brewery.brewery_id " +
-                "JOIN type ON type.type_id = brewery.type_id " +
-                "GROUP BY brewery.brewery_id, type.name";
+        String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(brewery_reviews.stars), 2) AS average_brewery_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
+                     "FROM brewery " +
+                     "JOIN beers ON beers.brewery_id = brewery.brewery_id " +
+                     "JOIN brewery_reviews ON brewery_reviews.brewery_id = brewery.brewery_id " +
+                     "JOIN type ON type.type_id = brewery.type_id " +
+                     "GROUP BY brewery.brewery_id, type.name";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql);
 
@@ -39,27 +37,10 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
             Brewery brewery = mapRowBrewery(rows);
 
-            //Query is to assign the correct beers to the breweries
-            String sqlBeer = "SELECT beers.beer_id, beers.name AS beer_name, reviews.stars, ABV, beer_type.name AS beer_type, beers.description " +
-                    "FROM beers " +
-                    "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +
-                    "JOIN reviews ON reviews.brewery_id = brewery.brewery_id " +
-                    "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                    "WHERE brewery.brewery_id = ?";
-
-            SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBreweryId());
-
-            while (beerRows.next()) {
-                Beer beer = mapRowBeer(beerRows);
-
-                beerList.add(beer);
-            }
-            //Sets the brewer list on the brewery object
-            brewery.setBeerList(beerList);
-
             //Adds brewery to list that will be returned
             breweryList.add(brewery);
         }
+
         return breweryList;
     }
 
@@ -67,16 +48,14 @@ public class BreweryJdbcDAO implements BreweryDAO {
     public Brewery getBreweryById(int id) {
 
         Brewery brewery = new Brewery();
-        List<Beer> beerList = new ArrayList<>();
-
 
         //This will query for all breweries in the database
-        String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(reviews.stars), 2) AS average_beer_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
+        String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(brewery_reviews.stars), 2) AS average_brewery_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
                      "FROM brewery " +
                      "JOIN beers ON beers.brewery_id = brewery.brewery_id " +
-                     "JOIN reviews ON reviews.brewery_id = brewery.brewery_id " +
+                     "JOIN brewery_reviews ON brewery_reviews.brewery_id = brewery.brewery_id " +
                      "JOIN type ON type.type_id = brewery.type_id " +
-                     "WHERE brewery.brewery_id = ? " +
+                     "WHERE brewery.brewery_id = ?" +
                      "GROUP BY brewery.brewery_id, type.name";
 
         SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
@@ -84,25 +63,8 @@ public class BreweryJdbcDAO implements BreweryDAO {
         while (rows.next()) {
 
             brewery = mapRowBrewery(rows);
-
-            //Query is to assign the correct beers to the breweries
-            String sqlBeer = "SELECT beers.beer_id, beers.name AS beer_name, reviews.stars, ABV, beer_type.name AS beer_type, beers.description " +
-                             "FROM beers " +
-                             "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +
-                             "JOIN reviews ON reviews.brewery_id = brewery.brewery_id " +
-                             "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                             "WHERE brewery.brewery_id = ?";
-
-            SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeer, brewery.getBreweryId());
-
-            while (beerRows.next()) {
-                Beer beer = mapRowBeer(beerRows);
-
-                beerList.add(beer);
-            }
-            //Sets the brewer list on the brewery object
-            brewery.setBeerList(beerList);
         }
+
         return brewery;
     }
 
@@ -112,7 +74,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
 
         brewery.setBreweryId(rows.getInt("brewery_id"));
         brewery.setName(rows.getString("name"));
-        brewery.setRating(rows.getDouble("average_beer_rating"));
+        brewery.setRating(rows.getDouble("average_brewery_rating"));
         brewery.setDescription(rows.getString("description"));
         brewery.setTypeName(rows.getString("type_name"));
         brewery.setWebsiteUrl(rows.getString("website_url"));
@@ -123,19 +85,5 @@ public class BreweryJdbcDAO implements BreweryDAO {
         brewery.setZip(rows.getString("zip"));
 
         return brewery;
-    }
-
-    private Beer mapRowBeer(SqlRowSet rows) {
-
-        Beer beer = new Beer();
-
-        beer.setABV(rows.getString("ABV"));
-        beer.setBeerId(rows.getInt("beer_id"));
-        beer.setName(rows.getString("beer_name"));
-        beer.setStars(rows.getDouble("stars"));
-        beer.setBeerType(rows.getString("beer_type"));
-        beer.setDescription(rows.getString("description"));
-
-        return beer;
     }
 }

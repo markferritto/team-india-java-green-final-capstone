@@ -19,14 +19,14 @@ public class BreweryController {
 
     //Method retrieves a list of breweries from the database
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "brewery", method = RequestMethod.GET)
+    @RequestMapping(path = "breweries", method = RequestMethod.GET)
     public List<Brewery> retrieveBreweries() {
         return breweryDAO.getAllBreweries();
     }
 
     //Method retrieves a specific brewery
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "brewery/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "breweries/{id}", method = RequestMethod.GET)
     public Brewery retrieveBreweries(@PathVariable int id) {
         return breweryDAO.getBreweryById(id);
     }

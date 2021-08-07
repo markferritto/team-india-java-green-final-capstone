@@ -14,15 +14,6 @@ public class Brewery {
     private String city;
     private String state;
     private String zip;
-    private List<Beer> beerList;
-
-    public List<Beer> getBeerList() {
-        return beerList;
-    }
-
-    public void setBeerList(List<Beer> beerList) {
-        this.beerList = beerList;
-    }
 
     public String getTypeName() {
         return typeName;

@@ -2,13 +2,13 @@ package com.techelevator.controller;
 
 
 import com.techelevator.dao.BeerDAO;
-import com.techelevator.dao.BreweryDAO;
 import com.techelevator.model.Beer;
-import com.techelevator.model.Brewery;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
+import java.nio.file.Path;
 import java.util.List;
 
 
@@ -22,7 +22,14 @@ public class BeerController {
 
     //Method retrieves a list of beers from the database
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "beer/{id}", method = RequestMethod.GET)
+    @RequestMapping(path = "/breweries/{id}/beers", method = RequestMethod.GET)
     public List<Beer> getBeerList(@PathVariable int id) { return beerDAO.retrieveBeers(id);
+    }
+
+    @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/breweries/{id}/new/beer", method = RequestMethod.POST)
+    public void createNewBeer(@RequestBody Beer beer, @PathVariable int id) {
+        beerDAO.newBeer(beer, id);
     }
 }

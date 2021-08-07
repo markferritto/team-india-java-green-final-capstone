@@ -168,6 +168,4 @@ INSERT INTO reviews (brewery_id, description, stars, title, username) VALUES (5,
 INSERT INTO reviews (brewery_id, description, stars, title, username) VALUES (6, 'A beer you never not want to dork around with', 4, 'Pirate beer', 'Anonymous');
 INSERT INTO reviews (brewery_id, description, stars, title, username) VALUES (1, 'A beer you will want to dork around with', 5, 'Bootleg beer', 'Shareeque Doe');
 
-GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO final_capstone_appuser;
-
 COMMIT TRANSACTION;

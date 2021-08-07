@@ -10,7 +10,9 @@
         <div class="container">
           <h1 class="title">Beer is what we Love. Let us help you find it.</h1>
           <div>
-            <n-button type="primary" size="lg">Find a Brewery</n-button>
+      <router-link   v-bind:to="{ name: 'breweries' }"><n-button type="primary" size="lg">Find A Brewery</n-button></router-link>&nbsp;|&nbsp;
+
+            <!-- <n-button type="primary" size="lg">Find a Brewery</n-button> -->
           </div>
         </div>
       </div>
@@ -178,4 +180,11 @@ export default {
 </script>
 
 <style>
+
+router-link{
+  font-size: 13rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color:white
+}
 </style>

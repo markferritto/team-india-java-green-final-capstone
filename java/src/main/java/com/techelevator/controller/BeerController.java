@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 
 import com.techelevator.dao.BeerDAO;
+import com.techelevator.exceptions.BeerNotFoundException;
 import com.techelevator.model.Beer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,5 +32,12 @@ public class BeerController {
     @RequestMapping(path = "/breweries/{id}/new/beer", method = RequestMethod.POST)
     public void createNewBeer(@RequestBody Beer beer, @PathVariable int id) {
         beerDAO.newBeer(beer, id);
+    }
+
+    @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    @RequestMapping(path = "/breweries/{id}/delete/beer/{beerId}", method = RequestMethod.DELETE)
+    public void deleteBeer(@PathVariable int id, @PathVariable int beerId) throws BeerNotFoundException {
+        beerDAO.deleteBeer(id, beerId);
     }
 }

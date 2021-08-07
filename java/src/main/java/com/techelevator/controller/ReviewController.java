@@ -20,21 +20,28 @@ public class ReviewController {
     private ReviewDAO reviewDAO;
 
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "reviews", method = RequestMethod.GET)
-    public List<Reviews> retrieveReviews() {
-        return reviewDAO.getAllReviews();
+    @RequestMapping(path = "reviews/breweries/{id}", method = RequestMethod.GET)
+    public List<Reviews> retrieveBreweryReviews(@PathVariable int id) {
+        return reviewDAO.getBreweryReviews(id);
     }
 
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "reviews/{id}", method = RequestMethod.GET)
-    public List<Reviews> retrieveReviewsByBreweryId(@PathVariable int id) {
-        return reviewDAO.getReviewsByBreweryId(id);
+    @RequestMapping(path = "reviews/breweries/{id}/beer/{beerId}", method = RequestMethod.GET)
+    public List<Reviews> retrieveBeerReviews(@PathVariable int id, @PathVariable int beerId) {
+        return reviewDAO.getBeerReviews(id, beerId);
     }
 
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
-    @RequestMapping(path = "/review", method = RequestMethod.POST)
-    public void addReview(@RequestBody Reviews review) {
-        reviewDAO.addReview(review);
+    @RequestMapping(path = "/reviews/new/breweries/{id}", method = RequestMethod.POST)
+    public void addBreweryReview(@RequestBody Reviews review, @PathVariable int id) {
+        reviewDAO.addBreweryReview(review, id);
+    }
+
+    @PreAuthorize("permitAll")
+    @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping(path = "/reviews/new/breweries/{id}/beer/{beerId}", method = RequestMethod.POST)
+    public void addBeerReview(@RequestBody Reviews review, @PathVariable int id, @PathVariable int beerId) {
+        reviewDAO.addBeerReview(review, id, beerId);
     }
 }

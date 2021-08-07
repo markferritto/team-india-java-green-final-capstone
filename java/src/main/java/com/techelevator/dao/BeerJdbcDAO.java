@@ -72,6 +72,16 @@ public class BeerJdbcDAO implements BeerDAO {
         jdbcTemplate.update(updateBeerType, beer.getBeerId(), beer.getBeerType());
     }
 
+    @Override
+    public void deleteBeer(int id, int beerId) {
+
+        String sqlNewBeer = "DELETE FROM beers " +
+                            "WHERE brewery_id = ? " +
+                            "AND beer_id = ?";
+
+        jdbcTemplate.update(sqlNewBeer, id, beerId);
+    }
+
     private Beer mapRowToBeer(SqlRowSet rows) {
 
         Beer beer = new Beer();

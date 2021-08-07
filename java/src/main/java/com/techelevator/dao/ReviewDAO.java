@@ -6,9 +6,11 @@ import java.util.List;
 
 public interface ReviewDAO {
 
-    void addReview(Reviews review);
+    List<Reviews> getBreweryReviews(int id);
 
-    List<Reviews> getAllReviews();
+    List<Reviews> getBeerReviews(int id, int beerId);
 
-    List<Reviews> getReviewsByBreweryId(int id);
+    void addBreweryReview(Reviews review, int id);
+
+    void addBeerReview(Reviews review, int id, int beerId);
 }

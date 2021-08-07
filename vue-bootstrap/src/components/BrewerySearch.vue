@@ -1,10 +1,41 @@
 <template>
   <div>
+
+<div
+      class="page-header page-header-extra-small p-5 text-center bg-dark"
+      filter-color="brown"
+    >
+      <div id="search-box"  class="container"  >
+        <h1 class="title">Find a Brewery</h1>
+        <div class="form-group">
+          <label for="exampleDropdownFormEmail1"></label>
+          <table class="container">
+            <tr>
+              <td><input 
+                class="form-control" v-model="breweryFilter.name"
+                placeholder="Name"
+              /></td>
+              <td><input
+                class="form-control" v-model="breweryFilter.city"
+                placeholder="City"
+              /></td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="main">
+    </div>
+
+
+
   <div class="container">
     <div class="row">
+
+      
       <div
         class="col-sm-4 py-3"
-        v-for="brewery in filteredBreweries"
+        v-for="brewery in fiteringBrew"
         v-on:click="sendToBrewery(brewery.breweryId)"
         v-bind:key="brewery.breweryId"
       >
@@ -85,7 +116,20 @@ export default {
   name: "brewery-search",
   data() {
     return {
-      breweryFilter: "",
+      // breweryFilter: "",
+      breweryFilter:{
+        breweryId:"",
+        name: "",
+        rating: "",
+        description: "",
+        typeName: "",
+        websiteUrl: "",
+        phoneNumber: "",
+        streetAddress: "",
+        city: "",
+        state: "",
+        zip: "",
+     },
       breweries: [],
       isLoading: true,
       openBreweries: [],
@@ -99,6 +143,12 @@ export default {
           : this.breweryFilter == brewery.name;
       });
     },
+    fiteringBrew(){
+    return this.breweries.filter((brewery)=>{
+      return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.city.toLowerCase().includes(this.breweryFilter.city.toLowerCase())  ;
+    })
+
+  }
   },
   methods: {
     sendToBrewery(breweryId) {

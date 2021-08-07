@@ -9,8 +9,18 @@
         <th>Average Rating of Beers</th>
       </tr>
     </thead>
+
+
+
+    <label for = "zip">Enter brewery name</label>
+        <input type="text" v-model="breweryFilter.name"/>
+         <label for = "zip">Enter  brewery city</label>
+        <input type="text" v-model="breweryFilter.city"/>
     <tbody>
-      <tr v-for="brewery in filteredBreweries"  v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
+
+      
+        
+      <tr v-for="brewery in fiteringBrew"  v-on:click="sendToBrewery(brewery.breweryId)" v-bind:key="brewery.breweryId">
         <td>{{ brewery.name }}</td>
         <td>{{ brewery.typeName }}: {{ brewery.description }}</td>
         <td>{{ brewery.streetAddress }}. {{ brewery.city }}, {{ brewery.state }} {{ brewery.zip }} </td>
@@ -28,7 +38,28 @@ export default {
   name: "brewery-search",
   data() {
     return {
-      breweryFilter: "",
+     breweryFilter:{
+        breweryId:"",
+        name: "",
+        rating: "",
+        description: "",
+        typeName: "",
+        websiteUrl: "",
+        phoneNumber: "",
+        streetAddress: "",
+        city: "",
+        state: "",
+        zip: "",
+     },
+
+
+
+
+
+
+
+
+      // breweryFilter: "",
       breweries: [],
       isLoading: true,
     };
@@ -41,7 +72,16 @@ export default {
           : this.breweryFilter == brewery.name;
       });
     },
+
+  fiteringBrew(){
+    return this.breweries.filter((brewery)=>{
+      return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.city.toLowerCase().includes(this.breweryFilter.city.toLowerCase())  ;
+    })
+
+  }
   },
+
+
   methods: {
     sendToBrewery(breweryId) {
       this.$router.push(`/brewery/${breweryId}`);

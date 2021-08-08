@@ -865,7 +865,7 @@ export default {
         .then((response) => {
           if (response.status == 201) {
             //route to brewerypage
-            this.$router.push("brewery");
+            this.$router.push("breweries");
           }
         })
         .catch((error) => {

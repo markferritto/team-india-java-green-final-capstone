@@ -5,19 +5,7 @@
     <form v-on:submit.prevent="submitForm" class="reviewForm">
 
 
-<div id="app">
-    <AwesomeVueStarRating
-      :star="this.star"
-      :disabled="this.disabled"
-      :maxstars="this.maxstars"
-      :starsize="this.starsize"
-      
-    />
-    
-  </div>
-
-
-      <!-- <div class="form-group">
+<div class="form-group">
         <label for="address">Stars</label>
         <input
           id="address"
@@ -25,7 +13,7 @@
           class="form-control"
           v-model.number="review.stars"
         />
-      </div> -->
+      </div> 
 
       <div class="form-group">
         <label for="mlsNumber">Description</label>
@@ -69,7 +57,6 @@
 <script>
 import reviewService from "../services/ReviewService.js";
 
-import AwesomeVueStarRating from "awesome-vue-star-rating";
 
 
 export default {
@@ -97,9 +84,7 @@ export default {
       starsize3: "xs",
     };
   },
-  components: {
-    AwesomeVueStarRating,
-  },
+  
   methods: {
     submitForm() {
       //add review by calling reviewService

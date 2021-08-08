@@ -8,10 +8,10 @@ export default {
     retrieveBeerReviews(review) {
         return axios.post('/reviews/breweries/{id}/beer/{beerId}', review)
     },
-    addReview(review) {
-        return axios.post('/reviews/new/breweries/{id}', review)
+    addReview(id,review) {
+        return axios.post(`/reviews/new/breweries/${id}`,review)
     },
-    addReview(beerReview) {
+    addReviews(beerReview) {
         return axios.post('/reviews/new/breweries/{id}/beer/{beerId}', review)
     }
 

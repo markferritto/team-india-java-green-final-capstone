@@ -58,7 +58,7 @@
             <h3 class="menu-title">Porter</h3>
             <div
               class="menu-content"
-              v-for="beer in brewery.beerList"
+              v-for="beer in beers"
               v-bind:key="beer.beerId"
             >
               <div class="row">

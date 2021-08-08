@@ -8,11 +8,13 @@
       </parallax>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">Beer is what we Love. Let us help you find it.</h1>
+          <h1 class="title">Beer is what we love. Let us help you find it.</h1>
           <div>
-      <router-link   v-bind:to="{ name: 'breweries' }"><n-button type="primary" size="lg">Find A Brewery</n-button></router-link>&nbsp;|&nbsp;
-
-            <!-- <n-button type="primary" size="lg">Find a Brewery</n-button> -->
+            <router-link v-bind:to="{ name: 'breweries' }"
+              ><n-button type="primary" size="lg"
+                >Find A Brewery</n-button
+              ></router-link
+            >&nbsp;|&nbsp;
           </div>
         </div>
       </div>
@@ -22,7 +24,7 @@
         <div class="row">
           <div class="col-md-8 ml-auto mr-auto text-center">
             <h2 class="title">Featured Breweries</h2>
-            <h5 class="description">
+            <h5>
               Ohio is known for many things, but one of the main things is its
               talent for brewing great craft beer. This week, we will be
               featuring breweries from the Columbus area.
@@ -36,7 +38,7 @@
         <div>
           <div class="row">
             <div class="col-md-4">
-              <div class="team-player">
+              <div class="featured-brewery">
                 <img
                   src="img/brewery1.jpg"
                   alt="Raised Image"
@@ -75,7 +77,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div>
+              <div class="featured-brewery">
                 <img
                   src="img/brewery2.jpg"
                   alt="Raised Image"
@@ -113,7 +115,7 @@
               </div>
             </div>
             <div class="col-md-4">
-              <div>
+              <div class="featured-brewery">
                 <img
                   src="img/brewery3.jpg"
                   alt="Raised Image"
@@ -180,11 +182,14 @@ export default {
 </script>
 
 <style>
-
-router-link{
+router-link {
   font-size: 13rem;
   font-weight: 400;
   line-height: 1.5;
-  color:white
+  color: white;
+}
+
+.featured-brewery {
+  padding: 10px;
 }
 </style>

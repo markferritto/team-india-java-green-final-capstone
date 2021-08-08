@@ -54,14 +54,29 @@
       <div class="row">
         <!-- Porter -->
         <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 mb40">
-          <div class="menu-block">
-            <h3 class="menu-title">Porter</h3>
-            <div
-              class="menu-content"
-              v-for="beer in beers"
-              v-bind:key="beer.beerId"
+          <div
+            class="menu-block"
+            v-for="beerType in beers"
+            v-bind:key="beerType.beerId"
+          >
+            <h3 class="menu-title" v-popover:popover1>
+              {{ beerType.beerType }}
+            </h3>
+            <el-popover
+              ref="popover1"
+              popper-class="popover"
+              placement="top"
+              width="200"
+              trigger="hover"
             >
-              <div class="row">
+              <div class="popover-body">This beer is amazing</div>
+            </el-popover>
+
+            <div v-for="beer in beers" v-bind:key="beer.beerId">
+              <div
+                class="row menu-content"
+                v-if="beer.beerType == beerType.beerType"
+              >
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                   <div class="dish-img">
                     <h5 class="dish-title">
@@ -90,7 +105,9 @@
 
 <script>
 import breweryService from "../services/BreweryService.js";
+import beerService from "../services/BeerService.js";
 import { Card, Tabs, TabPane } from "@/components";
+import { Popover } from "element-ui";
 
 export default {
   name: "brewery-display",
@@ -99,6 +116,7 @@ export default {
     Card,
     Tabs,
     TabPane,
+    [Popover.name]: Popover,
   },
 
   data() {
@@ -112,10 +130,11 @@ export default {
     breweryService.get(this.$route.params.id).then((response) => {
       this.brewery = response.data;
     });
-    breweryService
+    beerService
       .retrieveBeersPerBrewery(this.$route.params.id)
       .then((response) => {
         this.beers = response.data;
+        this.isLoading = false;
       });
   },
 };
@@ -138,6 +157,7 @@ p {
   border-bottom: 3px solid #e0e6e3;
   margin-bottom: 36px;
   padding-bottom: 10px;
+  text-align: center;
 }
 .menu-content {
   border-bottom: 1px solid #e0e6e3;
@@ -181,5 +201,11 @@ p {
   font-weight: 500;
   font-family: "Zilla Slab", serif;
   position: inherit;
+}
+
+.page-title {
+  background-color: grey;
+  border-bottom-left-radius: 2em;
+  border-bottom-right-radius: 2em;
 }
 </style>

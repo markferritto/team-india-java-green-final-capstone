@@ -7,6 +7,7 @@
       >
       </parallax>
       <div class="content-center">
+        <img src="img/favicon.png" width="200" height="230" />
         <div class="container">
           <h1 class="title">Beer is what we love. Let us help you find it.</h1>
           <div>
@@ -190,13 +191,12 @@ router-link {
 }
 
 .title {
-  text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
+  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
+    0px 18px 23px rgba(0, 0, 0, 0.1);
 }
 
 h5 {
- font-size: 22px; 
+  font-size: 22px;
 }
 
 .featured-brewery {

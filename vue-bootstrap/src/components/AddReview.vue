@@ -1,21 +1,32 @@
 <template>
+<div>
+
+<div class="container">
+    <div class="row">
+      
+         <div          class="col-sm-4 py-4"
+ v-for="revi in reviews" v-bind:key="revi.brewery_id">
+
+<div class="card" style="width: 20rem;">
+  <div class="card-body">
+    <h4 class="card-title">{{revi.title}}</h4>
+        <h4 class="card-title">{{revi.username}}</h4>
+
+    <p class="card-text">{{revi.description}}</p>
+  </div>
+</div>
+          </div>
+</div>
+
+</div>
+
+
   <div id="addHomeform">
-    <!-- <div class="status-message error" v-show="errorMsg != ''"> {{ errorMsg}} </div> -->
 
     <form v-on:submit.prevent="submitForm" class="reviewForm">
 
 
-<!-- <div class="form-group">
-        <label for="address">Stars</label>
-        <input
-          id="address"
-          type="text"
-          class="form-control"
-          v-model.number="review.stars"
-        />
-      </div>  -->
-
-      <select name="star-rating" v-model="review.stars">
+       <select name="star-rating" v-model="review.stars">
         <option value="">--Please select a star rating</option>
         <option value="1">1</option>
         <option value="2">2</option>
@@ -54,12 +65,11 @@
         />
       </div>
 
-      
-
       <button class="btn btn-submit">Submit</button>
       <button class="btn btn-cancel" type="cancel">Cancel</button>
     </form> 
 
+  </div>
   </div>
 </template>
 
@@ -79,18 +89,9 @@ export default {
         title: "",
         username: "",
       },
-
-     star: 2,
-      star2: 4,
+      reviews:[],
+      reviewFilter:'',
      
-    
-      starsize: "lg", //[xs,lg,1x,2x,3x,4x,5x,6x,7x,8x,9x,10x],
-      maxstars: 5,
-      disabled: false,
-      starsize2: "lg", //[xs,lg,1x,2x,3x,4x,5x,6x,7x,8x,9x,10x],
-      maxstars2: 5,
-      disabled2: false,
-      starsize3: "xs",
     };
   },
   
@@ -110,7 +111,14 @@ export default {
           console.log(error);
         });
     },
+ 
+
   },
+   created() {
+      reviewService.reviewList(this.$route.params.id).then(response => {
+        this.reviews = response.data;
+      })
+    }
 };
 </script>
 

@@ -13,6 +13,9 @@ export default {
     },
     addReviews(beerReview) {
         return axios.post('/reviews/new/breweries/{id}/beer/{beerId}', review)
+    },
+    reviewList(id){
+        return axios.get(`reviews/breweries/${id}`);
     }
 
 }

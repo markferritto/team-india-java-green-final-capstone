@@ -5,7 +5,7 @@
     <form v-on:submit.prevent="submitForm" class="reviewForm">
 
 
-<div class="form-group">
+<!-- <div class="form-group">
         <label for="address">Stars</label>
         <input
           id="address"
@@ -13,7 +13,16 @@
           class="form-control"
           v-model.number="review.stars"
         />
-      </div> 
+      </div>  -->
+
+      <select name="star-rating" v-model="review.stars">
+        <option value="">--Please select a star rating</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
 
       <div class="form-group">
         <label for="mlsNumber">Description</label>

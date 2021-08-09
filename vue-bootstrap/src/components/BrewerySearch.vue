@@ -16,8 +16,8 @@
                 placeholder="Name"
               /></td>
               <td><input
-                class="form-control" v-model="breweryFilter.city"
-                placeholder="City"
+                class="form-control" v-model="breweryFilter.typeName"
+                placeholder="Brewery Type"
               /></td>
             </tr>
           </table>
@@ -145,7 +145,7 @@ export default {
     },
     fiteringBrew(){
     return this.breweries.filter((brewery)=>{
-      return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.city.toLowerCase().includes(this.breweryFilter.city.toLowerCase())  ;
+      return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.typeName.toLowerCase().includes(this.breweryFilter.typeName.toLowerCase())  ;
     })
 
   }

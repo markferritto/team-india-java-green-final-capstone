@@ -15,7 +15,7 @@
               ><n-button type="primary" size="lg"
                 >Find A Brewery</n-button
               ></router-link
-            >&nbsp;|&nbsp;
+            >&nbsp;&nbsp;
           </div>
         </div>
       </div>
@@ -190,11 +190,6 @@ router-link {
   color: white;
 }
 
-.title {
-  text-shadow: 0px 4px 3px rgba(0, 0, 0, 0.4), 0px 8px 13px rgba(0, 0, 0, 0.1),
-    0px 18px 23px rgba(0, 0, 0, 0.1);
-}
-
 h5 {
   font-size: 22px;
 }
@@ -202,4 +197,5 @@ h5 {
 .featured-brewery {
   padding: 10px;
 }
+
 </style>

@@ -1,6 +1,7 @@
 <template>
   <div>
          <brewery-search />
+         <DynamicScroller />
   </div>
 </template>
 

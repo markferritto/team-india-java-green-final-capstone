@@ -9,6 +9,8 @@ public interface BeerDAO {
 
     List<Beer> retrieveBeers(int breweryId);
 
+    List<String> retrieveBeerTypes(int breweryId);
+
     void newBeer(Beer beer, int id);
 
     void deleteBeer(int id, int beerId);

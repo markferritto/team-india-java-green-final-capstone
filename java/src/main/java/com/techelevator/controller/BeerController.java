@@ -27,6 +27,12 @@ public class BeerController {
     public List<Beer> getBeerList(@PathVariable int id) { return beerDAO.retrieveBeers(id);
     }
 
+    //Method retrieves a list of beers from the database
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/breweries/{id}/beers/types", method = RequestMethod.GET)
+    public List<String> getBeerTypeList(@PathVariable int id) { return beerDAO.retrieveBeerTypes(id);
+    }
+
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/breweries/{id}/new/beer", method = RequestMethod.POST)

@@ -56,11 +56,11 @@
         <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 mb40">
           <div
             class="menu-block"
-            v-for="beerType in beers"
+            v-for="beerType in beerTypes"
             v-bind:key="beerType.beerId"
           >
             <h3 class="menu-title" v-popover:popover1>
-              {{ beerType.beerType }}
+              {{ beerType }}
             </h3>
             <el-popover
               ref="popover1"
@@ -75,7 +75,7 @@
             <div v-for="beer in beers" v-bind:key="beer.beerId">
               <div
                 class="row menu-content"
-                v-if="beer.beerType == beerType.beerType"
+                v-if="beer.beerType == beerType"
               >
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                   <div class="dish-img">
@@ -123,6 +123,7 @@ export default {
     return {
       brewery: {},
       beers: [],
+      beerTypes: [],
       isLoading: true,
     };
   },
@@ -134,6 +135,12 @@ export default {
       .retrieveBeersPerBrewery(this.$route.params.id)
       .then((response) => {
         this.beers = response.data;
+        this.isLoading = false;
+      });
+    beerService
+      .retrieveBeerTypesPerBrewery(this.$route.params.id)
+      .then((response) => {
+        this.beerTypes = response.data;
         this.isLoading = false;
       });
   },

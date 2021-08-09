@@ -170,10 +170,10 @@ p {
   margin-bottom: 40px;
 }
 .dish-meta {
-  font-size: 12px;
+  font-size: 18px;
   text-transform: uppercase;
   display: block;
-  width: 210px;
+  width: auto;
   line-height: 1.7;
 }
 .dish-title {

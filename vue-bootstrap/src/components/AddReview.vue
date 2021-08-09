@@ -8,7 +8,24 @@
           v-bind:key="revi.breweryId"
         >
           <div class="card" style="width: 20rem">
+            <div class="container d-flex justify-content-center mt-200"></div>
             <div class="card-body">
+              <h4>
+                <link
+                  rel="stylesheet"
+                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                />
+                <span
+                  v-for="n in revi.stars"
+                  v-bind:key="n.id"
+                  class="fa fa-star checked"
+                ></span>
+                <span
+                  v-for="n in 5 - revi.stars"
+                  v-bind:key="n.id"
+                  class="fa fa-star"
+                ></span>
+              </h4>
               <h4 class="card-title">{{ revi.title }}</h4>
               <h4 class="card-title">{{ revi.username }}</h4>
 
@@ -21,14 +38,59 @@
 
     <div id="addHomeform">
       <form v-on:submit.prevent="submitForm" class="reviewForm">
-        <select name="star-rating" v-model="review.stars">
-          <option value="">--Please select a star rating</option>
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="stars">
+              <form action="">
+                <input
+                  class="star star-5"
+                  id="star-5"
+                  type="radio"
+                  name="star"
+                  value="5"
+                  v-model="review.stars"
+                />
+                <label class="star star-5" for="star-5"></label>
+                <input
+                  class="star star-4"
+                  id="star-4"
+                  type="radio"
+                  name="star"
+                  value="4"
+                  v-model="review.stars"
+                />
+                <label class="star star-4" for="star-4"></label>
+                <input
+                  class="star star-3"
+                  id="star-3"
+                  type="radio"
+                  name="star"
+                  value="3"
+                  v-model="review.stars"
+                />
+                <label class="star star-3" for="star-3"></label>
+                <input
+                  class="star star-2"
+                  id="star-2"
+                  type="radio"
+                  name="star"
+                  value="2"
+                  v-model="review.stars"
+                />
+                <label class="star star-2" for="star-2"></label>
+                <input
+                  class="star star-1"
+                  id="star-1"
+                  type="radio"
+                  name="star"
+                  value="1"
+                  v-model="review.stars"
+                />
+                <label class="star star-1" for="star-1"></label>
+              </form>
+            </div>
+          </div>
+        </div>
 
         <div class="form-group">
           <label for="mlsNumber">Description</label>
@@ -61,7 +123,13 @@
         </div>
 
         <button class="btn btn-submit">Submit</button>
-        <button v-on:click.prevent="resetForm" class="btn btn-cancel" type="cancel">Cancel</button>
+        <button
+          v-on:click.prevent="resetForm"
+          class="btn btn-cancel"
+          type="cancel"
+        >
+          Cancel
+        </button>
       </form>
     </div>
   </div>
@@ -77,7 +145,7 @@ export default {
     return {
       review: {
         description: "",
-        stars: 5,
+        stars: 0,
         title: "",
         username: "",
       },
@@ -95,7 +163,6 @@ export default {
           if (response.status == 201) {
             //route to brewerypage
             this.$router.go(0);
-
           }
         })
         .catch((error) => {
@@ -106,11 +173,11 @@ export default {
     resetForm() {
       this.review = {
         description: "",
-        stars: 5,
+        stars: 0,
         title: "",
         username: "",
       };
-    }
+    },
   },
   created() {
     reviewService.reviewList(this.$route.params.id).then((response) => {
@@ -200,10 +267,65 @@ select.form-control {
   padding: 10px;
   margin-bottom: 10px;
 }
+
 .status-message.success {
   background-color: #90ee90;
 }
+
 .status-message.error {
   background-color: #f08080;
+}
+
+.checked {
+  color: orange;
+}
+
+body {
+  background-color: #eee;
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+.mt-200 {
+  margin-top: 200px;
+}
+
+input.star {
+  display: none;
+}
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #4a148c;
+  transition: all 0.2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: "\f005";
+  color: #fd4;
+  transition: all 0.25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before {
+  color: #f62;
+}
+
+label.star:hover {
+  transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+  content: "\f006";
+  font-family: FontAwesome;
 }
 </style>

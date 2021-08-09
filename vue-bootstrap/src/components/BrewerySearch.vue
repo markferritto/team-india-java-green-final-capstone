@@ -7,22 +7,6 @@
           <label for="exampleDropdownFormEmail1"></label>
           <table class="container">
             <tr>
-<<<<<<< HEAD
-              <td>
-                <input
-                  class="form-control"
-                  v-model="breweryFilter.name"
-                  placeholder="Name"
-                />
-              </td>
-              <td>
-                <input
-                  class="form-control"
-                  v-model="breweryFilter.city"
-                  placeholder="City"
-                />
-              </td>
-=======
               <td><input 
                 class="form-control" v-model="breweryFilter.name"
                 placeholder="Name"
@@ -31,7 +15,6 @@
                 class="form-control" v-model="breweryFilter.typeName"
                 placeholder="Brewery Type"
               /></td>
->>>>>>> 4ad8e0e20d319627ee871d7a160ce4da691a7436
             </tr>
           </table>
         </div>
@@ -151,27 +134,12 @@ export default {
           : this.breweryFilter == brewery.name;
       });
     },
-<<<<<<< HEAD
-    fiteringBrew() {
-      return this.breweries.filter((brewery) => {
-        return (
-          brewery.name
-            .toLowerCase()
-            .includes(this.breweryFilter.name.toLowerCase()) &&
-          brewery.city
-            .toLowerCase()
-            .includes(this.breweryFilter.city.toLowerCase())
-        );
-      });
-    },
-=======
     fiteringBrew(){
     return this.breweries.filter((brewery)=>{
       return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.typeName.toLowerCase().includes(this.breweryFilter.typeName.toLowerCase())  ;
     })
 
   }
->>>>>>> 4ad8e0e20d319627ee871d7a160ce4da691a7436
   },
   methods: {
     sendToBrewery(breweryId) {

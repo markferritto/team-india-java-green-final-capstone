@@ -1,109 +1,101 @@
 <template>
-<div>
+  <div>
+    <div class="container">
+      <div class="row">
+        <div
+          class="col-sm-4 py-4"
+          v-for="revi in reviews"
+          v-bind:key="revi.breweryId"
+        >
+          <div class="card" style="width: 20rem">
+            <div class="card-body">
+              <h4 class="card-title">{{ revi.title }}</h4>
+              <h4 class="card-title">{{ revi.username }}</h4>
 
-<div class="container">
-    <div class="row">
-      
-         <div          class="col-sm-4 py-4"
- v-for="revi in reviews" v-bind:key="revi.brewery_id">
-
-<div class="card" style="width: 20rem;">
-  <div class="card-body">
-    <h4 class="card-title">{{revi.title}}</h4>
-        <h4 class="card-title">{{revi.username}}</h4>
-
-    <p class="card-text">{{revi.description}}</p>
-  </div>
-</div>
+              <p class="card-text">{{ revi.description }}</p>
+            </div>
           </div>
-</div>
-
-</div>
-
-
-  <div id="addHomeform">
-
-    <form v-on:submit.prevent="submitForm" class="reviewForm">
-
-
-       <select name="star-rating" v-model="review.stars">
-        <option value="">--Please select a star rating</option>
-        <option value="1">1</option>
-        <option value="2">2</option>
-        <option value="3">3</option>
-        <option value="4">4</option>
-        <option value="5">5</option>
-      </select>
-
-      <div class="form-group">
-        <label for="mlsNumber">Description</label>
-        <input
-          id="mlsNumber"
-          type="text"
-          class="form-control"
-          v-model="review.description"
-        />
+        </div>
       </div>
+    </div>
 
-      <div class="form-group">
-        <label for="city">Title</label>
-        <input
-          id="city"
-          type="text"
-          class="form-control"
-          v-model="review.title"
-        />
-      </div>
+    <div id="addHomeform">
+      <form v-on:submit.prevent="submitForm" class="reviewForm">
+        <select name="star-rating" v-model="review.stars">
+          <option value="">--Please select a star rating</option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
 
-      <div class="form-group">
-        <label for="state">UserName</label>
-        <input
-          id="state"
-          type="text"
-          class="form-control"
-          v-model="review.username"
-        />
-      </div>
+        <div class="form-group">
+          <label for="mlsNumber">Description</label>
+          <input
+            id="mlsNumber"
+            type="text"
+            class="form-control"
+            v-model="review.description"
+          />
+        </div>
 
-      <button class="btn btn-submit">Submit</button>
-      <button class="btn btn-cancel" type="cancel">Cancel</button>
-    </form> 
+        <div class="form-group">
+          <label for="city">Title</label>
+          <input
+            id="city"
+            type="text"
+            class="form-control"
+            v-model="review.title"
+          />
+        </div>
 
-  </div>
+        <div class="form-group">
+          <label for="state">UserName</label>
+          <input
+            id="state"
+            type="text"
+            class="form-control"
+            v-model="review.username"
+          />
+        </div>
+
+        <button class="btn btn-submit">Submit</button>
+        <button v-on:click.prevent="resetForm" class="btn btn-cancel" type="cancel">Cancel</button>
+      </form>
+    </div>
   </div>
 </template>
 
 <script>
 import reviewService from "../services/ReviewService.js";
 
-
-
 export default {
   name: "add-review",
   name: "App",
   data() {
     return {
-      review:{
+      review: {
         description: "",
         stars: 5,
         title: "",
         username: "",
       },
-      reviews:[],
-      reviewFilter:'',
-     
+      reviews: [],
+      reviewFilter: "",
     };
   },
-  
+
   methods: {
     submitForm() {
       //add review by calling reviewService
       reviewService
-        .addReview(this.$route.params.id,this.review)
+        .addReview(this.$route.params.id, this.review)
         .then((response) => {
           if (response.status == 201) {
             //route to brewerypage
-            this.$router.push("breweries");
+            this.$router.go(0);
+
           }
         })
         .catch((error) => {
@@ -111,14 +103,20 @@ export default {
           console.log(error);
         });
     },
- 
-
-  },
-   created() {
-      reviewService.reviewList(this.$route.params.id).then(response => {
-        this.reviews = response.data;
-      })
+    resetForm() {
+      this.review = {
+        description: "",
+        stars: 5,
+        title: "",
+        username: "",
+      };
     }
+  },
+  created() {
+    reviewService.reviewList(this.$route.params.id).then((response) => {
+      this.reviews = response.data;
+    });
+  },
 };
 </script>
 
@@ -208,6 +206,4 @@ select.form-control {
 .status-message.error {
   background-color: #f08080;
 }
-
-
 </style>

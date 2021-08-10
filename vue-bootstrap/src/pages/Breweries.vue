@@ -6,6 +6,7 @@
 
 <script>
 import BrewerySearch from "../components/BrewerySearch.vue";
+
 export default {
   components: { BrewerySearch },
   name: "breweries",

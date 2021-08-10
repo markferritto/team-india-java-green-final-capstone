@@ -70,16 +70,14 @@
               <div class="popover-body">This beer is amazing</div>
             </el-popover>
             <row>
-              <div
-                v-for="beer in beers"
-                v-on:click="sendToBeerReview(beer.beerId)"
-                v-bind:key="beer.beerId"
-              >
+              <div v-for="beer in beers" v-bind:key="beer.beerId">
                 <div class="row menu-content" v-if="beer.beerType == beerType">
                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="dish-img">
                       <h5 class="dish-title">
-                        <p>{{ beer.name }}</p>
+                        <p v-on:click="sendToBeerReview(beer.beerId)">
+                          {{ beer.name }}
+                        </p>
                       </h5>
                     </div>
                   </div>
@@ -89,7 +87,12 @@
                         >{{ beer.description }} - {{ beer.abv }}</span
                       >
                       <div class="dish-price">
-                        <p>{{ beer.stars }}/5 <n-button type="danger">Delete Beer</n-button></p>
+                        <p>
+                          {{ beer.stars }}/5
+                          <n-button type="danger" v-on:click="deleteBeer(beer.beerId).reload()"
+                            >Delete Beer</n-button
+                          >
+                        </p>
                       </div>
                     </div>
                   </div>
@@ -148,6 +151,10 @@ export default {
     sendToBeerReview(beerId) {
       this.$router.push(`/reviews/beer/${beerId}`);
     },
+    deleteBeer(beerId) {
+      beerService.deleteBeer(beerId);
+      window.location.reload(true);
+    },
   },
 };
 </script>
@@ -195,7 +202,7 @@ p {
   position: relative;
 }
 .dish-price {
-    display: block;
+  display: block;
   width: auto;
   line-height: 1.7;
   position: absolute;

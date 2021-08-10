@@ -47,8 +47,8 @@ public class BeerController {
 
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @RequestMapping(path = "/breweries/{id}/delete/beer/{beerId}", method = RequestMethod.DELETE)
-    public void deleteBeer(@PathVariable int id, @PathVariable int beerId) throws BeerNotFoundException {
-        beerDAO.deleteBeer(id, beerId);
+    @RequestMapping(path = "/delete/beer/{beerId}", method = RequestMethod.DELETE)
+    public void deleteBeer(@PathVariable int beerId) throws BeerNotFoundException {
+        beerDAO.deleteBeer(beerId);
     }
 }

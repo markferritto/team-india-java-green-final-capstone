@@ -25,10 +25,10 @@ public class BeerJdbcDAO implements BeerDAO {
         Beer beer = new Beer();
 
         String sqlBeerList = "SELECT beers.beer_id, brewery.brewery_id, beer_type.name AS beer_type, beers.name, beers.description, beers.abv " +
-                             "FROM beers " +
-                             "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                             "JOIN brewery on brewery.brewery_id = beers.brewery_id " +
-                             "WHERE beers.beer_id = ?";
+                "FROM beers " +
+                "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
+                "JOIN brewery on brewery.brewery_id = beers.brewery_id " +
+                "WHERE beers.beer_id = ?";
 
         SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeerList, id);
 
@@ -37,9 +37,9 @@ public class BeerJdbcDAO implements BeerDAO {
             beer = mapRowToBeer(beerRows);
 
             String sqlBeerAverageRating = "SELECT ROUND(AVG(beer_reviews.stars), 2) AS average_beer_review " +
-                                          "FROM beers " +
-                                          "JOIN beer_reviews ON beer_reviews.beer_id = beers.beer_id " +
-                                          "WHERE beers.beer_id = ?;";
+                    "FROM beers " +
+                    "JOIN beer_reviews ON beer_reviews.beer_id = beers.beer_id " +
+                    "WHERE beers.beer_id = ?;";
 
             SqlRowSet reviewRows = jdbcTemplate.queryForRowSet(sqlBeerAverageRating, beer.getBeerId());
 
@@ -58,10 +58,10 @@ public class BeerJdbcDAO implements BeerDAO {
         List<Beer> beerList = new ArrayList<>();
 
         String sqlBeerList = "SELECT beers.beer_id, brewery.brewery_id, beer_type.name AS beer_type, beers.name, beers.description, beers.abv " +
-                             "FROM beers " +
-                             "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
-                             "JOIN brewery on brewery.brewery_id = beers.brewery_id " +
-                             "WHERE brewery.brewery_id = ?";
+                "FROM beers " +
+                "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
+                "JOIN brewery on brewery.brewery_id = beers.brewery_id " +
+                "WHERE brewery.brewery_id = ?";
 
         SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeerList, breweryId);
 
@@ -70,9 +70,9 @@ public class BeerJdbcDAO implements BeerDAO {
             Beer beer = mapRowToBeer(beerRows);
 
             String sqlBeerAverageRating = "SELECT ROUND(AVG(beer_reviews.stars), 2) AS average_beer_review " +
-                                          "FROM beers " +
-                                          "JOIN beer_reviews ON beer_reviews.beer_id = beers.beer_id " +
-                                          "WHERE beers.beer_id = ?;";
+                    "FROM beers " +
+                    "JOIN beer_reviews ON beer_reviews.beer_id = beers.beer_id " +
+                    "WHERE beers.beer_id = ?;";
 
             SqlRowSet reviewRows = jdbcTemplate.queryForRowSet(sqlBeerAverageRating, beer.getBeerId());
 
@@ -93,13 +93,13 @@ public class BeerJdbcDAO implements BeerDAO {
         List<String> beerTypeList = new ArrayList<>();
 
         String sqlBeerList = "SELECT beer_type.name " +
-                             "FROM beer_type " +
-                             "JOIN beers ON beers.beer_type_id = beer_type.beer_type_id " +
-                             "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +
-                             "WHERE brewery.brewery_id = ? " +
-                             "GROUP BY beer_type.name";
+                "FROM beer_type " +
+                "JOIN beers ON beers.beer_type_id = beer_type.beer_type_id " +
+                "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +
+                "WHERE brewery.brewery_id = ? " +
+                "GROUP BY beer_type.name";
 
-        SqlRowSet beerTypeRows = jdbcTemplate.queryForRowSet(sqlBeerList,breweryId);
+        SqlRowSet beerTypeRows = jdbcTemplate.queryForRowSet(sqlBeerList, breweryId);
 
         while (beerTypeRows.next()) {
 
@@ -121,22 +121,26 @@ public class BeerJdbcDAO implements BeerDAO {
         jdbcTemplate.update(sqlNewBeer, id, beer.getBeerId(), beer.getName(), 1, beer.getDescription(), beer.getABV());
 
         String updateBeerType = "UPDATE beers " +
-                                "SET beer_type_id = beer_type.beer_type_id " +
-                                "FROM beer_type " +
-                                "WHERE beer_id = ? " +
-                                "AND beer_type.name = ?";
+                "SET beer_type_id = beer_type.beer_type_id " +
+                "FROM beer_type " +
+                "WHERE beer_id = ? " +
+                "AND beer_type.name = ?";
 
         jdbcTemplate.update(updateBeerType, beer.getBeerId(), beer.getBeerType());
     }
 
     @Override
-    public void deleteBeer(int id, int beerId) {
+    public void deleteBeer(int beerId) {
 
-        String sqlNewBeer = "DELETE FROM beers " +
-                            "WHERE brewery_id = ? " +
-                            "AND beer_id = ?";
+        String sqlDeleteReviews = "DELETE FROM beer_reviews " +
+                "WHERE beer_id = ?";
 
-        jdbcTemplate.update(sqlNewBeer, id, beerId);
+        jdbcTemplate.update(sqlDeleteReviews, beerId);
+
+        String sqlDeleteBeer = "DELETE FROM beers " +
+                "WHERE beer_id = ? ";
+
+        jdbcTemplate.update(sqlDeleteBeer, beerId);
     }
 
     private Beer mapRowToBeer(SqlRowSet rows) {

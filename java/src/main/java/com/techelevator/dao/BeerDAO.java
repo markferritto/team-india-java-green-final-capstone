@@ -15,5 +15,5 @@ public interface BeerDAO {
 
     void newBeer(Beer beer, int id);
 
-    void deleteBeer(int id, int beerId);
+    void deleteBeer(int beerId);
 }

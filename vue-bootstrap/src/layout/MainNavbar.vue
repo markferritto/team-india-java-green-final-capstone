@@ -62,12 +62,9 @@
         </nav-link>
       </drop-down> -->
       <li class="nav-item">
-        <a
-          class="nav-link btn btn-neutral"
-          href="#"
-        >
-          <p>LOGIN</p>
-        </a>
+          <router-link v-popover:popover1 class="navbar-brand" to="/login">
+        LOGIN
+      </router-link>
       </li>
 
       <li class="nav-item">
@@ -130,10 +127,5 @@ export default {
 </script>
 
 <style scoped>
-.navbar-brand{
-font-size: 28px;
-text-shadow: 0px 4px 3px rgba(0,0,0,0.4),
-             0px 8px 13px rgba(0,0,0,0.1),
-             0px 18px 23px rgba(0,0,0,0.1);
-}
+
 </style>

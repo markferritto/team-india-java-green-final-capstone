@@ -71,7 +71,7 @@ export default new Router({
       }
     },
     {
-      path: '/reviews/breweries/:id/beer/:id',
+      path: '/reviews/beer/:id',
       name: 'beer-review',
       components: { default: BeerReview, header: MainNavbar, footer: MainFooter },
       props: {

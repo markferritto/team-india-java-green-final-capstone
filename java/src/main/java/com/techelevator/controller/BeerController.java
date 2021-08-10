@@ -21,6 +21,11 @@ public class BeerController {
     @Autowired
     private BeerDAO beerDAO;
 
+    @PreAuthorize("permitAll")
+    @RequestMapping(path = "/beers/{id}", method = RequestMethod.GET)
+    public Beer getBeer(@PathVariable int id) { return beerDAO.retrieveBeer(id);
+    }
+
     //Method retrieves a list of beers from the database
     @PreAuthorize("permitAll")
     @RequestMapping(path = "/breweries/{id}/beers", method = RequestMethod.GET)

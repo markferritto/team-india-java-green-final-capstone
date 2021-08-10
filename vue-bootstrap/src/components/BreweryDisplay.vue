@@ -138,8 +138,8 @@ export default {
       });
   },
   methods: {
-    sendToBeerReview(breweryId, beerId) {
-      this.$router.push(`/reviews/breweries/${breweryId}/beer/${beerId}`);
+    sendToBeerReview(beerId) {
+      this.$router.push(`/reviews/beer/${beerId}`);
     }
   },
 };

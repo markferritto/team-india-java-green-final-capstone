@@ -20,6 +20,39 @@ public class BeerJdbcDAO implements BeerDAO {
     }
 
     @Override
+    public Beer retrieveBeer(int id) {
+
+        Beer beer = new Beer();
+
+        String sqlBeerList = "SELECT beers.beer_id, brewery.brewery_id, beer_type.name AS beer_type, beers.name, beers.description, beers.abv " +
+                             "FROM beers " +
+                             "JOIN beer_type ON beers.beer_type_id = beer_type.beer_type_id " +
+                             "JOIN brewery on brewery.brewery_id = beers.brewery_id " +
+                             "WHERE beers.beer_id = ?";
+
+        SqlRowSet beerRows = jdbcTemplate.queryForRowSet(sqlBeerList, id);
+
+        while (beerRows.next()) {
+
+            beer = mapRowToBeer(beerRows);
+
+            String sqlBeerAverageRating = "SELECT ROUND(AVG(beer_reviews.stars), 2) AS average_beer_review " +
+                                          "FROM beers " +
+                                          "JOIN beer_reviews ON beer_reviews.beer_id = beers.beer_id " +
+                                          "WHERE beers.beer_id = ?;";
+
+            SqlRowSet reviewRows = jdbcTemplate.queryForRowSet(sqlBeerAverageRating, beer.getBeerId());
+
+            while (reviewRows.next()) {
+
+                beer.setStars(reviewRows.getDouble("average_beer_review"));
+            }
+        }
+
+        return beer;
+    }
+
+    @Override
     public List<Beer> retrieveBeers(int breweryId) {
 
         List<Beer> beerList = new ArrayList<>();

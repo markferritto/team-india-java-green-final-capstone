@@ -1,5 +1,10 @@
 <template>
   <div>
+    <div class="header">
+      <h1></h1>
+      <p>Leave a Review!</p>
+    </div>
+
     <div class="container">
       <div class="main-body">
         <div class="row">
@@ -8,13 +13,11 @@
               <div class="card-body">
                 <div class="d-flex flex-column align-items-center text-center">
                   <div class="mt-3">
-                    <h4>John Doe</h4>
-                    <p class="text-secondary mb-1">Full Stack Developer</p>
-                    <p class="text-muted font-size-sm">
-                      Bay Area, San Francisco, CA
-                    </p>
-                    <button class="btn btn-primary">Follow</button>
-                    <button class="btn btn-outline-primary">Message</button>
+                    <h2>{{ beer.name }}</h2>
+                    <h4 class="text-secondary mb-1">{{ beer.description }}</h4>
+                    <h4 class="text-muted font-size-sm">
+                      abv - {{ beer.abv }}
+                    </h4>
                   </div>
                 </div>
                 <hr class="my-4" />
@@ -22,301 +25,253 @@
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-globe me-2 icon-inline"
-                      >
-                        <circle cx="12" cy="12" r="10"></circle>
-                        <line x1="2" y1="12" x2="22" y2="12"></line>
-                        <path
-                          d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"
-                        ></path></svg
-                      >Website
-                    </h6>
-                    <span class="text-secondary">https://bootdey.com</span>
+                    <h6 class="mb-0">Overall</h6>
+                    <span
+                      v-for="n in overall"
+                      v-bind:key="n.id"
+                      class="fa fa-star checked"
+                    ></span>
+                    <span
+                      v-for="n in 5 - overall"
+                      v-bind:key="n.id"
+                      class="fa fa-star"
+                    ></span>
                   </li>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-github me-2 icon-inline"
-                      >
-                        <path
-                          d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
-                        ></path></svg
-                      >Github
-                    </h6>
-                    <span class="text-secondary">bootdey</span>
+                    <h6 class="mb-0">Look</h6>
+                    <span
+                      v-for="n in look"
+                      v-bind:key="n.id"
+                      class="fa fa-star checked"
+                    ></span>
+                    <span
+                      v-for="n in 5 - look"
+                      v-bind:key="n.id"
+                      class="fa fa-star"
+                    ></span>
                   </li>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-twitter me-2 icon-inline text-info"
-                      >
-                        <path
-                          d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"
-                        ></path></svg
-                      >Twitter
-                    </h6>
-                    <span class="text-secondary">@bootdey</span>
+                    <h6 class="mb-0">Smell</h6>
+                    <span
+                      v-for="n in smell"
+                      v-bind:key="n.id"
+                      class="fa fa-star checked"
+                    ></span>
+                    <span
+                      v-for="n in 5 - smell"
+                      v-bind:key="n.id"
+                      class="fa fa-star"
+                    ></span>
                   </li>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-instagram me-2 icon-inline text-danger"
-                      >
-                        <rect
-                          x="2"
-                          y="2"
-                          width="20"
-                          height="20"
-                          rx="5"
-                          ry="5"
-                        ></rect>
-                        <path
-                          d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"
-                        ></path>
-                        <line
-                          x1="17.5"
-                          y1="6.5"
-                          x2="17.51"
-                          y2="6.5"
-                        ></line></svg
-                      >Instagram
-                    </h6>
-                    <span class="text-secondary">bootdey</span>
+                    <h6 class="mb-0">Feel</h6>
+                    <span
+                      v-for="n in feel"
+                      v-bind:key="n.id"
+                      class="fa fa-star checked"
+                    ></span>
+                    <span
+                      v-for="n in 5 - feel"
+                      v-bind:key="n.id"
+                      class="fa fa-star"
+                    ></span>
                   </li>
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="24"
-                        height="24"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-facebook me-2 icon-inline text-primary"
-                      >
-                        <path
-                          d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"
-                        ></path></svg
-                      >Facebook
-                    </h6>
-                    <span class="text-secondary">bootdey</span>
+                    <h6 class="mb-0">Taste</h6>
+                    <span
+                      v-for="n in taste"
+                      v-bind:key="n.id"
+                      class="fa fa-star checked"
+                    ></span>
+                    <span
+                      v-for="n in 5 - taste"
+                      v-bind:key="n.id"
+                      class="fa fa-star"
+                    ></span>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
           <div class="col-lg-8">
-            <div class="card">
-              <div class="card-body">
-                <div class="row mb-3">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Full Name</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <input type="text" class="form-control" value="John Doe" />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Email</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="john@example.com"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Phone</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="(239) 816-9029"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Mobile</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="(320) 380-4539"
-                    />
-                  </div>
-                </div>
-                <div class="row mb-3">
-                  <div class="col-sm-3">
-                    <h6 class="mb-0">Address</h6>
-                  </div>
-                  <div class="col-sm-9 text-secondary">
-                    <input
-                      type="text"
-                      class="form-control"
-                      value="Bay Area, San Francisco, CA"
-                    />
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-sm-3"></div>
-                  <div class="col-sm-9 text-secondary">
-                    <input
-                      type="button"
-                      class="btn btn-primary px-4"
-                      value="Save Changes"
-                    />
-                  </div>
-                </div>
-              </div>
+            <div id="breweryReviewForm" class="col-sm">
+              <form v-on:submit.prevent="submitForm" class="reviewForm">
+                    <div class="row mb-3">
+                      <div class="stars">
+                        <form action="">
+                          <input
+                            class="star star-5"
+                            id="star-5"
+                            type="radio"
+                            name="star"
+                            value="5"
+                            v-model="review.stars"
+                          />
+                          <label class="star star-5" for="star-5"></label>
+                          <input
+                            class="star star-4"
+                            id="star-4"
+                            type="radio"
+                            name="star"
+                            value="4"
+                            v-model="review.stars"
+                          />
+                          <label class="star star-4" for="star-4"></label>
+                          <input
+                            class="star star-3"
+                            id="star-3"
+                            type="radio"
+                            name="star"
+                            value="3"
+                            v-model="review.stars"
+                          />
+                          <label class="star star-3" for="star-3"></label>
+                          <input
+                            class="star star-2"
+                            id="star-2"
+                            type="radio"
+                            name="star"
+                            value="2"
+                            v-model="review.stars"
+                          />
+                          <label class="star star-2" for="star-2"></label>
+                          <input
+                            class="star star-1"
+                            id="star-1"
+                            type="radio"
+                            name="star"
+                            value="1"
+                            v-model="review.stars"
+                          />
+                          <label class="star star-1" for="star-1"></label>
+                        </form>
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="title">Title</label>
+                      <input
+                        id="title"
+                        type="text"
+                        class="form-control"
+                        v-model="review.title"
+                      />
+                    </div>
+
+                    <div class="name">
+                      <label for="name">Name</label>
+                      <input
+                        id="name"
+                        type="text"
+                        class="form-control"
+                        v-model="review.username"
+                      />
+                    </div>
+
+                    <div class="form-group">
+                      <label for="description">Description</label>
+                      <input
+                        id="mlsNumber"
+                        type="text"
+                        class="form-control"
+                        v-model="review.description"
+                      />
+                    </div>
+
+                    <button class="btn btn-submit">Submit</button>
+                    <button
+                      v-on:click.prevent="resetForm"
+                      class="btn btn-cancel"
+                      type="cancel"
+                    >
+                      Cancel
+                    </button>
+              </form>
             </div>
             <div class="row">
-              <div class="col-sm-12">
-                <div class="card">
-                  <div class="card-body">
-                    <h5 class="d-flex align-items-center mb-3">
-                      Project Status
-                    </h5>
-                    <p>Web Design</p>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div
-                        class="progress-bar bg-primary"
-                        role="progressbar"
-                        style="width: 80%"
-                        aria-valuenow="80"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p>Website Markup</p>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div
-                        class="progress-bar bg-danger"
-                        role="progressbar"
-                        style="width: 72%"
-                        aria-valuenow="72"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p>One Page</p>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div
-                        class="progress-bar bg-success"
-                        role="progressbar"
-                        style="width: 89%"
-                        aria-valuenow="89"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p>Mobile Template</p>
-                    <div class="progress mb-3" style="height: 5px">
-                      <div
-                        class="progress-bar bg-warning"
-                        role="progressbar"
-                        style="width: 55%"
-                        aria-valuenow="55"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                    <p>Backend API {{ reviews }}</p>
-                    <div class="progress" style="height: 5px">
-                      <div
-                        class="progress-bar bg-info"
-                        role="progressbar"
-                        style="width: 66%"
-                        aria-valuenow="66"
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                      ></div>
-                    </div>
-                  </div>
+              <div class="col-sm-11 mx-auto bg-white rounded shadow div">
+                <!-- Fixed header table-->
+                <div class="table-responsive">
+                  <table class="table table-fixed">
+                    <tbody>
+                      <tr>
+                        <th></th>
+                        <div
+                          class="col-sm-4 py-4"
+                          v-for="revi in reviews"
+                          v-bind:key="revi.breweryId"
+                        >
+                          <div class="card" style="width: 30rem">
+                            <div class="card-body">
+                              <h4>
+                                <link
+                                  rel="stylesheet"
+                                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                                />
+                                <span
+                                  v-for="n in revi.stars"
+                                  v-bind:key="n.id"
+                                  class="fa fa-star checked"
+                                ></span>
+                                <span
+                                  v-for="n in 5 - revi.stars"
+                                  v-bind:key="n.id"
+                                  class="fa fa-star"
+                                ></span>
+                              </h4>
+                              <h3 class="card-title">{{ revi.title }}</h3>
+                              <h5 class="card-title">-{{ revi.username }}</h5>
+                              <h5 class="card-text">
+                                {{ revi.description }}
+                              </h5>
+                            </div>
+                          </div>
+                        </div>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
+                <!-- End -->
               </div>
             </div>
           </div>
         </div>
       </div>
     </div>
-
-    <!-- <label for="rating-10">Overall:</label>
-    <b-form-rating id="rating-10" v-model="value10" stars="10" show-value precision="2"></b-form-rating>
-    <p class="mt-2">Value: {{ value10 }}</p>
-    <label for="rating-10">Body:</label>
-    <b-form-rating id="rating-10" v-model="value10" stars="10" show-value precision="2"></b-form-rating>
-    <p class="mt-2">Value: {{ value10 }}</p>
-    <label for="rating-10">Finish:</label>
-    <b-form-rating id="rating-10" v-model="value10" stars="10" show-value precision="2"></b-form-rating>
-    <p class="mt-2">Value: {{ value10 }}</p> -->
   </div>
 </template>
 
 <script>
 import reviewService from "../services/ReviewService.js";
+import beerService from "../services/BeerService.js";
 
 export default {
   name: "add-beer-rating",
   data() {
     return {
       value: "",
+      review: {
+        description: "",
+        stars: 0,
+        title: "",
+        username: "",
+      },
       reviews: [],
+      reviewFilter: "",
+      beer: {},
+      look: 4,
+      smell: 3,
+      taste: 4,
+      feel: 2,
+      overall: 5,
     };
   },
   created() {
@@ -325,6 +280,34 @@ export default {
       .then((response) => {
         this.reviews = response.data;
       });
+    beerService.retrieveBeerPerId(this.$route.params.id).then((response) => {
+      this.beer = response.data;
+    });
+  },
+  methods: {
+    submitForm() {
+      //add review by calling reviewService
+      reviewService
+        .addBeerReview(this.$route.params.id, this.beer.beerId, this.review)
+        .then((response) => {
+          if (response.status == 201) {
+            //route to brewerypage
+            this.$router.go(0);
+          }
+        })
+        .catch((error) => {
+          //handle the error
+          console.log(error);
+        });
+    },
+    resetForm() {
+      this.review = {
+        description: "",
+        stars: 0,
+        title: "",
+        username: "",
+      };
+    },
   },
 };
 </script>
@@ -351,4 +334,198 @@ body {
 .me-2 {
   margin-right: 0.5rem !important;
 }
+
+.main-body {
+  padding-top: 100px;
+}
+
+#breweryReviewForm {
+  margin-left: auto;
+  margin-right: auto;
+  width: 800px;
+}
+form input {
+  width: 100%;
+}
+
+.reviewForm {
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.form-control {
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+  height: 30px;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #495057;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+}
+textarea.form-control {
+  height: 75px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+select.form-control {
+  width: 20%;
+  display: inline-block;
+  margin: 10px 20px 10px 10px;
+}
+.btn-submit {
+  color: #fff;
+  padding: 10px 24px;
+  background-color: #38b412;
+  box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-cancel {
+  padding: 10px 24px;
+  box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-submit:hover {
+  color: #fff;
+  padding: 10px 24px;
+  background-color: #65f307;
+  box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.btn-cancel:hover {
+  padding: 10px 24px;
+  background-color: #65f307;
+  box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
+    0 17px 50px 0 rgba(0, 0, 0, 0.19);
+}
+
+.status-message {
+  display: block;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 1rem;
+  text-align: center;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.status-message.success {
+  background-color: #90ee90;
+}
+
+.status-message.error {
+  background-color: #f08080;
+}
+
+.checked {
+  color: orange;
+}
+
+body {
+  background-color: #eee;
+}
+
+div.stars {
+  width: 270px;
+  display: inline-block;
+}
+
+.mt-200 {
+  margin-top: 200px;
+}
+
+input.star {
+  display: none;
+}
+
+label.star {
+  float: right;
+  padding: 10px;
+  font-size: 36px;
+  color: #4a148c;
+  transition: all 0.2s;
+}
+
+input.star:checked ~ label.star:before {
+  content: "\f005";
+  color: #fd4;
+  transition: all 0.25s;
+}
+
+input.star-5:checked ~ label.star:before {
+  color: #fe7;
+  text-shadow: 0 0 20px #952;
+}
+
+input.star-1:checked ~ label.star:before {
+  color: #f62;
+}
+
+label.star:hover {
+  transform: rotate(-15deg) scale(1.3);
+}
+
+label.star:before {
+  content: "\f006";
+  font-family: FontAwesome;
+}
+
+.table-fixed tbody {
+  height: 700px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+  float: left;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+}
+
+td {
+  align-content: center;
+}
+
+/* Style the body */
+body {
+  font-family: Arial;
+  margin: 0;
+}
+
+/* Header/Logo Title */
+.header {
+  padding: 10px;
+  text-align: center;
+  background: rgb(136, 51, 25);
+  color: white;
+  font-size: 30px;
+}
+
+.container {
+  padding-bottom: 100px;
+}
+
 </style>

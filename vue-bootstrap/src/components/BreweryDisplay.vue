@@ -70,7 +70,11 @@
               <div class="popover-body">This beer is amazing</div>
             </el-popover>
 
-            <div v-for="beer in beers" v-on:click="sendToBeerReview(brewery.breweryId, beer.beerId)" v-bind:key="beer.beerId">
+            <div
+              v-for="beer in beers"
+              v-on:click="sendToBeerReview(beer.beerId)"
+              v-bind:key="beer.beerId"
+            >
               <div class="row menu-content" v-if="beer.beerType == beerType">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                   <div class="dish-img">
@@ -81,7 +85,9 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                   <div class="dish-content">
-                    <span class="dish-meta">{{ beer.description }} - {{ beer.abv }}</span>
+                    <span class="dish-meta"
+                      >{{ beer.description }} - {{ beer.abv }}</span
+                    >
                     <div class="dish-price">
                       <p>{{ beer.stars }}/5 - See Reviews</p>
                     </div>
@@ -140,7 +146,7 @@ export default {
   methods: {
     sendToBeerReview(beerId) {
       this.$router.push(`/reviews/beer/${beerId}`);
-    }
+    },
   },
 };
 </script>

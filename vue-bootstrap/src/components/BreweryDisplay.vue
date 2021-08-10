@@ -50,13 +50,13 @@
       />
     </header>
     <div class="container">
-      <div class="row">
+      <div
+        class="row"
+        v-for="beerType in beerTypes"
+        v-bind:key="beerType.beerId"
+      >
         <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 mb40">
-          <div
-            class="menu-block"
-            v-for="beerType in beerTypes"
-            v-bind:key="beerType.beerId"
-          >
+          <div class="menu-block">
             <h3 class="menu-title" v-popover:popover1>
               {{ beerType }}
             </h3>
@@ -69,32 +69,33 @@
             >
               <div class="popover-body">This beer is amazing</div>
             </el-popover>
-
-            <div
-              v-for="beer in beers"
-              v-on:click="sendToBeerReview(beer.beerId)"
-              v-bind:key="beer.beerId"
-            >
-              <div class="row menu-content" v-if="beer.beerType == beerType">
-                <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
-                  <div class="dish-img">
-                    <h5 class="dish-title">
-                      <p>{{ beer.name }}</p>
-                    </h5>
+            <row>
+              <div
+                v-for="beer in beers"
+                v-on:click="sendToBeerReview(beer.beerId)"
+                v-bind:key="beer.beerId"
+              >
+                <div class="row menu-content" v-if="beer.beerType == beerType">
+                  <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
+                    <div class="dish-img">
+                      <h5 class="dish-title">
+                        <p>{{ beer.name }}</p>
+                      </h5>
+                    </div>
                   </div>
-                </div>
-                <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
-                  <div class="dish-content">
-                    <span class="dish-meta"
-                      >{{ beer.description }} - {{ beer.abv }}</span
-                    >
-                    <div class="dish-price">
-                      <p>{{ beer.stars }}/5 - See Reviews</p>
+                  <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
+                    <div class="dish-content">
+                      <span class="dish-meta"
+                        >{{ beer.description }} - {{ beer.abv }}</span
+                      >
+                      <div class="dish-price">
+                        <p>{{ beer.stars }}/5 <n-button type="danger">Delete Beer</n-button></p>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </row>
           </div>
         </div>
       </div>
@@ -105,7 +106,7 @@
 <script>
 import breweryService from "../services/BreweryService.js";
 import beerService from "../services/BeerService.js";
-import { Tabs, TabPane } from "@/components";
+import { Tabs, TabPane, Button } from "@/components";
 import { Popover } from "element-ui";
 
 export default {
@@ -115,6 +116,7 @@ export default {
     Tabs,
     TabPane,
     [Popover.name]: Popover,
+    [Button.name]: Button,
   },
 
   data() {
@@ -173,8 +175,7 @@ p {
   border-bottom: 1px solid #e0e6e3;
   margin-bottom: 30px;
 }
-.dish-img {
-}
+
 .dish-content {
   margin-top: 12px;
   margin-bottom: 40px;
@@ -194,13 +195,15 @@ p {
   position: relative;
 }
 .dish-price {
+    display: block;
+  width: auto;
+  line-height: 1.7;
   position: absolute;
   right: 16px;
   top: 0px;
   font-size: 26px;
   color: #e03c23;
   font-weight: 500;
-  font-family: "Zilla Slab", serif;
 }
 .well-block .dish-meta {
   width: 100%;

@@ -3,6 +3,9 @@ import axios from 'axios';
 
 export default {
 
+    retrieveBeerPerId(id) {
+        return axios.get(`/beers/${id}`)
+    },
     retrieveBeersPerBrewery(id) {
         return axios.get(`/breweries/${id}/beers`)
     },

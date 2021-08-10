@@ -17,7 +17,7 @@
               <td>
                 <input
                   class="form-control"
-                  v-model="breweryFilter.typeName"
+                  v-model="breweryFilter.brewery_type"
                   placeholder="Brewery Type"
                 />
               </td>
@@ -26,64 +26,57 @@
         </div>
       </div>
     </div>
-    <div class="main"></div>
-
-    <!-- Topic Cards -->
-    <div id="cards_landscape_wrap-2">
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
-            v-for="brewery in fiteringBrew"
-            v-on:click="sendToBrewery(brewery.breweryId)"
-            v-bind:key="brewery.breweryId"
-          >
-            <a href="">
-              <div class="card-flyer">
-                <div class="text-box">
-                  <div class="image-box">
-                    <img
-                      src="/img/bg1.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="text-container">
-                    <h6>{{ brewery.name }}</h6>
-                    <p>
-                      {{ brewery.description }}
-                    </p>
+    <div class="main">
+      <!-- Topic Cards -->
+      <div id="cards_landscape_wrap-2">
+        <div class="container">
+          <div class="row">
+            <div
+              class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              v-for="brewery in fiteringBrew"
+              v-on:click="sendToBrewery(brewery.breweryId)"
+              v-bind:key="brewery.breweryId"
+            >
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="/img/bg1.jpg" alt="" />
+                    </div>
+                    <div class="text-container">
+                      <h6>{{ brewery.name }}</h6>
+                      <p>
+                        {{ brewery.description }}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
-          </div>
+              </a>
+            </div>
 
-          <div
-            class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
-          v-for="brewery in openBreweries"
-          v-on:click="sendToOpenBrewery(brewery.breweryId)"
-          v-bind:key="brewery.breweryId"
-          >
-            <a href="">
-              <div class="card-flyer">
-                <div class="text-box">
-                  <div class="image-box">
-                    <img
-                      src="/img/bg1.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div class="text-container">
-                    <h6>{{ brewery.name }}</h6>
-                    <p>
-                      {{ brewery.description }}
-                    </p>
+            <div
+              class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+              v-for="brewery in openBreweries"
+              v-on:click="sendToOpenBrewery(brewery.breweryId)"
+              v-bind:key="brewery.breweryId"
+            >
+              <a href="">
+                <div class="card-flyer">
+                  <div class="text-box">
+                    <div class="image-box">
+                      <img src="/img/bg1.jpg" alt="" />
+                    </div>
+                    <div class="text-container">
+                      <h6>{{ brewery.name }}</h6>
+                      <p>
+                        {{ brewery.description }}
+                      </p>
+                    </div>
                   </div>
                 </div>
-              </div>
-            </a>
+              </a>
+            </div>
           </div>
-
         </div>
       </div>
     </div>
@@ -103,7 +96,7 @@ export default {
         name: "",
         rating: "",
         description: "",
-        typeName: "",
+        brewery_type: "",
         websiteUrl: "",
         phoneNumber: "",
         streetAddress: "",
@@ -126,17 +119,27 @@ export default {
     },
     fiteringBrew() {
       return this.breweries.filter((brewery) => {
-        return (
-          brewery.name
-            .toLowerCase()
-            .includes(this.breweryFilter.name.toLowerCase()) &&
-          brewery.typeName
-            .toLowerCase()
-            .includes(this.breweryFilter.typeName.toLowerCase())
-        );
+                let nameMatch = brewery.name
+           .toLowerCase()
+          .includes(this.breweryFilter.name.toLowerCase());
+               let typematch = brewery.brewery_type
+           .toLowerCase()
+           .includes(this.breweryFilter.brewery_type.toLowerCase());
+if (
+          (!this.breweryFilter.name || nameMatch) &&
+          (!this.breweryFilter.brewery_type || typematch)
+        ) {
+          return brewery;
+        }
       });
+    }
+
     },
-  },
+
+
+
+
+
   methods: {
     sendToBrewery(breweryId) {
       this.$router.push(`/breweries/${breweryId}`);
@@ -174,7 +177,7 @@ export default {
             this.state = brewery.state;
             this.zip = brewery.zip;
             this.websiteUrl = brewery.website_url;
-            this.openBreweries.push(brewery);
+            this.breweries.push(brewery);
           });
         });
       })
@@ -297,5 +300,9 @@ export default {
 
 .text-container {
   height: 200px;
+}
+
+.main {
+  background: grey;
 }
 </style>

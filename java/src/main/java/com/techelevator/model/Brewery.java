@@ -7,7 +7,7 @@ public class Brewery {
     private String name;
     private double rating;
     private String description;
-    private String typeName;
+    private String brewery_type;
     private String websiteUrl;
     private String phoneNumber;
     private String streetAddress;
@@ -15,12 +15,13 @@ public class Brewery {
     private String state;
     private String zip;
 
-    public String getTypeName() {
-        return typeName;
+
+    public String getBrewery_type() {
+        return brewery_type;
     }
 
-    public void setTypeName(String typeName) {
-        this.typeName = typeName;
+    public void setBrewery_type(String brewery_type) {
+        this.brewery_type = brewery_type;
     }
 
     public double getRating() {

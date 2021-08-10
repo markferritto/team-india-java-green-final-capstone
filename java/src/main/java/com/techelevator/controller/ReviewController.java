@@ -26,7 +26,7 @@ public class ReviewController {
     }
 
     @PreAuthorize("permitAll")
-    @RequestMapping(path = "reviews/breweries/{id}/beer/{beerId}", method = RequestMethod.GET)
+    @RequestMapping(path = "reviews/beer/{id}", method = RequestMethod.GET)
     public List<Reviews> retrieveBeerReviews(@PathVariable int id) {
         return reviewDAO.getBeerReviews(id);
     }

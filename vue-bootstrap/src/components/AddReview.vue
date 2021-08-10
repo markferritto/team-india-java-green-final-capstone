@@ -9,7 +9,7 @@
               <tbody>
                 <tr>
                   <th></th>
-                  <tc scope="row" class=".col-6 .col-sm-3">
+
                     <div
                       class="col-sm-4 py-4"
                       v-for="revi in reviews"
@@ -39,7 +39,6 @@
                         </div>
                       </div>
                     </div>
-                  </tc>
                 </tr>
               </tbody>
             </table>

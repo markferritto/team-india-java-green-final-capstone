@@ -5,12 +5,12 @@
 </template>
 
 <script>
-import AddBeerRating from "../components/AddBeerRating.vue"
+import AddBeerRating from "../components/AddBeerRating.vue";
 
 export default {
-  components: AddBeerRating,
-  name: "beer-review",
-  bodyClass: "beer-review",
+  components: { AddBeerRating },
+  name: "breweries",
+  bodyClass: "breweries",
 };
 </script>
 

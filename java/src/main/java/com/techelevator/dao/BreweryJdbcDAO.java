@@ -76,7 +76,7 @@ public class BreweryJdbcDAO implements BreweryDAO {
         brewery.setName(rows.getString("name"));
         brewery.setRating(rows.getDouble("average_brewery_rating"));
         brewery.setDescription(rows.getString("description"));
-        brewery.setTypeName(rows.getString("type_name"));
+        brewery.setBrewery_type(rows.getString("type_name"));
         brewery.setWebsiteUrl(rows.getString("website_url"));
         brewery.setPhoneNumber(rows.getString("phone_number"));
         brewery.setStreetAddress(rows.getString("street_address"));

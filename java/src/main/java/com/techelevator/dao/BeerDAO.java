@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface BeerDAO {
 
+    Beer retrieveBeer(int id);
+
     List<Beer> retrieveBeers(int breweryId);
 
     List<String> retrieveBeerTypes(int breweryId);

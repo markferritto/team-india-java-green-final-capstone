@@ -38,21 +38,20 @@ public class ReviewJdbcDAO implements ReviewDAO {
     }
 
     @Override
-    public List<Reviews> getBeerReviews(int id, int beerId) {
+    public List<Reviews> getBeerReviews(int id) {
 
         List<Reviews> reviewList = new ArrayList<>();
 
-        String sql = "SELECT beer_reviews.description, stars, title, username " +
+        String sql = "SELECT beer_reviews.description, stars, title, username, beer_reviews.beer_id " +
                      "FROM beer_reviews " +
                      "JOIN beers ON beers.beer_id = beer_reviews.beer_id " +
-                     "WHERE beers.brewery_id = ? " +
-                     "AND beers.beer_id = ?";
+                     "WHERE beers.brewery_id = ? ";
 
-        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id, beerId);
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
 
         while (rows.next()) {
 
-            Reviews review = mapRowReviews(rows);
+            Reviews review = mapRowBeerReviews(rows);
             reviewList.add(review);
         }
 
@@ -75,7 +74,6 @@ public class ReviewJdbcDAO implements ReviewDAO {
         jdbcTemplate.update(sql, id, review.getDescription(), review.getStars(), review.getTitle(), review.getUsername());
     }
 
-
     private Reviews mapRowReviews(SqlRowSet rows) {
 
         Reviews review = new Reviews();
@@ -84,6 +82,19 @@ public class ReviewJdbcDAO implements ReviewDAO {
         review.setStars(rows.getInt("stars"));
         review.setTitle(rows.getString("title"));
         review.setUsername(rows.getString("username"));
+
+        return review;
+    }
+
+    private Reviews mapRowBeerReviews(SqlRowSet rows) {
+
+        Reviews review = new Reviews();
+
+        review.setDescription(rows.getString("description"));
+        review.setStars(rows.getInt("stars"));
+        review.setTitle(rows.getString("title"));
+        review.setUsername(rows.getString("username"));
+        review.setBeerId(rows.getInt("beer_id"));
 
         return review;
     }

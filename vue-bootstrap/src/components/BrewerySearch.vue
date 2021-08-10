@@ -7,14 +7,20 @@
           <label for="exampleDropdownFormEmail1"></label>
           <table class="container">
             <tr>
-              <td><input 
-                class="form-control" v-model="breweryFilter.name"
-                placeholder="Name"
-              /></td>
-              <td><input
-                class="form-control" v-model="breweryFilter.typeName"
-                placeholder="Brewery Type"
-              /></td>
+              <td>
+                <input
+                  class="form-control"
+                  v-model="breweryFilter.name"
+                  placeholder="Name"
+                />
+              </td>
+              <td>
+                <input
+                  class="form-control"
+                  v-model="breweryFilter.typeName"
+                  placeholder="Brewery Type"
+                />
+              </td>
             </tr>
           </table>
         </div>
@@ -22,78 +28,62 @@
     </div>
     <div class="main"></div>
 
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-sm-3 py-3"
-          v-for="brewery in fiteringBrew"
-          v-on:click="sendToBrewery(brewery.breweryId)"
-          v-bind:key="brewery.breweryId"
-        >
-          <div class="card card-body h-100" style="width: 23rem">
-            <img class="card-img-top" src="/img/bg1.jpg" alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{{ brewery.name }}</h5>
-              <p class="card-text description">
-                {{ brewery.description }}
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{ brewery.typeName }}</li>
-              <li class="list-group-item">
-                {{ brewery.streetAddress }}. {{ brewery.city }},
-                {{ brewery.state }}
-                {{ brewery.zip }}
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <div class="stars">
-                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                    {{ brewery.rating }}
+    <!-- Topic Cards -->
+    <div id="cards_landscape_wrap-2">
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
+            v-for="brewery in fiteringBrew"
+            v-on:click="sendToBrewery(brewery.breweryId)"
+            v-bind:key="brewery.breweryId"
+          >
+            <a href="">
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="image-box">
+                    <img
+                      src="/img/bg1.jpg"
+                      alt=""
+                    />
                   </div>
-                </a>
-              </li>
-            </ul>
+                  <div class="text-container">
+                    <h6>{{ brewery.name }}</h6>
+                    <p>
+                      {{ brewery.description }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
-        </div>
-      </div>
-    </div>
 
-    <div class="container">
-      <div class="row">
-        <div
-          class="col-sm-4 py-3"
+          <div
+            class="col-xs-12 col-sm-6 col-md-3 col-lg-3"
           v-for="brewery in openBreweries"
           v-on:click="sendToOpenBrewery(brewery.breweryId)"
           v-bind:key="brewery.breweryId"
-        >
-          <div class="card card-body h-100" style="width: 23rem">
-            <img class="card-img-top" src="/img/bg1.jpg" alt="Card image cap" />
-            <div class="card-body">
-              <h5 class="card-title">{{ brewery.name }}</h5>
-              <p class="card-text description">
-                {{ brewery.description }}
-              </p>
-            </div>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">{{ brewery.brewery_type }}</li>
-              <li class="list-group-item">
-                {{ brewery.street }}. {{ brewery.city }},
-                {{ brewery.state }}
-                {{ brewery.postalCode }}
-              </li>
-              <li class="list-group-item">
-                <a href="#">
-                  <div class="stars">
-                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                    <i class="fa fa-star"></i> <i class="fa fa-star"></i>
-                    {{ brewery.rating }}
+          >
+            <a href="">
+              <div class="card-flyer">
+                <div class="text-box">
+                  <div class="image-box">
+                    <img
+                      src="/img/bg1.jpg"
+                      alt=""
+                    />
                   </div>
-                </a>
-              </li>
-            </ul>
+                  <div class="text-container">
+                    <h6>{{ brewery.name }}</h6>
+                    <p>
+                      {{ brewery.description }}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </a>
           </div>
+
         </div>
       </div>
     </div>
@@ -134,12 +124,18 @@ export default {
           : this.breweryFilter == brewery.name;
       });
     },
-    fiteringBrew(){
-    return this.breweries.filter((brewery)=>{
-      return brewery.name.toLowerCase().includes(this.breweryFilter.name.toLowerCase())  &&  brewery.typeName.toLowerCase().includes(this.breweryFilter.typeName.toLowerCase())  ;
-    })
-
-  }
+    fiteringBrew() {
+      return this.breweries.filter((brewery) => {
+        return (
+          brewery.name
+            .toLowerCase()
+            .includes(this.breweryFilter.name.toLowerCase()) &&
+          brewery.typeName
+            .toLowerCase()
+            .includes(this.breweryFilter.typeName.toLowerCase())
+        );
+      });
+    },
   },
   methods: {
     sendToBrewery(breweryId) {
@@ -214,5 +210,92 @@ export default {
 
 .title {
   color: white;
+}
+
+/*----  Main Style  ----*/
+#cards_landscape_wrap-2 {
+  text-align: center;
+  background: #f7f7f7;
+}
+#cards_landscape_wrap-2 .container {
+  padding-top: 20px;
+  padding-bottom: 50px;
+}
+#cards_landscape_wrap-2 a {
+  text-decoration: none;
+  outline: none;
+}
+#cards_landscape_wrap-2 .card-flyer {
+  border-radius: 5px;
+}
+#cards_landscape_wrap-2 .card-flyer .image-box {
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+  border-radius: px;
+}
+#cards_landscape_wrap-2 .card-flyer .image-box img {
+  -webkit-transition: all 0.9s ease;
+  -moz-transition: all 0.9s ease;
+  -o-transition: all 0.9s ease;
+  -ms-transition: all 0.9s ease;
+  width: 100%;
+  height: 200px;
+}
+#cards_landscape_wrap-2 .card-flyer:hover .image-box img {
+  opacity: 0.7;
+  -webkit-transform: scale(1.15);
+  -moz-transform: scale(1.15);
+  -ms-transform: scale(1.15);
+  -o-transform: scale(1.15);
+  transform: scale(1.15);
+}
+#cards_landscape_wrap-2 .card-flyer .text-box {
+  text-align: center;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box .text-container {
+  padding: 30px 18px;
+}
+#cards_landscape_wrap-2 .card-flyer {
+  background: #ffffff;
+  margin-top: 50px;
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.4);
+}
+#cards_landscape_wrap-2 .card-flyer:hover {
+  background: #fff;
+  box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.5);
+  -webkit-transition: all 0.2s ease-in;
+  -moz-transition: all 0.2s ease-in;
+  -ms-transition: all 0.2s ease-in;
+  -o-transition: all 0.2s ease-in;
+  transition: all 0.2s ease-in;
+  margin-top: 50px;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box p {
+  margin-top: 10px;
+  margin-bottom: 0px;
+  padding-bottom: 0px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  color: #000000;
+}
+#cards_landscape_wrap-2 .card-flyer .text-box h6 {
+  margin-top: 0px;
+  margin-bottom: 4px;
+  font-size: 18px;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Roboto Black", sans-serif;
+  letter-spacing: 1px;
+  color: #00acc1;
+}
+
+.text-container {
+  height: 200px;
 }
 </style>

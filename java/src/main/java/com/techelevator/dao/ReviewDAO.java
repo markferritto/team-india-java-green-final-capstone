@@ -8,7 +8,7 @@ public interface ReviewDAO {
 
     List<Reviews> getBreweryReviews(int id);
 
-    List<Reviews> getBeerReviews(int id);
+    List<Reviews> getBeerReviews(int id, int beerId);
 
     void addBreweryReview(Reviews review, int id);
 

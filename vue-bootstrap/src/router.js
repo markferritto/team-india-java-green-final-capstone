@@ -73,7 +73,7 @@ export default new Router({
     {
       path: '/reviews/breweries/:id/beer/:id',
       name: 'beer-review',
-      components: { default: Index, header: MainNavbar, footer: MainFooter },
+      components: { default: BeerReview, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }

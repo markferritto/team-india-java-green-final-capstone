@@ -70,7 +70,7 @@
               <div class="popover-body">This beer is amazing</div>
             </el-popover>
 
-            <div v-for="beer in beers" v-bind:key="beer.beerId">
+            <div v-for="beer in beers" v-on:click="sendToBeerReview(brewery.breweryId, beer.beerId)" v-bind:key="beer.beerId">
               <div class="row menu-content" v-if="beer.beerType == beerType">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                   <div class="dish-img">
@@ -136,6 +136,11 @@ export default {
         this.beerTypes = response.data;
         this.isLoading = false;
       });
+  },
+  methods: {
+    sendToBeerReview(breweryId, beerId) {
+      this.$router.push(`/reviews/breweries/${breweryId}/beer/${beerId}`);
+    }
   },
 };
 </script>

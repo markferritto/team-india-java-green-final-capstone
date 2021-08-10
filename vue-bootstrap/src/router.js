@@ -8,6 +8,7 @@ import MainNavbar from './layout/MainNavbar.vue';
 import MainFooter from './layout/MainFooter.vue';
 import Breweries from './pages/Breweries.vue';
 import SingleBrewery from './pages/SingleBrewery';
+import BeerReview from './pages/BeerReview';
 
 Vue.use(Router);
 
@@ -64,6 +65,15 @@ export default new Router({
       path: '/breweries/:id',
       name: 'single-brewery',
       components: { default: SingleBrewery, header: MainNavbar, footer: MainFooter },
+      props: {
+        header: { colorOnScroll: 400 },
+        footer: { backgroundColor: 'black' }
+      }
+    },
+    {
+      path: '/reviews/breweries/:id/beer/:id',
+      name: 'beer-review',
+      components: { default: Index, header: MainNavbar, footer: MainFooter },
       props: {
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }

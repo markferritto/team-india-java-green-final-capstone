@@ -81,9 +81,9 @@
                 </div>
                 <div class="col-lg-9 col-md-9 col-sm-9 col-xs-12">
                   <div class="dish-content">
-                    <span class="dish-meta">{{ beer.description }}</span>
+                    <span class="dish-meta">{{ beer.description }} - {{ beer.abv }}</span>
                     <div class="dish-price">
-                      <p>{{ beer.abv }}</p>
+                      <p>{{ beer.stars }}/5 - See Reviews</p>
                     </div>
                   </div>
                 </div>

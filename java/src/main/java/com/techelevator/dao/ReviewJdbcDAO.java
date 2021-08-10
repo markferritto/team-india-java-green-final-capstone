@@ -38,17 +38,16 @@ public class ReviewJdbcDAO implements ReviewDAO {
     }
 
     @Override
-    public List<Reviews> getBeerReviews(int id, int beerId) {
+    public List<Reviews> getBeerReviews(int id) {
 
         List<Reviews> reviewList = new ArrayList<>();
 
         String sql = "SELECT beer_reviews.description, stars, title, username, beer_reviews.beer_id " +
                      "FROM beer_reviews " +
                      "JOIN beers ON beers.beer_id = beer_reviews.beer_id " +
-                     "WHERE beers.brewery_id = ? " +
-                     "AND beers.beer_id = ? ";
+                     "WHERE beers.beer_id = ? ";
 
-        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id, beerId);
+        SqlRowSet rows = jdbcTemplate.queryForRowSet(sql, id);
 
         while (rows.next()) {
 

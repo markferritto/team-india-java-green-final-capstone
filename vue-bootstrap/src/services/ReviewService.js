@@ -5,8 +5,8 @@ export default {
     reviewList(id){
         return axios.get(`reviews/breweries/${id}`);
     },
-    retrieveBeerReviews(id) {
-        return axios.post(`/reviews/breweries/${id}/beer`)
+    retrieveBeerReviews(id, Id) {
+        return axios.post(`/reviews/breweries/${id}/beer/${id}`)
     },
     addReview(id, review) {
         return axios.post(`/reviews/new/breweries/${id}`, review)

@@ -17,7 +17,7 @@
               <td>
                 <input
                   class="form-control"
-                  v-model="breweryFilter.typeName"
+                  v-model="breweryFilter.brewery_type"
                   placeholder="Brewery Type"
                 />
               </td>
@@ -96,7 +96,7 @@ export default {
         name: "",
         rating: "",
         description: "",
-        typeName: "",
+        brewery_type: "",
         websiteUrl: "",
         phoneNumber: "",
         streetAddress: "",
@@ -119,20 +119,27 @@ export default {
     },
     fiteringBrew() {
       return this.breweries.filter((brewery) => {
-        return (
-          brewery.name
-            .toLowerCase()
-            .includes(this.breweryFilter.name.toLowerCase()) 
-          // brewery.typeName
-          //   .toLowerCase()
-          //   .includes(this.breweryFilter.typeName.toLowerCase()) &&
-          // brewery.brewery_type
-          //   .toLowerCase()
-          //   .includes(this.breweryFilter.typeName.toLowerCase())
-        );
+                let nameMatch = brewery.name
+           .toLowerCase()
+          .includes(this.breweryFilter.name.toLowerCase());
+               let typematch = brewery.brewery_type
+           .toLowerCase()
+           .includes(this.breweryFilter.brewery_type.toLowerCase());
+if (
+          (!this.breweryFilter.name || nameMatch) &&
+          (!this.breweryFilter.brewery_type || typematch)
+        ) {
+          return brewery;
+        }
       });
+    }
+
     },
-  },
+
+
+
+
+
   methods: {
     sendToBrewery(breweryId) {
       this.$router.push(`/breweries/${breweryId}`);

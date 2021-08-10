@@ -25,7 +25,7 @@
     <div class="container">
       <div class="row">
         <div
-          class="col-sm-4 py-3"
+          class="col-sm-3 py-3"
           v-for="brewery in fiteringBrew"
           v-on:click="sendToBrewery(brewery.breweryId)"
           v-bind:key="brewery.breweryId"

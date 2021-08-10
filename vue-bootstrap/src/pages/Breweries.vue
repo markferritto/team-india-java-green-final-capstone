@@ -1,7 +1,6 @@
 <template>
   <div>
-         <brewery-search />
-         <DynamicScroller />
+    <brewery-search />
   </div>
 </template>
 
@@ -15,12 +14,10 @@ export default {
 </script>
 
 <style scoped>
-
-#search-box{
-    padding-top: 12vh;
-    padding-bottom: 10px;
-    max-height: 220px;
+#search-box {
+  padding-top: 12vh;
+  padding-bottom: 10px;
+  max-height: 220px;
 }
-
 </style>
 

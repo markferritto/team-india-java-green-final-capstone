@@ -10,49 +10,47 @@
         <div class="container">
           <h1 class="title">{{ brewery.name }}</h1>
         </div>
-
-        <div class="col-md-10 ml-auto col-xl-6 mr-auto">
-          <!-- Nav tabs -->
-          <card>
-            <tabs
-              slot="raw-content"
-              tab-content-classes="tab-content-padding text-center"
-            >
-              <tab-pane>
-                <template slot="label">
-                  <i class="now-ui-icons objects_umbrella-13"></i> About
-                </template>
-                <p>
-                  {{ brewery.description }}
-                </p>
-              </tab-pane>
-              <tab-pane>
-                <template slot="label">
-                  <i class="now-ui-icons shopping_shop"></i> Contact
-                </template>
-                <p>{{ brewery.websiteUrl }}</p>
-                <p>{{ brewery.phoneNumber }}</p>
-                <p>
-                  {{ brewery.streetAddress }}, {{ brewery.city }},
-                  {{ brewery.state }} {{ brewery.zip }}
-                </p>
-              </tab-pane>
-            </tabs>
-          </card>
-        </div>
       </div>
     </div>
 
+    <div class="about-background">
+      <!-- Nav tabs -->
+      <tabs
+        slot="raw-content"
+        tab-content-classes="tab-content-padding text-center"
+      >
+        <tab-pane>
+          <template slot="label" class="button">
+            <i class="now-ui-icons objects_umbrella-13"></i> About
+          </template>
+          <p>
+            {{ brewery.description }}
+          </p>
+          <p>{{ brewery.websiteUrl }}</p>
+          <p>{{ brewery.phoneNumber }}</p>
+          <p>
+            {{ brewery.streetAddress }}, {{ brewery.city }},
+            {{ brewery.state }} {{ brewery.zip }}
+          </p>
+        </tab-pane>
+        <tab-pane>
+          <template slot="label" class="button">
+            <i class="now-ui-icons shopping_shop"></i> Directions
+          </template>
+          <p>Map to be implemented.</p>
+        </tab-pane>
+      </tabs>
+    </div>
+
+    <header>
+      <h1>Beer</h1>
+      <img
+        src="https://assets.codepen.io/t-517/divider-triangle.png"
+        class="divider"
+      />
+    </header>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 text-center">
-          <div class="page-section">
-            <h1 class="page-title">Beer</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <!-- Porter -->
         <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 mb40">
           <div
             class="menu-block"
@@ -73,10 +71,7 @@
             </el-popover>
 
             <div v-for="beer in beers" v-bind:key="beer.beerId">
-              <div
-                class="row menu-content"
-                v-if="beer.beerType == beerType"
-              >
+              <div class="row menu-content" v-if="beer.beerType == beerType">
                 <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                   <div class="dish-img">
                     <h5 class="dish-title">
@@ -96,7 +91,6 @@
             </div>
           </div>
         </div>
-        <!-- /.porter -->
         <div class="row"></div>
       </div>
     </div>
@@ -106,14 +100,13 @@
 <script>
 import breweryService from "../services/BreweryService.js";
 import beerService from "../services/BeerService.js";
-import { Card, Tabs, TabPane } from "@/components";
+import { Tabs, TabPane } from "@/components";
 import { Popover } from "element-ui";
 
 export default {
   name: "brewery-display",
 
   components: {
-    Card,
     Tabs,
     TabPane,
     [Popover.name]: Popover,
@@ -210,9 +203,33 @@ p {
   position: inherit;
 }
 
-.page-title {
-  background-color: grey;
-  border-bottom-left-radius: 2em;
-  border-bottom-right-radius: 2em;
+header {
+  position: relative;
+  height: 250px;
+  background-image: linear-gradient(rgb(231, 157, 83), rgb(204, 153, 0));
+}
+
+h1 {
+  margin: 0;
+  padding: 50px 0;
+  text-align: center;
+}
+
+header h1 {
+  color: white;
+}
+
+.divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100px;
+  /* drop the height to have a constant angle for all screen widths */
+}
+
+.about-background {
+  background-color: rgb(231, 157, 83);
 }
 </style>

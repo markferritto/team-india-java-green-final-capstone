@@ -1,136 +1,148 @@
 <template>
   <div>
-    <div class="container">
+    <div class="container py-5">
       <div class="row">
-        <div
-          class="col-sm-4 py-4"
-          v-for="revi in reviews"
-          v-bind:key="revi.breweryId"
-        >
-          <div class="card" style="width: 20rem">
-            <div class="container d-flex justify-content-center mt-200"></div>
-            <div class="card-body">
-              <h4>
-                <link
-                  rel="stylesheet"
-                  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                />
-                <span
-                  v-for="n in revi.stars"
-                  v-bind:key="n.id"
-                  class="fa fa-star checked"
-                ></span>
-                <span
-                  v-for="n in 5 - revi.stars"
-                  v-bind:key="n.id"
-                  class="fa fa-star"
-                ></span>
-              </h4>
-              <h4 class="card-title">{{ revi.title }}</h4>
-              <h4 class="card-title">{{ revi.username }}</h4>
-
-              <p class="card-text">{{ revi.description }}</p>
-            </div>
+        <div class="col-sm mx-auto bg-white rounded shadow">
+          <!-- Fixed header table-->
+          <div class="table-responsive">
+            <table class="table table-fixed">
+              <tbody>
+                <tr>
+                  <th></th>
+                  <tc scope="row" class=".col-6 .col-sm-3">
+                    <div
+                      class="col-sm-4 py-4"
+                      v-for="revi in reviews"
+                      v-bind:key="revi.breweryId"
+                    >
+                      <div class="card" style="width: 30rem">
+                        <div class="card-body">
+                          <h4>
+                            <link
+                              rel="stylesheet"
+                              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                            />
+                            <span
+                              v-for="n in revi.stars"
+                              v-bind:key="n.id"
+                              class="fa fa-star checked"
+                            ></span>
+                            <span
+                              v-for="n in 5 - revi.stars"
+                              v-bind:key="n.id"
+                              class="fa fa-star"
+                            ></span>
+                          </h4>
+                          <h3 class="card-title">{{ revi.title }}</h3>
+                          <h5 class="card-title">-{{ revi.username }}</h5>
+                          <h5 class="card-text">{{ revi.description }}</h5>
+                        </div>
+                      </div>
+                    </div>
+                  </tc>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <!-- End -->
+        </div>
+
+        <div id="breweryReviewForm" class="col-sm">
+          <h1 class="title">Leave a Review!</h1>
+          <form v-on:submit.prevent="submitForm" class="reviewForm">
+            <div>
+              <div class="stars">
+                <form action="">
+                  <input
+                    class="star star-5"
+                    id="star-5"
+                    type="radio"
+                    name="star"
+                    value="5"
+                    v-model="review.stars"
+                  />
+                  <label class="star star-5" for="star-5"></label>
+                  <input
+                    class="star star-4"
+                    id="star-4"
+                    type="radio"
+                    name="star"
+                    value="4"
+                    v-model="review.stars"
+                  />
+                  <label class="star star-4" for="star-4"></label>
+                  <input
+                    class="star star-3"
+                    id="star-3"
+                    type="radio"
+                    name="star"
+                    value="3"
+                    v-model="review.stars"
+                  />
+                  <label class="star star-3" for="star-3"></label>
+                  <input
+                    class="star star-2"
+                    id="star-2"
+                    type="radio"
+                    name="star"
+                    value="2"
+                    v-model="review.stars"
+                  />
+                  <label class="star star-2" for="star-2"></label>
+                  <input
+                    class="star star-1"
+                    id="star-1"
+                    type="radio"
+                    name="star"
+                    value="1"
+                    v-model="review.stars"
+                  />
+                  <label class="star star-1" for="star-1"></label>
+                </form>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                type="text"
+                class="form-control"
+                v-model="review.title"
+              />
+            </div>
+
+            <div class="name">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                v-model="review.username"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="description">Description</label>
+              <input
+                id="mlsNumber"
+                type="text"
+                class="form-control"
+                v-model="review.description"
+              />
+            </div>
+
+            <button class="btn btn-submit">Submit</button>
+            <button
+              v-on:click.prevent="resetForm"
+              class="btn btn-cancel"
+              type="cancel"
+            >
+              Cancel
+            </button>
+          </form>
         </div>
       </div>
-    </div>
-
-    <div id="addHomeform">
-      <form v-on:submit.prevent="submitForm" class="reviewForm">
-        <div class="row">
-          <div class="col-md-12">
-            <div class="stars">
-              <form action="">
-                <input
-                  class="star star-5"
-                  id="star-5"
-                  type="radio"
-                  name="star"
-                  value="5"
-                  v-model="review.stars"
-                />
-                <label class="star star-5" for="star-5"></label>
-                <input
-                  class="star star-4"
-                  id="star-4"
-                  type="radio"
-                  name="star"
-                  value="4"
-                  v-model="review.stars"
-                />
-                <label class="star star-4" for="star-4"></label>
-                <input
-                  class="star star-3"
-                  id="star-3"
-                  type="radio"
-                  name="star"
-                  value="3"
-                  v-model="review.stars"
-                />
-                <label class="star star-3" for="star-3"></label>
-                <input
-                  class="star star-2"
-                  id="star-2"
-                  type="radio"
-                  name="star"
-                  value="2"
-                  v-model="review.stars"
-                />
-                <label class="star star-2" for="star-2"></label>
-                <input
-                  class="star star-1"
-                  id="star-1"
-                  type="radio"
-                  name="star"
-                  value="1"
-                  v-model="review.stars"
-                />
-                <label class="star star-1" for="star-1"></label>
-              </form>
-            </div>
-          </div>
-        </div>
-
-        <div class="form-group">
-          <label for="mlsNumber">Description</label>
-          <input
-            id="mlsNumber"
-            type="text"
-            class="form-control"
-            v-model="review.description"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="city">Title</label>
-          <input
-            id="city"
-            type="text"
-            class="form-control"
-            v-model="review.title"
-          />
-        </div>
-
-        <div class="form-group">
-          <label for="state">UserName</label>
-          <input
-            id="state"
-            type="text"
-            class="form-control"
-            v-model="review.username"
-          />
-        </div>
-
-        <button class="btn btn-submit">Submit</button>
-        <button
-          v-on:click.prevent="resetForm"
-          class="btn btn-cancel"
-          type="cancel"
-        >
-          Cancel
-        </button>
-      </form>
     </div>
   </div>
 </template>
@@ -188,7 +200,7 @@ export default {
 </script>
 
 <style scoped>
-#addHomeform {
+#breweryReviewForm {
   margin-left: auto;
   margin-right: auto;
   width: 500px;
@@ -327,5 +339,34 @@ label.star:hover {
 label.star:before {
   content: "\f006";
   font-family: FontAwesome;
+}
+
+.table-fixed tbody {
+  height: 900px;
+  overflow-y: auto;
+  width: 100%;
+}
+
+.table-fixed thead,
+.table-fixed tbody,
+.table-fixed tr,
+.table-fixed td,
+.table-fixed th {
+  display: block;
+}
+
+.table-fixed tbody td,
+.table-fixed tbody th,
+.table-fixed thead > tr > th {
+  float: left;
+  position: relative;
+}
+
+.title {
+  text-align: center;
+}
+
+td {
+  align-content: center;
 }
 </style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="p-5 text-center bg-dark" filter-color="brown">
+    <div class="p-5 text-center bg-dark" >
       <div id="search-box" class="container">
         <h1 class="title">Find a Brewery</h1>
         <div class="form-group">
@@ -9,7 +9,7 @@
             <tr>
               <td>
                 <input
-                  class="form-control"
+                  class="form-control search-button"
                   v-model="breweryFilter.name"
                   placeholder="Name"
                 />
@@ -17,10 +17,10 @@
               <td>
                 <select
                   required
-                  class="form-control"
+                  class="form-control search-button"
                   v-model="breweryFilter.brewery_type"
                 >
-                  <option value="">
+                  <option class="search-button" value="">
                     Brewery Type
                   </option>
                   <option value="micro">Microbrewery</option>
@@ -327,5 +327,9 @@ export default {
 
 h5 {
   color: black;
+}
+
+.search-button {
+  background-color: white;
 }
 </style>

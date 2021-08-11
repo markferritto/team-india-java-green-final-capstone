@@ -25,6 +25,7 @@
           </template>
           <p>
             {{ brewery.description }}
+            {{ $store.state.user }}
           </p>
           <p>{{ brewery.websiteUrl }}</p>
           <p>{{ brewery.phoneNumber }}</p>
@@ -89,7 +90,7 @@
                       <div class="dish-price">
                         <p>
                           {{ beer.stars }}/5
-                          <n-button type="danger" v-on:click="deleteBeer(beer.beerId).reload()"
+                          <n-button type="danger" v-if="$store.state.user.authorities[0].role === 'ROLE_ADMIN'" v-on:click="deleteBeer(beer.beerId).reload()"
                             >Delete Beer</n-button
                           >
                         </p>
@@ -107,7 +108,7 @@
 
 <div>
     <!-- <button  v-on:click="showForm = !showForm">Add a New Beer</button> -->
-<button   v-on:click="showForm = !showForm" class="btn btn-primary btn-round" type="button">
+<button  v-if="$store.state.user.authorities[0].role === 'ROLE_ADMIN'" v-on:click="showForm = !showForm" class="btn btn-primary btn-round" type="button">
 	<i class="now-ui-icons ui-2_favourite-28"></i> Add a New Beer
 </button>
 

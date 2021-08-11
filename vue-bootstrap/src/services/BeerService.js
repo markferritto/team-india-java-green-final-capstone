@@ -12,10 +12,14 @@ export default {
     retrieveBeerTypesPerBrewery(id) {
         return axios.get(`/breweries/${id}/beers/types`)
     },
-    addBeer(beer) {
-        return axios.post('/breweries/{id}/new/beer/${beerId}', beer)
-    },
+    // addBeer(beer) {
+    //     return axios.post('/breweries/{id}/new/beer/${beerId}', beer)
+    // },
     deleteBeer(beerId) {
         return axios.delete(`/delete/beer/${beerId}`)
+    },
+
+    addBeer(beer,id) {
+        return axios.post(`/breweries/${id}/new/beer`, beer)
     },
 }

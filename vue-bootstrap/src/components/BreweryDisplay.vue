@@ -25,7 +25,6 @@
           </template>
           <p>
             {{ brewery.description }}
-            {{ $store.state.user }}
           </p>
           <p>{{ brewery.websiteUrl }}</p>
           <p>{{ brewery.phoneNumber }}</p>

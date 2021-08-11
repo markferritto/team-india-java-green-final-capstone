@@ -104,96 +104,305 @@
           <div class="col-lg-8">
             <div id="breweryReviewForm" class="col-sm">
               <form v-on:submit.prevent="submitForm" class="reviewForm">
-                    <div class="row mb-3">
-                      <div class="stars">
-                        <form action="">
-                          <input
-                            class="star star-5"
-                            id="star-5"
-                            type="radio"
-                            name="star"
-                            value="5"
-                            v-model="review.stars"
-                          />
-                          <label class="star star-5" for="star-5"></label>
-                          <input
-                            class="star star-4"
-                            id="star-4"
-                            type="radio"
-                            name="star"
-                            value="4"
-                            v-model="review.stars"
-                          />
-                          <label class="star star-4" for="star-4"></label>
-                          <input
-                            class="star star-3"
-                            id="star-3"
-                            type="radio"
-                            name="star"
-                            value="3"
-                            v-model="review.stars"
-                          />
-                          <label class="star star-3" for="star-3"></label>
-                          <input
-                            class="star star-2"
-                            id="star-2"
-                            type="radio"
-                            name="star"
-                            value="2"
-                            v-model="review.stars"
-                          />
-                          <label class="star star-2" for="star-2"></label>
-                          <input
-                            class="star star-1"
-                            id="star-1"
-                            type="radio"
-                            name="star"
-                            value="1"
-                            v-model="review.stars"
-                          />
-                          <label class="star star-1" for="star-1"></label>
-                        </form>
-                      </div>
-                    </div>
-
-                    <div class="form-group">
-                      <label for="title">Title</label>
+                <div class="row">
+                  <div class="stars">
+                    <form action="">
                       <input
-                        id="title"
-                        type="text"
-                        class="form-control"
-                        v-model="review.title"
+                        class="star star-5"
+                        id="star-5"
+                        type="radio"
+                        name="star"
+                        value="5"
+                        v-model="review.stars"
                       />
-                    </div>
-
-                    <div class="name">
-                      <label for="name">Name</label>
+                      <label class="star star-5" for="star-5"></label>
                       <input
-                        id="name"
-                        type="text"
-                        class="form-control"
-                        v-model="review.username"
+                        class="star star-4"
+                        id="star-4"
+                        type="radio"
+                        name="star"
+                        value="4"
+                        v-model="review.stars"
                       />
-                    </div>
-
-                    <div class="form-group">
-                      <label for="description">Description</label>
+                      <label class="star star-4" for="star-4"></label>
                       <input
-                        id="mlsNumber"
-                        type="text"
-                        class="form-control"
-                        v-model="review.description"
+                        class="star star-3"
+                        id="star-3"
+                        type="radio"
+                        name="star"
+                        value="3"
+                        v-model="review.stars"
                       />
-                    </div>
+                      <label class="star star-3" for="star-3"></label>
+                      <input
+                        class="star star-2"
+                        id="star-2"
+                        type="radio"
+                        name="star"
+                        value="2"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-2" for="star-2"></label>
+                      <input
+                        class="star star-1"
+                        id="star-1"
+                        type="radio"
+                        name="star"
+                        value="1"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-1" for="star-1"></label>
+                    </form>
+                  </div>
+                  <div><h5>Overall</h5> </div>
+                </div>
 
-                    <button class="btn btn-submit">Submit</button>
-                    <button
-                      v-on:click.prevent="resetForm"
-                      class="btn btn-cancel"
-                      type="cancel"
-                    >
-                      Cancel
-                    </button>
+                <div class="row mb-3">
+                  <div class="stars">
+                    <form action="">
+                      <input
+                        class="star star-5"
+                        id="star-5"
+                        type="radio"
+                        name="star"
+                        value="5"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-5" for="star-5"></label>
+                      <input
+                        class="star star-4"
+                        id="star-4"
+                        type="radio"
+                        name="star"
+                        value="4"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-4" for="star-4"></label>
+                      <input
+                        class="star star-3"
+                        id="star-3"
+                        type="radio"
+                        name="star"
+                        value="3"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-3" for="star-3"></label>
+                      <input
+                        class="star star-2"
+                        id="star-2"
+                        type="radio"
+                        name="star"
+                        value="2"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-2" for="star-2"></label>
+                      <input
+                        class="star star-1"
+                        id="star-1"
+                        type="radio"
+                        name="star"
+                        value="1"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-1" for="star-1"></label>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="stars">
+                    <form action="">
+                      <input
+                        class="star star-5"
+                        id="star-5"
+                        type="radio"
+                        name="star"
+                        value="5"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-5" for="star-5"></label>
+                      <input
+                        class="star star-4"
+                        id="star-4"
+                        type="radio"
+                        name="star"
+                        value="4"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-4" for="star-4"></label>
+                      <input
+                        class="star star-3"
+                        id="star-3"
+                        type="radio"
+                        name="star"
+                        value="3"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-3" for="star-3"></label>
+                      <input
+                        class="star star-2"
+                        id="star-2"
+                        type="radio"
+                        name="star"
+                        value="2"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-2" for="star-2"></label>
+                      <input
+                        class="star star-1"
+                        id="star-1"
+                        type="radio"
+                        name="star"
+                        value="1"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-1" for="star-1"></label>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="stars">
+                    <form action="">
+                      <input
+                        class="star star-5"
+                        id="star-5"
+                        type="radio"
+                        name="star"
+                        value="5"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-5" for="star-5"></label>
+                      <input
+                        class="star star-4"
+                        id="star-4"
+                        type="radio"
+                        name="star"
+                        value="4"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-4" for="star-4"></label>
+                      <input
+                        class="star star-3"
+                        id="star-3"
+                        type="radio"
+                        name="star"
+                        value="3"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-3" for="star-3"></label>
+                      <input
+                        class="star star-2"
+                        id="star-2"
+                        type="radio"
+                        name="star"
+                        value="2"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-2" for="star-2"></label>
+                      <input
+                        class="star star-1"
+                        id="star-1"
+                        type="radio"
+                        name="star"
+                        value="1"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-1" for="star-1"></label>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="row mb-3">
+                  <div class="stars">
+                    <form action="">
+                      <input
+                        class="star star-5"
+                        id="star-5"
+                        type="radio"
+                        name="star"
+                        value="5"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-5" for="star-5"></label>
+                      <input
+                        class="star star-4"
+                        id="star-4"
+                        type="radio"
+                        name="star"
+                        value="4"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-4" for="star-4"></label>
+                      <input
+                        class="star star-3"
+                        id="star-3"
+                        type="radio"
+                        name="star"
+                        value="3"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-3" for="star-3"></label>
+                      <input
+                        class="star star-2"
+                        id="star-2"
+                        type="radio"
+                        name="star"
+                        value="2"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-2" for="star-2"></label>
+                      <input
+                        class="star star-1"
+                        id="star-1"
+                        type="radio"
+                        name="star"
+                        value="1"
+                        v-model="review.stars"
+                      />
+                      <label class="star star-1" for="star-1"></label>
+                    </form>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input
+                    id="title"
+                    type="text"
+                    class="form-control"
+                    v-model="review.title"
+                  />
+                </div>
+
+                <div class="name">
+                  <label for="name">Name</label>
+                  <input
+                    id="name"
+                    type="text"
+                    class="form-control"
+                    v-model="review.username"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="description">Description</label>
+                  <input
+                    id="mlsNumber"
+                    type="text"
+                    class="form-control"
+                    v-model="review.description"
+                  />
+                </div>
+
+                <button class="btn btn-submit">Submit</button>
+                <button
+                  v-on:click.prevent="resetForm"
+                  class="btn btn-cancel"
+                  type="cancel"
+                >
+                  Cancel
+                </button>
               </form>
             </div>
             <div class="row">
@@ -303,7 +512,11 @@ export default {
     resetForm() {
       this.review = {
         description: "",
-        stars: 0,
+        overall: 0,
+        look: 0,
+        smell: 0,
+        feel: 0,
+        taste: 0,
         title: "",
         username: "",
       };
@@ -527,5 +740,4 @@ body {
 .container {
   padding-bottom: 100px;
 }
-
 </style>

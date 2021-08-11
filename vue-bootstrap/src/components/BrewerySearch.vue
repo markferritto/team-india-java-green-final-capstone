@@ -15,11 +15,21 @@
                 />
               </td>
               <td>
-                <input
+                <select
+                  required
                   class="form-control"
                   v-model="breweryFilter.brewery_type"
-                  placeholder="Brewery Type"
-                />
+                >
+                  <option value="">
+                    Brewery Type
+                  </option>
+                  <option value="micro">Microbrewery</option>
+                  <option value="brew">Brew Pub</option>
+                  <option value="tap">Taproom</option>
+                  <option value="reg">Regional</option>
+                  <option value="con">Contract</option>
+                  <option value="alt">Alternating Proprietor</option>
+                </select>
               </td>
             </tr>
           </table>

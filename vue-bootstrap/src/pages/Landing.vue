@@ -49,14 +49,14 @@
                 <p class="category text-primary">
                   1101 N 4th St, Columbus, OH 43201
                 </p>
-                <p class="description">
+                <h5>
                   Seventh Son Brewing and Antiques on High represent the
                   collective efforts of childhood friends Jen Burton, Travis
                   Spencer, and Collin Castore. Brewmaster Colin Vent joined the
                   team in 2011 and his unique take on craft beer styles and his
                   dedication to quality continue to raise the bar for the
                   Columbus brewing community.
-                </p>
+                </h5>
                 <a
                   href="https://twitter.com/seventhsonbrew?lang=en"
                   target="_blank"
@@ -88,13 +88,13 @@
                 <p class="category text-primary">
                   424 W Town St, Columbus, OH 43215
                 </p>
-                <p class="description">
+                <h5>
                   The old factory was built in 1920, and bringing this old
                   building up to snuff was an endeavor; countless blood, sweat,
                   and beers were poured into demo and construction from a cast
                   of amazing folks, namely, Compton Construction and Mode
                   Architects.
-                </p>
+                </h5>
                 <a
                   href="https://twitter.com/landgrantbeer?lang=en"
                   target="_blank"
@@ -126,7 +126,7 @@
                 <p class="category text-primary">
                   2555 Harrison Rd, Columbus, OH 43204
                 </p>
-                <p class="description">
+                <h5>
                   Columbus Brewing Company is an independent craft brewery
                   dedicated to exploring the flavors of American hops. Best
                   known for Columbus IPA and Bodhi, we also enjoy the subtleties
@@ -134,7 +134,7 @@
                   aged beers and everything in between. We have designed and
                   built our new brewery to make more beer, but also to allow us
                   to explore new frontiers.
-                </p>
+                </h5>
                 <a
                   href="https://twitter.com/ColumbusBrewing"
                   target="_blank"

@@ -17,6 +17,16 @@
               Blog
             </a>
           </li>
+          <li>
+            <a href="#">
+              Contact Us
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              Privacy Policy
+            </a>
+          </li>
         </ul>
       </nav>
     

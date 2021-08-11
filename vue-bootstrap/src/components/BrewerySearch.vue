@@ -41,13 +41,13 @@
                 <div class="card-flyer">
                   <div class="text-box">
                     <div class="image-box">
-                      <img src="/img/bg1.jpg" alt="" />
+                      <img :src="randomItem(images)" alt="" />
                     </div>
                     <div class="text-container">
                       <h6>{{ brewery.name }}</h6>
-                      <p>
+                      <h5>
                         {{ brewery.description }}
-                      </p>
+                      </h5>
                     </div>
                   </div>
                 </div>
@@ -107,6 +107,18 @@ export default {
       breweries: [],
       isLoading: true,
       openBreweries: [],
+      images: [
+        "/img/brewerypic1.jpeg",
+        "/img/brewerypic2.jpeg",
+        "/img/brewerypic3.jpeg",
+        "/img/brewerypic4.jpeg",
+        "/img/brewerypic5.jpeg",
+        "/img/brewerypic6.jpeg",
+        "/img/brewerypic7.jpeg",
+        "/img/brewerypic8.jpeg",
+        "/img/brewerypic9.jpeg",
+      ],
+      selectedImage: null,
     };
   },
   computed: {
@@ -119,33 +131,30 @@ export default {
     },
     fiteringBrew() {
       return this.breweries.filter((brewery) => {
-                let nameMatch = brewery.name
-           .toLowerCase()
+        let nameMatch = brewery.name
+          .toLowerCase()
           .includes(this.breweryFilter.name.toLowerCase());
-               let typematch = brewery.brewery_type
-           .toLowerCase()
-           .includes(this.breweryFilter.brewery_type.toLowerCase());
-if (
+        let typematch = brewery.brewery_type
+          .toLowerCase()
+          .includes(this.breweryFilter.brewery_type.toLowerCase());
+        if (
           (!this.breweryFilter.name || nameMatch) &&
           (!this.breweryFilter.brewery_type || typematch)
         ) {
           return brewery;
         }
       });
-    }
-
     },
-
-
-
-
-
+  },
   methods: {
     sendToBrewery(breweryId) {
       this.$router.push(`/breweries/${breweryId}`);
     },
     sendToOpenBrewery(website_url) {
       this.$router.push(`${website_url}`);
+    },
+    randomItem(items) {
+      return items[Math.floor(Math.random() * items.length)];
     },
   },
   created() {
@@ -304,5 +313,9 @@ if (
 
 .main {
   background: grey;
+}
+
+h5 {
+  color: black;
 }
 </style>

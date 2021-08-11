@@ -17,58 +17,30 @@
         width="200"
         trigger="hover"
       >
-        <div class="popover-body">
-          Take Me Home!
-        </div>
+        <div class="popover-body">Take Me Home!</div>
       </el-popover>
     </template>
     <template slot="navbar-menu">
       <li class="nav-item">
-      <router-link v-popover:popover1 class="navbar-brand" to="/breweries">
-        Breweries
-      </router-link>
+        <router-link v-popover:popover1 class="navbar-brand" to="/breweries">
+          Breweries
+        </router-link>
       </li>
-      <!-- <drop-down
-        tag="li"
-        title="Components"
-        icon="now-ui-icons design_app"
-        class="nav-item"
-      >
-        <nav-link to="/">
-          <i class="now-ui-icons business_chart-pie-36"></i> All components
-        </nav-link>
-        <a
-          href="https://demos.creative-tim.com/vue-now-ui-kit/documentation"
-          target="_blank"
-          class="dropdown-item"
-        >
-          <i class="now-ui-icons design_bullet-list-67"></i> Documentation
-        </a>
-      </drop-down>
-      <drop-down
-              tag="li"
-              title="Examples"
-              icon="now-ui-icons design_image"
-              class="nav-item"
-      >
-        <nav-link to="/index">
-          <i class="now-ui-icons education_paper"></i> Index
-        </nav-link>
-        <nav-link to="/login">
-          <i class="now-ui-icons users_circle-08"></i> Login
-        </nav-link>
-        <nav-link to="/profile">
-          <i class="now-ui-icons users_single-02"></i> Profile
-        </nav-link>
-      </drop-down> -->
       <li class="nav-item">
-          <!-- <router-link v-popover:popover1 class="navbar-brand" to="/login">
-        LOGIN
-      </router-link> -->
- <router-link  v-popover:popover1 class="navbar-brand" v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
-           <router-link  v-popover:popover1 class="navbar-brand" v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
-       
-
+        <router-link
+          v-popover:popover1
+          class="navbar-brand"
+          v-bind:to="{ name: 'logout' }"
+          v-if="$store.state.token != ''"
+          >Logout</router-link
+        >
+        <router-link
+          v-popover:popover1
+          class="navbar-brand"
+          v-bind:to="{ name: 'login' }"
+          v-if="$store.state.token == ''"
+          >Login</router-link
+        >
       </li>
 
       <li class="nav-item">
@@ -112,24 +84,23 @@
 </template>
 
 <script>
-import { Navbar } from '@/components';
+import { Navbar } from "@/components";
 // import { DropDown, Navbar, NavLink } from '@/components';
-import { Popover } from 'element-ui';
+import { Popover } from "element-ui";
 export default {
-  name: 'main-navbar',
+  name: "main-navbar",
   props: {
     transparent: Boolean,
-    colorOnScroll: Number
+    colorOnScroll: Number,
   },
   components: {
     // DropDown,
     Navbar,
     // NavLink,
-    [Popover.name]: Popover
-  }
+    [Popover.name]: Popover,
+  },
 };
 </script>
 
 <style scoped>
-
 </style>

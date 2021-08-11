@@ -62,9 +62,13 @@
         </nav-link>
       </drop-down> -->
       <li class="nav-item">
-          <router-link v-popover:popover1 class="navbar-brand" to="/login">
+          <!-- <router-link v-popover:popover1 class="navbar-brand" to="/login">
         LOGIN
-      </router-link>
+      </router-link> -->
+ <router-link v-bind:to="{ name: 'logout' }" v-if="$store.state.token != ''">Logout</router-link>
+           <router-link v-bind:to="{ name: 'login' }" v-if="$store.state.token == ''">Login</router-link>
+       
+
       </li>
 
       <li class="nav-item">

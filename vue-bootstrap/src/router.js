@@ -9,6 +9,8 @@ import MainFooter from './layout/MainFooter.vue';
 import Breweries from './pages/Breweries.vue';
 import SingleBrewery from './pages/SingleBrewery';
 import BeerReview from './pages/BeerReview';
+import Logout from './pages/Logout';
+
 
 Vue.use(Router);
 
@@ -39,6 +41,14 @@ export default new Router({
       path: '/login',
       name: 'login',
       components: { default: Login, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: '/logout',
+      name: 'logout',
+      components: { default: Logout, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 }
       }

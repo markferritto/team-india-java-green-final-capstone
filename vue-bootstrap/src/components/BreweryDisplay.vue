@@ -103,6 +103,56 @@
         </div>
       </div>
     </div>
+
+
+<div>
+    <!-- <button  v-on:click="showForm = !showForm">Add a New Beer</button> -->
+<button   v-on:click="showForm = !showForm" class="btn btn-primary btn-round" type="button">
+	<i class="now-ui-icons ui-2_favourite-28"></i> Add a New Beer
+</button>
+
+
+<form  v-show="showForm" v-on:submit.prevent="addingBeer"> 
+ 
+  <div class="form-group">
+    <label for="inputAddress">Beer Name</label>
+    <input type="text" class="form-control" id="inputAddress" v-model="newBeer.name" >
+  </div>
+  <div class="form-group">
+    <label for="inputAddress2">Description</label>
+    <input type="text" class="form-control" id="inputAddress2" v-model="newBeer.description" >
+  </div>
+  <div class="form-row">
+    
+
+<div class="form-group">
+    <label for="inputAddress2">ABV</label>
+    <input type="text" class="form-control"  v-model="newBeer.abv" >
+  </div>
+
+    <div class="form-group col-md-4">
+      <label for="inputState">beerType</label>
+      <select id="inputState" class="form-control" v-model="newBeer.beerType">
+        <option selected>Choose...</option>
+        <option value="1">Pale Ale</option>
+          <option value="2">Lager</option>
+        <option value="3">India Pale Ale</option>
+                <option value="4">Stout</option>
+        <option value="5">Pilsner</option>
+        <option value="6">Porter</option>
+
+      
+      </select>
+    </div>
+    
+  </div>
+ 
+  <button type="submit" class="btn btn-primary">Save Beer</button>
+</form>
+
+    
+  </div>
+
   </div>
 </template>
 
@@ -128,6 +178,9 @@ export default {
       beers: [],
       beerTypes: [],
       isLoading: true,
+
+        showForm: false,
+      newBeer: {},
     };
   },
   created() {
@@ -155,6 +208,14 @@ export default {
       beerService.deleteBeer(beerId);
       window.location.reload(true);
     },
+    addingBeer() {
+      beerService.addBeer(this.newBeer,this.$route.params.id).then((response) => {
+        if (response.status === 201) {
+          this.showForm = false;
+          this.newBeer = {};
+        }
+      });
+    }
   },
 };
 </script>
@@ -251,5 +312,10 @@ header h1 {
 
 .about-background {
   background-color: rgb(231, 157, 83);
+}
+
+
+.btn save{
+  align-content: center;
 }
 </style>

@@ -21,10 +21,10 @@
                   v-model="breweryFilter.brewery_type"
                 >
                   <option class="search-button" value="">
-                    Brewery Type
+                    Select Brewery Type
                   </option>
                   <option value="micro">Microbrewery</option>
-                  <option value="brew">Brew Pub</option>
+                  <option value="brew pub">Brew Pub</option>
                   <option value="tap">Taproom</option>
                   <option value="reg">Regional</option>
                   <option value="con">Contract</option>
@@ -54,10 +54,13 @@
                       <img :src="randomItem(images)" alt="" />
                     </div>
                     <div class="text-container">
-                      <h6>{{ brewery.name }}</h6>
+                      <h6>{{ brewery.name }}<p>{{ brewery.brewery_type }}</p></h6>
                       <h5>
                         {{ brewery.description }}
                       </h5>
+                      <p>
+                        {{ brewery.streetAddress }}{{ brewery.street}}, {{ brewery.city }} {{ brewery.state}} {{ brewery.zip }}
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -318,7 +321,7 @@ export default {
 }
 
 .text-container {
-  height: 200px;
+  height: 260px;
 }
 
 .main {
@@ -326,10 +329,17 @@ export default {
 }
 
 h5 {
+  
   color: black;
 }
 
 .search-button {
   background-color: white;
+}
+
+p {
+
+  color: black;
+  font-weight: bold;
 }
 </style>

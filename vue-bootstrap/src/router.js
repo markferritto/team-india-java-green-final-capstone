@@ -10,7 +10,7 @@ import Breweries from './pages/Breweries.vue';
 import SingleBrewery from './pages/SingleBrewery';
 import BeerReview from './pages/BeerReview';
 import Logout from './pages/Logout';
-
+import Register from './pages/Register.vue'
 
 Vue.use(Router);
 
@@ -88,7 +88,15 @@ export default new Router({
         header: { colorOnScroll: 400 },
         footer: { backgroundColor: 'black' }
       }
-    }
+    },
+    {
+      path: '/register',
+      name: 'register',
+      components: { default: Register, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
   ],
   scrollBehavior: to => {
     if (to.hash) {

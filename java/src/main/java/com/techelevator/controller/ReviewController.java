@@ -2,6 +2,7 @@ package com.techelevator.controller;
 
 import com.techelevator.dao.BreweryDAO;
 import com.techelevator.dao.ReviewDAO;
+import com.techelevator.model.BeerReview;
 import com.techelevator.model.Brewery;
 import com.techelevator.model.Reviews;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,7 +28,7 @@ public class ReviewController {
 
     @PreAuthorize("permitAll")
     @RequestMapping(path = "reviews/beer/{id}", method = RequestMethod.GET)
-    public List<Reviews> retrieveBeerReviews(@PathVariable int id) {
+    public List<BeerReview> retrieveBeerReviews(@PathVariable int id) {
         return reviewDAO.getBeerReviews(id);
     }
 
@@ -41,7 +42,7 @@ public class ReviewController {
     @PreAuthorize("permitAll")
     @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/reviews/new/breweries/{id}/beer/{beerId}", method = RequestMethod.POST)
-    public void addBeerReview(@RequestBody Reviews review, @PathVariable int id, @PathVariable int beerId) {
+    public void addBeerReview(@RequestBody BeerReview review, @PathVariable int id, @PathVariable int beerId) {
         reviewDAO.addBeerReview(review, id, beerId);
     }
 }

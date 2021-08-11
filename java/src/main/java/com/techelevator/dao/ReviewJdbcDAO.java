@@ -1,5 +1,7 @@
 package com.techelevator.dao;
 
+import com.techelevator.model.Beer;
+import com.techelevator.model.BeerReview;
 import com.techelevator.model.Brewery;
 import com.techelevator.model.Reviews;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -38,11 +40,11 @@ public class ReviewJdbcDAO implements ReviewDAO {
     }
 
     @Override
-    public List<Reviews> getBeerReviews(int id) {
+    public List<BeerReview> getBeerReviews(int id) {
 
-        List<Reviews> reviewList = new ArrayList<>();
+        List<BeerReview> reviewList = new ArrayList<>();
 
-        String sql = "SELECT beer_reviews.description, stars, title, username, beer_reviews.beer_id " +
+        String sql = "SELECT * " +
                      "FROM beer_reviews " +
                      "JOIN beers ON beers.beer_id = beer_reviews.beer_id " +
                      "WHERE beers.beer_id = ? ";
@@ -51,7 +53,7 @@ public class ReviewJdbcDAO implements ReviewDAO {
 
         while (rows.next()) {
 
-            Reviews review = mapRowBeerReviews(rows);
+            BeerReview review = mapRowBeerReviews(rows);
             reviewList.add(review);
         }
 
@@ -67,7 +69,7 @@ public class ReviewJdbcDAO implements ReviewDAO {
     }
 
     @Override
-    public void addBeerReview(Reviews review, int id, int beerId) {
+    public void addBeerReview(BeerReview review, int id, int beerId) {
 
         String sql = "INSERT INTO beer_reviews (beer_id, description, stars, title, username) VALUES (?, ?, ?, ?, ?) ";
 
@@ -86,12 +88,16 @@ public class ReviewJdbcDAO implements ReviewDAO {
         return review;
     }
 
-    private Reviews mapRowBeerReviews(SqlRowSet rows) {
+    private BeerReview mapRowBeerReviews(SqlRowSet rows) {
 
-        Reviews review = new Reviews();
+        BeerReview review = new BeerReview();
 
         review.setDescription(rows.getString("description"));
-        review.setStars(rows.getInt("stars"));
+        review.setOverall(rows.getInt("overall"));
+        review.setLook(rows.getInt("look"));
+        review.setSmell(rows.getInt("smell"));
+        review.setFeel(rows.getInt("feel"));
+        review.setTaste(rows.getInt("taste"));
         review.setTitle(rows.getString("title"));
         review.setUsername(rows.getString("username"));
         review.setBeerId(rows.getInt("beer_id"));

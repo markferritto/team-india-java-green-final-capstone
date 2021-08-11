@@ -3,18 +3,9 @@ package com.techelevator.model;
 public class Reviews {
 
     private int stars;
-    private int beerId = 0;
     private String title;
     private String username;
     private String description;
-
-    public int getBeerId() {
-        return beerId;
-    }
-
-    public void setBeerId(int beerId) {
-        this.beerId = beerId;
-    }
 
     public int getStars() {
         return stars;

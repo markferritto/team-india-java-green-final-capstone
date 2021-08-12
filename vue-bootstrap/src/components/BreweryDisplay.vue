@@ -8,7 +8,19 @@
       </parallax>
       <div class="content-center">
         <div class="container">
-          <h1 class="title">{{ brewery.name }}</h1>
+          <h1 class="title">
+            {{ brewery.name }}
+          </h1>
+          <div class="rounded-pill img-raised rating-section">
+          <i
+            v-for="n in brewery.rating"
+            v-bind:key="n.id"
+            class="fa fa-star checked"
+            ariahidden="true"
+          ></i>
+          <i v-for="n in 5 - brewery.rating"
+            v-bind:key="n.id" class="fa fa-star" ariahidden="true"></i>
+          </div>
         </div>
       </div>
     </div>
@@ -79,7 +91,7 @@
                         <p>
                           {{ beer.stars }}/5
                           <n-button
-                            type="danger"
+                            class="btn btn-danger btn-sm"
                             v-if="$store.state.token != ''"
                             v-on:click="deleteBeer(beer.beerId).reload()"
                             >Delete Beer</n-button
@@ -99,6 +111,7 @@
     <div class="container">
       <div>
         <n-button
+          class="btn btn-round"
           v-on:click="showForm = !showForm"
           v-if="$store.state.token != ''"
           type="success"
@@ -317,86 +330,73 @@ header h1 {
 .btn save {
   align-content: center;
 }
-
-.wrapper {
-  padding-bottom: 90px;
+.btn-round {
+  background-color: #0ca85f;
+}
+.btn-sm {
+  background-color: #b44f15;
 }
 
-.divider2 {
+table {
+  margin: 0 auto;
+  text-align: center;
+  border-collapse: collapse;
+  border: 1px solid #d4d4d4;
+  font-size: 20px;
+  background: #fff;
+}
+
+table th,
+table tr:nth-child(2n + 2) {
+  background: #e7e7e7;
+}
+
+table th,
+table td {
+  padding: 20px 50px;
+}
+
+table th {
+  border-bottom: 1px solid #d4d4d4;
+}
+.stars-outer {
+  display: inline-block;
   position: relative;
-  margin-top: 90px;
-  height: 1px;
+  font-family: FontAwesome;
 }
 
-.div-transparent:before {
-  content: "";
+.stars-outer::before {
+  content: "\f006 \f006 \f006 \f006 \f006";
+}
+
+.stars-inner {
   position: absolute;
   top: 0;
-  left: 5%;
-  right: 5%;
-  width: 90%;
-  height: 1px;
-  background-image: linear-gradient(
-    to right,
-    transparent,
-    rgb(48, 49, 51),
-    transparent
-  );
+  left: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 0;
 }
 
-.div-arrow-down:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: -7px;
-  left: calc(50% - 7px);
-  width: 14px;
-  height: 14px;
-  transform: rotate(45deg);
-  background-color: white;
-  border-bottom: 1px solid rgb(48, 49, 51);
-  border-right: 1px solid rgb(48, 49, 51);
+.stars-inner::before {
+  content: "\f005 \f005 \f005 \f005 \f005";
+  color: #f8ce0b;
 }
 
-.div-tab-down:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: 0;
-  left: calc(50% - 10px);
-  width: 20px;
-  height: 14px;
-  background-color: white;
-  border-bottom: 1px solid rgb(48, 49, 51);
-  border-left: 1px solid rgb(48, 49, 51);
-  border-right: 1px solid rgb(48, 49, 51);
-  border-radius: 0 0 8px 8px;
+.fa {
+  font-size: 84px;
+  color: black;
 }
 
-.div-stopper:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: -6px;
-  left: calc(50% - 7px);
-  width: 14px;
-  height: 12px;
-  background-color: white;
-  border-left: 1px solid rgb(48, 49, 51);
-  border-right: 1px solid rgb(48, 49, 51);
+.checked {
+  color: rgb(231, 157, 83);
 }
 
-.div-dot:after {
-  content: "";
-  position: absolute;
-  z-index: 1;
-  top: -9px;
-  left: calc(50% - 9px);
-  width: 18px;
-  height: 18px;
-  background-color: goldenrod;
-  border: 1px solid rgb(48, 49, 51);
-  border-radius: 50%;
-  box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
+.rating-section {
+  background-color: rgb(240, 230, 230);
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-right: 180px;
+  margin-left: 180px;
 }
 </style>

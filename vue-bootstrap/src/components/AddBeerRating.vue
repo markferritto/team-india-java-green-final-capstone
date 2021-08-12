@@ -16,7 +16,7 @@
                     <h2>{{ beer.name }}</h2>
                     <h4 class="text-secondary mb-1">{{ beer.description }}</h4>
                     <h4 class="text-muted font-size-sm">
-                      abv - {{ beer.abv }}
+                      abv - {{ beer.abv }}%
                     </h4>
                   </div>
                 </div>

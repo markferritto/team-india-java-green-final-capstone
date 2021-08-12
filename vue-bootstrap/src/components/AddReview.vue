@@ -257,14 +257,14 @@ select.form-control {
 .btn-submit:hover {
   color: #fff;
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: #57d372;
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-cancel:hover {
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: rgba(11, 160, 85, 0.904);
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
@@ -367,5 +367,8 @@ label.star:before {
 
 td {
   align-content: center;
+}
+.btn-submit{
+  background-color:#0ca85f
 }
 </style>

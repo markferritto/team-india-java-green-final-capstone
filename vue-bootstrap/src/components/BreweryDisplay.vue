@@ -89,8 +89,7 @@
                       <div class="dish-price">
                         <p>
                           {{ beer.stars }}/5
-                          <n-button
-                            type="danger"
+                          <n-button class="btn btn-danger btn-sm"
                             v-if="$store.state.token != ''"
                             v-on:click="deleteBeer(beer.beerId).reload()"
                             >Delete Beer</n-button
@@ -109,7 +108,7 @@
 
     <div class="container">
       <div>
-        <n-button v-on:click="showForm = !showForm" v-if="$store.state.token != ''"  type="success">
+        <n-button  class="btn btn-round" v-on:click="showForm = !showForm" v-if="$store.state.token != ''"  type="success">
           Add a New Beer
         </n-button>
 
@@ -324,5 +323,11 @@ header h1 {
 
 .btn save {
   align-content: center;
+}
+.btn-round{
+ background-color:#0ca85f
+}
+.btn-sm{
+  background-color:#b44f15
 }
 </style>

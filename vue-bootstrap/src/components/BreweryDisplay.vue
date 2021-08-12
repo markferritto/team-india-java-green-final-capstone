@@ -29,11 +29,16 @@
       </div>
     </div>
 
-
     <div class="map-responsive">
-   <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
-
-</div>
+      <iframe
+        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio"
+        width="600"
+        height="450"
+        frameborder="0"
+        style="border: 0"
+        allowfullscreen
+      ></iframe>
+    </div>
 
     <div class="about-background">
       <!-- Nav tabs -->
@@ -41,22 +46,21 @@
         slot="raw-content"
         tab-content-classes="tab-content-padding text-center"
       >
-        <p class="brewery-description">
-          {{ brewery.description }}
-        </p>
+        <p class="brewery-description">&#127867; {{ brewery.description }} &#127867;</p>
         <p class="brewery-websiteUrl">
           <a href="#">{{ brewery.websiteUrl }}</a>
         </p>
-        <p class="brewery-phoneNumber">{{ brewery.phoneNumber }}</p>
+        <p class="brewery-phoneNumber">&#9742; {{ brewery.phoneNumber }}</p>
         <p class="brewery-address">
-          {{ brewery.streetAddress }}, {{ brewery.city }}, {{ brewery.state }}
+          {{ brewery.streetAddress }}, {{ brewery.city }},
+          {{ brewery.state }}
           {{ brewery.zip }}
         </p>
       </tabs>
     </div>
 
     <header>
-      <h1>Beer</h1>
+      <h1 class="beerFont">Beer</h1>
       <img
         src="https://assets.codepen.io/t-517/divider-triangle.png"
         class="divider"
@@ -245,14 +249,19 @@ export default {
 </script>
 
 <style scoped>
-h1 {
-  font-size: 70px;
+.beerFont {
+  color: black;
+  font-family: "Franklin Gothic", serif;
+  font-size: 75px;
+  font-weight: normal;
+  line-height: 48px;
+  margin: 0;
 }
 
 p {
   color: black;
   font-weight: bold;
-  font-family: "Lucida Console", "Courier New", monospace;
+  font-family: "Tahoma", "Courier New", monospace;
 }
 
 .brewery-description {
@@ -260,12 +269,19 @@ p {
 }
 
 .brewery-websiteUrl {
-  background-color: rgb(95, 6, 6);
-  text-decoration: underline;
   border: 2px solid black;
-  padding: 10px 20px;
-  background-size: auto;
-  background-image: linear-gradient(blue, red);
+  color: #4fb4d0;
+  background: rgb(65, 5, 5);
+  font-size: 20px;
+  display: inline;
+}
+
+.brewery-phoneNumber {
+  margin-top: 15px;
+}
+
+.brewery-address {
+  margin-top: 0px;
 }
 
 .menu-block {
@@ -350,6 +366,7 @@ header h1 {
 
 .about-background {
   background-color: rgb(231, 157, 83);
+  display: block;
 }
 
 .btn save {
@@ -507,18 +524,18 @@ table th {
   box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
 }
 
-.map-responsive{
-    overflow:hidden;
-    padding-bottom:400px;
+.map-responsive {
+  overflow: hidden;
+  padding-bottom: 400px;
 
-    position:relative;
-    height:0;
+  position: relative;
+  height: 0;
 }
-.map-responsive iframe{
-    left:0;
-    top:0;
-    height:400px;
-    width:100%;
-    position:absolute;
+.map-responsive iframe {
+  left: 0;
+  top: 0;
+  height: 400px;
+  width: 100%;
+  position: absolute;
 }
 </style>

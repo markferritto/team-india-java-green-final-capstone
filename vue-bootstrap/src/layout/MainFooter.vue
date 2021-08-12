@@ -8,9 +8,9 @@
       <nav>
         <ul>
           <li>
-            <a href="#">
-              About Us
-            </a>
+            <router-link v-popover:popover1 class="navbar-brand" to="/about-us">
+          ABout us
+        </router-link>
           </li>
           <li>
             <a href="#">

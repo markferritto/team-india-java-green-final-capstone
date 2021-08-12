@@ -29,7 +29,25 @@
       </div>
     </div>
 
-    <div class="map-responsive">
+    <div class="about-background">
+      <div class="card card-block">
+        <!-- Nav tabs -->
+        <tabs
+          slot="raw-content"
+          tab-content-classes="tab-content-padding text-center"
+        >
+          <p class="brewery-description">{{ brewery.description }}</p>
+          <p class="brewery-websiteUrl">
+            <a href="#">{{ brewery.websiteUrl }}</a>
+          </p>
+          <p class="brewery-phoneNumber">{{ brewery.phoneNumber }}</p>
+          <p class="brewery-address">
+            {{ brewery.streetAddress }}, {{ brewery.city }},
+            {{ brewery.state }}
+            {{ brewery.zip }}
+          </p>
+        </tabs>
+                  <div class="map-responsive">
       <iframe
         src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio"
         width="600"
@@ -39,26 +57,9 @@
         allowfullscreen
       ></iframe>
     </div>
+      </div>
 
-    <div class="about-background">
-      <!-- Nav tabs -->
-      <tabs
-        slot="raw-content"
-        tab-content-classes="tab-content-padding text-center"
-      >
-        <p class="brewery-description">&#127867; {{ brewery.description }} &#127867;</p>
-        <p class="brewery-websiteUrl">
-          <a href="#">{{ brewery.websiteUrl }}</a>
-        </p>
-        <p class="brewery-phoneNumber">&#9742; {{ brewery.phoneNumber }}</p>
-        <p class="brewery-address">
-          {{ brewery.streetAddress }}, {{ brewery.city }},
-          {{ brewery.state }}
-          {{ brewery.zip }}
-        </p>
-      </tabs>
     </div>
-
     <header>
       <h1 class="beerFont">Beer</h1>
       <img
@@ -74,18 +75,9 @@
       >
         <div class="col-lg-12 col-md-4 col-sm-6 col-xs-12 mb40">
           <div class="menu-block">
-            <h3 class="menu-title" v-popover:popover1>
+            <h3 class="menu-title">
               {{ beerType }}
             </h3>
-            <el-popover
-              ref="popover1"
-              popper-class="popover"
-              placement="top"
-              width="200"
-              trigger="hover"
-            >
-              <div class="popover-body">This beer is amazing</div>
-            </el-popover>
             <row>
               <div v-for="beer in beers" v-bind:key="beer.beerId">
                 <div class="row menu-content" v-if="beer.beerType == beerType">
@@ -188,14 +180,12 @@
 import breweryService from "../services/BreweryService.js";
 import beerService from "../services/BeerService.js";
 import { Tabs, Button } from "@/components";
-import { Popover } from "element-ui";
 
 export default {
   name: "brewery-display",
 
   components: {
     Tabs,
-    [Popover.name]: Popover,
     [Button.name]: Button,
   },
 
@@ -269,9 +259,7 @@ p {
 }
 
 .brewery-websiteUrl {
-  border: 2px solid black;
   color: #4fb4d0;
-  background: rgb(65, 5, 5);
   font-size: 20px;
   display: inline;
 }

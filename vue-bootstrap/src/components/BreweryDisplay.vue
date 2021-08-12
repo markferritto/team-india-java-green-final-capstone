@@ -195,7 +195,6 @@ export default {
       beers: [],
       beerTypes: [],
       isLoading: true,
-
       showForm: false,
       newBeer: {},
     };

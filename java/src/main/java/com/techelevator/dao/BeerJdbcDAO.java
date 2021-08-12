@@ -92,7 +92,7 @@ public class BeerJdbcDAO implements BeerDAO {
 
         List<String> beerTypeList = new ArrayList<>();
 
-        String sqlBeerList = "SELECT beer_type.name, beer_type.description" +
+        String sqlBeerList = "SELECT beer_type.name, beer_type.description " +
                              "FROM beer_type " +
                              "JOIN beers ON beers.beer_type_id = beer_type.beer_type_id " +
                              "JOIN brewery ON brewery.brewery_id = beers.brewery_id " +

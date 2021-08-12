@@ -12,14 +12,15 @@
             {{ brewery.name }}
           </h1>
           <div class="rounded-pill img-raised rating-section">
+pus            
             <i
-              v-for="n in brewery.rating"
+              v-for="n in Math.round(brewery.rating)"
               v-bind:key="n.id"
               class="fa fa-star checked"
               ariahidden="true"
             ></i>
             <i
-              v-for="n in 5 - brewery.rating"
+              v-for="n in 5 - Math.round(brewery.rating)"
               v-bind:key="n.id"
               class="fa fa-star"
               ariahidden="true"
@@ -47,18 +48,17 @@
             {{ brewery.zip }}
           </p>
         </tabs>
-                  <div class="map-responsive">
-      <iframe
-        src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio"
-        width="600"
-        height="450"
-        frameborder="0"
-        style="border: 0"
-        allowfullscreen
-      ></iframe>
-    </div>
+        <div class="map-responsive">
+          <iframe
+            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio"
+            width="600"
+            height="450"
+            frameborder="0"
+            style="border: 0"
+            allowfullscreen
+          ></iframe>
+        </div>
       </div>
-
     </div>
     <header>
       <h1 class="beerFont">Beer</h1>
@@ -84,7 +84,7 @@
                   <div class="col-lg-3 col-md-3 col-sm-3 col-xs-12">
                     <div class="dish-img">
                       <h5 class="dish-title">
-                        <p v-on:click="sendToBeerReview(beer.beerId)">
+                        <p>
                           {{ beer.name }}
                         </p>
                       </h5>
@@ -98,6 +98,7 @@
                       <div class="dish-price">
                         <p>
                           {{ beer.stars }}/5
+                          <a v-on:click="sendToBeerReview(beer.beerId)" class="btn btn-reviews btn-sm">See/Add Reviews</a>
                           <n-button
                             class="btn btn-danger btn-sm"
                             v-if="$store.state.token != ''"
@@ -172,7 +173,11 @@
         </form>
       </div>
     </div>
-    <div class="divider2 div-transparent div-dot wrapper2"></div>
+    <div class="col-lg-8 mx-auto">
+      <div class="mb-4">
+        <hr class="solid" />
+      </div>
+    </div>
   </div>
 </template>
 
@@ -231,6 +236,7 @@ export default {
           if (response.status === 201) {
             this.showForm = false;
             this.newBeer = {};
+            window.location.reload(true);
           }
         });
     },
@@ -291,18 +297,15 @@ p {
   margin-bottom: 40px;
 }
 .dish-meta {
+  line-height: 1.7;
   font-size: 18px;
   text-transform: uppercase;
   display: block;
   width: auto;
-  line-height: 1.7;
 }
 .dish-title {
-  margin-bottom: 6px;
-  font-size: 15px;
-  text-transform: uppercase;
-  font-weight: 500;
-  position: relative;
+  margin-top: 12px;
+  margin-bottom: 40px;
 }
 .dish-price {
   display: block;
@@ -365,6 +368,10 @@ header h1 {
 }
 .btn-sm {
   background-color: #b44f15;
+}
+
+.btn-reviews {
+  background-color:rgb(231, 157, 83);
 }
 
 table {
@@ -525,5 +532,17 @@ table th {
   height: 400px;
   width: 100%;
   position: absolute;
+}
+
+/*
+*
+* ==========================================
+* CUSTOM UTIL CLASSES
+* ==========================================
+*
+*/
+
+hr.solid {
+  border-top: 1px solid #999;
 }
 </style>

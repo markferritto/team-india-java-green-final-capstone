@@ -244,7 +244,7 @@ export default {
 }
 #cards_landscape_wrap-2 .container {
   padding-top: 20px;
-  padding-bottom: 50px;
+  padding-bottom: 700px;
 }
 #cards_landscape_wrap-2 a {
   text-decoration: none;

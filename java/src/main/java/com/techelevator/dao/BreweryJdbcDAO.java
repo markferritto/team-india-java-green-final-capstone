@@ -26,7 +26,6 @@ public class BreweryJdbcDAO implements BreweryDAO {
         //This will query for all breweries in the database
         String sql = "SELECT brewery.brewery_id, brewery.name, ROUND(AVG(brewery_reviews.stars), 2) AS average_brewery_rating, brewery.description, type.name AS type_name, brewery.website_url, brewery.phone_number, brewery.street_address, brewery.city, brewery.state, brewery.zip " +
                      "FROM brewery " +
-                     "JOIN beers ON beers.brewery_id = brewery.brewery_id " +
                      "JOIN brewery_reviews ON brewery_reviews.brewery_id = brewery.brewery_id " +
                      "JOIN type ON type.type_id = brewery.type_id " +
                      "GROUP BY brewery.brewery_id, type.name";

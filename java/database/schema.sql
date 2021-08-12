@@ -156,30 +156,41 @@ INSERT INTO beer_type (beer_type_id, name, description) VALUES (4, 'Stout', 'Ver
 INSERT INTO beer_type (beer_type_id, name, description) VALUES (5, 'Pilsner', 'Pilseners offer clean, bready maltiness and plenty of hop character.');
 INSERT INTO beer_type (beer_type_id, name, description) VALUES (6, 'Porter', 'A porter is dark in color with flavors of chocolate, light coffee, nut and caramel.');
 
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Coache''s Beer', 6, 'Classic, aged to perfection.', '6.2');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'The Malt in our Stars', 5, 'Profound and original taste.', '4');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Who is Jim', 1, 'Smooth and floral.', '5.7');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Coache''s Beer', 6, 'Classic, aged to perfection', '6.2');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'The Malt in our Stars', 5, 'Profound and original taste', '4');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Who is Jim', 1, 'Smooth and floral', '5.7');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Kevin''s Beer', 2, 'Del corazon de San Salvador.', '7');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Cask and Ye Shall Receive', 4, 'Serendipitous coupling of taste and smoothness.', '4.5');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Back-Draught', 1, 'Quench the dryest thirst.', '5.4');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Shareeque''s Beer', 3, 'Air Force One of a beer.', '4');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Barley and Me', 4, 'Will bring you to tears.', '5');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Hops, in the Name of Love', 6, 'Before you break my heart.', '9');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'The Real MVC', 3, 'Stop dorkin'' around.', '4.5');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'Yeastbound and Down', 2, 'Will put a moustache on your face.', '7');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'Growler in the Night', 5, 'As spooky as it is delicious.', '4.5');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'The Zero Index', 2, 'Coach would approve this beer.', '5');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'Slap on the Grist', 3, 'Letting you off easy, this time.', '10');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'Cowtown Stout', 4, 'From the banks of the Olentangy.', '12');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'Method Signature', 6, 'Access your tastebuds.', '6');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'Unchecked Exception', 5, 'You''ll get it at run-time.', '3');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'API IPA', 1, 'A palindrome to put you to REST.', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Back-Draught', 1, 'Quench the dryest thirst', '5.4');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Shareeque''s Beer', 3, 'Air Force One of a beer', '4');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Barley and Me', 4, 'Will bring you to tears', '5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Hops, in the Name of Love', 6, 'Before you break my heart', '9');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'The Real MVC', 3, 'Stop dorkin'' around', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'Yeastbound and Down', 2, 'Will put a moustache on your face', '7');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'Growler in the Night', 5, 'As spooky as it is delicious', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'The Zero Index', 2, 'Coach would approve this beer', '5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'Slap on the Grist', 3, 'Letting you off easy, this time', '10');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (6, 'Cowtown Stout', 4, 'From the banks of the Olentangy', '12');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'Method Signature', 6, 'Access your tastebuds', '6');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'Unchecked Exception', 5, 'You''ll get it at run-time', '3');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (3, 'API IPA', 1, 'A palindrome to put you to REST', '4.5');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (7, 'Honey Shark', 1, 'The sweetest tooth in the sea', '10');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (7, 'Slap on the Grist', 3, 'Letting you off easy, this time.', '10');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (7, 'Cowtown Stout', 4, 'From the banks of the Olentangy.', '12');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'Method Signature', 6, 'Access your tastebuds.', '6');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'Unchecked Exception', 5, 'You''ll get it at run-time.', '3');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'API IPA', 1, 'A palindrome to put you to REST.', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (7, 'Slap on the Grist', 3, 'Letting you off easy, this time', '10');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (7, 'Cowtown Stout', 4, 'From the banks of the Olentangy', '12');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'Method Signature', 6, 'Access your tastebuds', '6');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'Unchecked Exception', 5, 'You''ll get it at run-time', '3');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (8, 'API IPA', 1, 'A palindrome to put you to REST', '4.5');
+
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Growler in the Night', 5, 'As spooky as it is delicious', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'The Zero Index', 2, 'Coach would approve this beer', '5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Cowtown Stout', 4, 'From the banks of the Olentangy', '12');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Method Signature', 6, 'Access your tastebuds', '6');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Unchecked Exception', 5, 'You''ll get it at run-time', '3');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'API IPA', 1, 'A palindrome to put you to REST', '4.5');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Honey Shark', 1, 'The sweetest tooth in the sea', '10');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Slap on the Grist', 3, 'Letting you off easy, this time', '10');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'API IPA', 1, 'A palindrome to put you to REST', '4.5');
+
 
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (1, 'I love that it felt like no one knew my name', 5, 'Excellent ambience', 'Brewnonymous');
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (2, 'Parking is tough downtown, but it is worth it for this brewery', 4, 'Great staff, will be coming back!', 'Donna1959');
@@ -205,6 +216,18 @@ INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VA
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (8, 'I didnt expect the best part of the brewery to be its patrons', 4, 'Made some new friends', 'Beerficionado');
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (7, 'Underwhelming', 2, 'Wanted more top shelf options', 'FrankTheBank');
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (1, 'Seemed like they werent trying hard enough', 1, 'Very much average', 'MikeyMike');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (9, 'Best place to come in Columbus', 5, 'Ive been all over town and this is, hands down, where I want to be', 'Bishla');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (10, 'I didnt expect the best part of the brewery to be its patrons', 4, 'Made some new friends', 'Beerficionado');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (11, 'Underwhelming', 2, 'Wanted more top shelf options', 'FrankTheBank');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (12, 'Seemed like they werent trying hard enough', 1, 'Very much average', 'MikeyMike');
+
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'Best place to come in Columbus', 5, 'Ive been all over town and this is, hands down, where I want to be', 'Bishla');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'I didnt expect the best part of the brewery to be its patrons', 4, 'Made some new friends', 'Beerficionado');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'Underwhelming', 2, 'Wanted more top shelf options', 'FrankTheBank');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'Seemed like they werent trying hard enough', 1, 'Very much average', 'MikeyMike');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'I love that it felt like no one knew my name', 5, 'Excellent ambience', 'Brewnonymous');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'Parking is tough downtown, but it is worth it for this brewery', 4, 'Great staff, will be coming back!', 'Donna1959');
+
 
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (1, 'Unbelievably smooth', 5, 5, 5, 5, 5, 'Great taste!', 'BlownAwayUser');
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (1, 'The kind of beer with which you could lose yourself', 4, 3, 2, 5, 4, 'A new challenge every time', 'Enbrewsiast');
@@ -241,5 +264,27 @@ INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, tast
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (17, 'I wasnt really familiar, i had only had test driven brews. This was terrible', 0, 1, 0, 0, 0, 'Bootleg beer', 'ElRey');
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (18, 'This beer was so good it put me to REST', 5, 5, 5, 5, 5, 'Bootleg beer', 'Kurious');
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (18, 'Ive been waiting since the start of UNIX time for a beer like this', 5, 5, 5, 5, 5, 'Must be their Magnum Opus', 'BeerGeek');
+
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (25, 'Dont want to talk about it', 1, 1, 1, 1, 1, 'I suggest you sip and move on', 'Brewmaysa');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (25, 'Sharp as a knife, a hipsters dream', 5, 4, 4, 5, 5, 'You probably havent heard of it', 'QueenRana');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (26, 'Its best to nurse this beer, its delicious but stronger than you think', 2, 3, 2, 2, 1, 'So pungent', 'Shephurd1995');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (26, 'Balanced from front to back', 4, 4, 3, 3, 4, 'Everything under control', 'HopPop1955');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (27, 'I could have a dozen of these if I were younger', 5, 5, 5, 5, 5, 'Wonderful beer', 'AbrewhamLincoln');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (27, 'The finish is so smooth you can forget its a beer', 4, 3, 4, 2, 3, 'Blast beer', 'ActuallyCher');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (27, 'Too soft, It was like drinking seltzer and the flavors suffered', 1, 2, 2, 1, 1, 'Bomb beer', 'Mar-keemark');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (29, 'I drank this beer on Halloween and nothing spooky happened, but it was delicious', 4, 5, 4, 4, 4, 'Well-done brewers', 'Anthotron');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (28, 'Dont buy it as a growler, it will go flat', 1, 2, 1, 1, 1, 'lame', 'Sharkbait');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (30, 'Unbelievably smooth', 5, 5, 4, 5, 5, 'So tasty its immediately rewarding', 'Ninetynine');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (30, 'An excellent jumping off point', 5, 4, 5, 5, 5, 'Tasty, and so light its like youve had nothing to drink', 'Redbaloons');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (31, 'Sharp up front, then smooth. I could drink a few of these', 5, 5, 5, 5, 5, 'Unique in a great way', 'Are-y-Oh');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (32, 'Bites the tongue, I dont like it', 2, 3, 2, 1, 1, 'Too Bitter', 'SpeedW4gon');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (33, 'Heavy beer, great for sharing', 3, 2, 3, 3, 3, 'Pair it with a salad or something', 'Reddy4beddy');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (33, 'I want to feel light and this beer made me feel like I should go to bed', 1, 1, 2, 1, 1, 'Too heavy', 'HereIAm');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (32, 'I felt like every so often I would taste some static and I wasnt sure why', 2, 2, 3, 2, 1, 'Okay but confusing', 'KoachSteev');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (31, 'Would have been better if the return type wasnt the spins', 2, 1, 1, 2, 2, 'Dont drink ten of these', 'Laura');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (31, 'I wasnt really familiar, i had only had test driven brews. This was terrible', 0, 1, 0, 0, 0, 'Bootleg beer', 'ElRey');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (31, 'This beer was so good it put me to REST', 5, 5, 5, 5, 5, 'Great beer', 'Kurious');
+INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (33, 'Ive been waiting since the start of UNIX time for a beer like this', 5, 5, 5, 5, 5, 'Must be their Magnum Opus', 'BeerGeek');
+
 
 COMMIT TRANSACTION;

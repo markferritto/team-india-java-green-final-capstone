@@ -10,35 +10,35 @@
                 <tr>
                   <th></th>
 
-                    <div
-                      class="col-sm-4 py-4"
-                      v-for="revi in reviews"
-                      v-bind:key="revi.breweryId"
-                    >
-                      <div class="card" style="width: 30rem">
-                        <div class="card-body">
-                          <h4>
-                            <link
-                              rel="stylesheet"
-                              href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-                            />
-                            <span
-                              v-for="n in revi.stars"
-                              v-bind:key="n.id"
-                              class="fa fa-star checked"
-                            ></span>
-                            <span
-                              v-for="n in 5 - revi.stars"
-                              v-bind:key="n.id"
-                              class="fa fa-star"
-                            ></span>
-                          </h4>
-                          <h3 class="card-title">{{ revi.title }}</h3>
-                          <h5 class="card-title">-{{ revi.username }}</h5>
-                          <h5 class="card-text">{{ revi.description }}</h5>
-                        </div>
+                  <div
+                    class="col-sm-4 py-4"
+                    v-for="revi in reviews"
+                    v-bind:key="revi.breweryId"
+                  >
+                    <div class="card" style="width: 30rem">
+                      <div class="card-body">
+                        <h4>
+                          <link
+                            rel="stylesheet"
+                            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+                          />
+                          <span
+                            v-for="n in revi.stars"
+                            v-bind:key="n.id"
+                            class="fa fa-star checked"
+                          ></span>
+                          <span
+                            v-for="n in 5 - revi.stars"
+                            v-bind:key="n.id"
+                            class="fa fa-star"
+                          ></span>
+                        </h4>
+                        <h3 class="card-title">{{ revi.title }}</h3>
+                        <h5 class="card-title">-{{ revi.username }}</h5>
+                        <h5 class="card-text">{{ revi.description }}</h5>
                       </div>
                     </div>
+                  </div>
                 </tr>
               </tbody>
             </table>
@@ -47,7 +47,7 @@
         </div>
 
         <div id="breweryReviewForm" class="col-sm">
-          <h1 class="title">Leave a Review!</h1>
+          <h1 class="title">Been here?<br />Leave a review!</h1>
           <form v-on:submit.prevent="submitForm" class="reviewForm">
             <div>
               <div class="stars">
@@ -123,12 +123,7 @@
 
             <div class="form-group">
               <label for="description">Description</label>
-              <input
-                id="mlsNumber"
-                type="text"
-                class="form-control"
-                v-model="review.description"
-              />
+              <textarea type="text" class="form-control" v-model="review.description"></textarea>
             </div>
 
             <button class="btn btn-submit">Submit</button>
@@ -243,9 +238,9 @@ select.form-control {
 .btn-submit {
   color: #fff;
   padding: 10px 24px;
-  background-color: #38b412;
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 25px;
 }
 
 .btn-cancel {
@@ -257,14 +252,14 @@ select.form-control {
 .btn-submit:hover {
   color: #fff;
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: rgb(231, 157, 83);
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-cancel:hover {
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: rgb(231, 157, 83);
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
@@ -280,7 +275,7 @@ select.form-control {
 }
 
 .status-message.success {
-  background-color: #90ee90;
+  background-color: rgb(231, 157, 83);
 }
 
 .status-message.error {

@@ -19,26 +19,15 @@
         slot="raw-content"
         tab-content-classes="tab-content-padding text-center"
       >
-        <tab-pane>
-          <template slot="label" class="button">
-            <i class="now-ui-icons objects_umbrella-13"></i> About
-          </template>
-          <p>
-            {{ brewery.description }}
-          </p>
-          <p>{{ brewery.websiteUrl }}</p>
-          <p>{{ brewery.phoneNumber }}</p>
-          <p>
-            {{ brewery.streetAddress }}, {{ brewery.city }},
-            {{ brewery.state }} {{ brewery.zip }}
-          </p>
-        </tab-pane>
-        <tab-pane>
-          <template slot="label" class="button">
-            <i class="now-ui-icons shopping_shop"></i> Directions
-          </template>
-          <p>Map to be implemented.</p>
-        </tab-pane>
+        <p>
+          {{ brewery.description }}
+        </p>
+        <p>{{ brewery.websiteUrl }}</p>
+        <p>{{ brewery.phoneNumber }}</p>
+        <p>
+          {{ brewery.streetAddress }}, {{ brewery.city }}, {{ brewery.state }}
+          {{ brewery.zip }}
+        </p>
       </tabs>
     </div>
 
@@ -109,7 +98,11 @@
 
     <div class="container">
       <div>
-        <n-button v-on:click="showForm = !showForm" v-if="$store.state.token != ''"  type="success">
+        <n-button
+          v-on:click="showForm = !showForm"
+          v-if="$store.state.token != ''"
+          type="success"
+        >
           Add a New Beer
         </n-button>
 
@@ -154,18 +147,18 @@
               </select>
             </div>
           </div>
-
           <button type="submit" class="btn btn-primary">Save Beer</button>
         </form>
       </div>
     </div>
+    <div class="divider2 div-transparent div-dot wrapper"></div>
   </div>
 </template>
 
 <script>
 import breweryService from "../services/BreweryService.js";
 import beerService from "../services/BeerService.js";
-import { Tabs, TabPane, Button } from "@/components";
+import { Tabs, Button } from "@/components";
 import { Popover } from "element-ui";
 
 export default {
@@ -173,7 +166,6 @@ export default {
 
   components: {
     Tabs,
-    TabPane,
     [Popover.name]: Popover,
     [Button.name]: Button,
   },
@@ -324,5 +316,87 @@ header h1 {
 
 .btn save {
   align-content: center;
+}
+
+.wrapper {
+  padding-bottom: 90px;
+}
+
+.divider2 {
+  position: relative;
+  margin-top: 90px;
+  height: 1px;
+}
+
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(48, 49, 51),
+    transparent
+  );
+}
+
+.div-arrow-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-bottom: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
+}
+
+.div-tab-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 14px;
+  background-color: white;
+  border-bottom: 1px solid rgb(48, 49, 51);
+  border-left: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
+  border-radius: 0 0 8px 8px;
+}
+
+.div-stopper:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -6px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 12px;
+  background-color: white;
+  border-left: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
+}
+
+.div-dot:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background-color: goldenrod;
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
 }
 </style>

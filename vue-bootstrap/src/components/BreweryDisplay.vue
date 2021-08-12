@@ -12,14 +12,18 @@
             {{ brewery.name }}
           </h1>
           <div class="rounded-pill img-raised rating-section">
-          <i
-            v-for="n in brewery.rating"
-            v-bind:key="n.id"
-            class="fa fa-star checked"
-            ariahidden="true"
-          ></i>
-          <i v-for="n in 5 - brewery.rating"
-            v-bind:key="n.id" class="fa fa-star" ariahidden="true"></i>
+            <i
+              v-for="n in brewery.rating"
+              v-bind:key="n.id"
+              class="fa fa-star checked"
+              ariahidden="true"
+            ></i>
+            <i
+              v-for="n in 5 - brewery.rating"
+              v-bind:key="n.id"
+              class="fa fa-star"
+              ariahidden="true"
+            ></i>
           </div>
         </div>
       </div>
@@ -31,12 +35,14 @@
         slot="raw-content"
         tab-content-classes="tab-content-padding text-center"
       >
-        <p>
+        <p class="brewery-description">
           {{ brewery.description }}
         </p>
-        <p>{{ brewery.websiteUrl }}</p>
-        <p>{{ brewery.phoneNumber }}</p>
-        <p>
+        <p class="brewery-websiteUrl">
+          <a href="#">{{ brewery.websiteUrl }}</a>
+        </p>
+        <p class="brewery-phoneNumber">{{ brewery.phoneNumber }}</p>
+        <p class="brewery-address">
           {{ brewery.streetAddress }}, {{ brewery.city }}, {{ brewery.state }}
           {{ brewery.zip }}
         </p>
@@ -164,7 +170,7 @@
         </form>
       </div>
     </div>
-	<div class="divider2 div-transparent div-dot wrapper2"></div>
+    <div class="divider2 div-transparent div-dot wrapper2"></div>
   </div>
 </template>
 
@@ -241,6 +247,20 @@ h1 {
 p {
   color: black;
   font-weight: bold;
+  font-family: "Lucida Console", "Courier New", monospace;
+}
+
+.brewery-description {
+  font-size: 35px;
+}
+
+.brewery-websiteUrl {
+  background-color: rgb(95, 6, 6);
+  text-decoration: underline;
+  border: 2px solid black;
+  padding: 10px 20px;
+  background-size: auto;
+  background-image: linear-gradient(blue, red);
 }
 
 .menu-block {
@@ -400,88 +420,85 @@ table th {
   margin-left: 180px;
 }
 
-.wrapper2
-{
-	padding-bottom: 90px;
+.wrapper2 {
+  padding-bottom: 90px;
 }
 
-.divider2
-{
-	position: relative;
-	margin-top: 90px;
-	height: 1px;
+.divider2 {
+  position: relative;
+  margin-top: 90px;
+  height: 1px;
 }
 
-.div-transparent:before
-{
-	content: "";
-	position: absolute;
-	top: 0;
-	left: 5%;
-	right: 5%;
-	width: 90%;
-	height: 1px;
-	background-image: linear-gradient(to right, transparent, rgb(48,49,51), transparent);
+.div-transparent:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5%;
+  right: 5%;
+  width: 90%;
+  height: 1px;
+  background-image: linear-gradient(
+    to right,
+    transparent,
+    rgb(48, 49, 51),
+    transparent
+  );
 }
 
-.div-arrow-down:after
-{
-	content: "";
-	position: absolute;
-	z-index: 1;
-	top: -7px;
-	left: calc(50% - 7px);
-	width: 14px;
-	height: 14px;
-	transform: rotate(45deg);
-	background-color: white;
-	border-bottom: 1px solid rgb(48,49,51);
-	border-right: 1px solid rgb(48,49,51);
+.div-arrow-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -7px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 14px;
+  transform: rotate(45deg);
+  background-color: white;
+  border-bottom: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
 }
 
-.div-tab-down:after
-{
-	content: "";
-	position: absolute;
-	z-index: 1;
-	top: 0;
-	left: calc(50% - 10px);
-	width: 20px;
-	height: 14px;
-	background-color: white;
-	border-bottom: 1px solid rgb(48,49,51);
-	border-left: 1px solid rgb(48,49,51);
-	border-right: 1px solid rgb(48,49,51);
-	border-radius: 0 0 8px 8px;
+.div-tab-down:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: calc(50% - 10px);
+  width: 20px;
+  height: 14px;
+  background-color: white;
+  border-bottom: 1px solid rgb(48, 49, 51);
+  border-left: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
+  border-radius: 0 0 8px 8px;
 }
 
-.div-stopper:after
-{
-	content: "";
-	position: absolute;
-	z-index: 1;
-	top: -6px;
-	left: calc(50% - 7px);
-	width: 14px;
-	height: 12px;
-	background-color: white;
-	border-left: 1px solid rgb(48,49,51);
-	border-right: 1px solid rgb(48,49,51);
+.div-stopper:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -6px;
+  left: calc(50% - 7px);
+  width: 14px;
+  height: 12px;
+  background-color: white;
+  border-left: 1px solid rgb(48, 49, 51);
+  border-right: 1px solid rgb(48, 49, 51);
 }
 
-.div-dot:after
-{
-	content: "";
-	position: absolute;
-	z-index: 1;
-	top: -9px;
-	left: calc(50% - 9px);
-	width: 18px;
-	height: 18px;
-	background-color: goldenrod;
-	border: 1px solid rgb(48,49,51);
-	border-radius: 50%;
-	box-shadow: inset 0 0 0 2px white,
-					0 0 0 4px white;
+.div-dot:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  top: -9px;
+  left: calc(50% - 9px);
+  width: 18px;
+  height: 18px;
+  background-color: goldenrod;
+  border: 1px solid rgb(48, 49, 51);
+  border-radius: 50%;
+  box-shadow: inset 0 0 0 2px white, 0 0 0 4px white;
 }
 </style>

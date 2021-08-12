@@ -91,10 +91,7 @@
                           {{ beer.stars }}/5
                           <n-button
                             type="danger"
-                            v-if="
-                              $store.state.user.authorities[0].name ==
-                              'ROLE_ADMIN'
-                            "
+                            v-if="$store.state.token != ''"
                             v-on:click="deleteBeer(beer.beerId).reload()"
                             >Delete Beer</n-button
                           >
@@ -111,13 +108,8 @@
     </div>
 
     <div class="container">
-    
       <div>
-        <n-button
-          v-if="$store.state.user.authorities[0].name == 'ROLE_ADMIN'"
-          v-on:click="showForm = !showForm"
-          type="success"
-        >
+        <n-button v-on:click="showForm = !showForm" v-if="$store.state.token != ''"  type="success">
           Add a New Beer
         </n-button>
 

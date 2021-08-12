@@ -140,7 +140,7 @@ INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_
 INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (5, 'Deck Escalator', 'Hang out and talk DIY projects around the house with the other dads.', 2, 'testwebsite5.com', '614-555-9995', '525 East Tompkins St', 'Columbus', 'OH', '43202');
 INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (6, 'Ope Brewing', 'Oh oops, can I just get by ya there? "It''s an Ohio thing".', 4, 'testwebsite6.com', '614-555-9996', '577 South State St', 'Columbus', 'OH', '43081');
 INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (7, 'Brewmeysa Contract Brewing', 'The beer that scatters dust and hides the footprints and tracks.', 5, 'testwebsite5.com', '614-555-9997', '907 Morse Rd', 'Columbus', 'OH', '43229');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (8, 'Brewtus Custom Brewhouse', 'A collective of local, passionate brewers".', 6, 'testwebsite6.com', '614-555-9998', '2650 South Hamilton Rd', 'Columbus', 'OH', '43232');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (8, 'Brewtus Custom Brewhouse', 'A collective of local, passionate brewers.', 6, 'testwebsite6.com', '614-555-9998', '2650 South Hamilton Rd', 'Columbus', 'OH', '43232');
 
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (1, 1);
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (2, 2);

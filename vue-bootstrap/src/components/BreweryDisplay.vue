@@ -167,12 +167,12 @@
                 class="form-control"
                 v-model="newBeer.beerType"
               >
-                <option value="1">Pale Ale</option>
-                <option value="2">Lager</option>
-                <option value="3">India Pale Ale</option>
-                <option value="4">Stout</option>
-                <option value="5">Pilsner</option>
-                <option value="6">Porter</option>
+                <option value="Pale Ale">Pale Ale</option>
+                <option value="Lager">Lager</option>
+                <option value="India Pale Ale">India Pale Ale</option>
+                <option value="Stout">Stout</option>
+                <option value="Pilsner">Pilsner</option>
+                <option value="Porter">Porter</option>
               </select>
             </div>
           </div>

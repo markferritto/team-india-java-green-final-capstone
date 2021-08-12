@@ -7,6 +7,7 @@ public class Beer {
     private String name;
     private double stars;
     private String beerType;
+    private String beerTypeDescription;
     private String description;
 
     public int getBeerId() {
@@ -63,5 +64,13 @@ public class Beer {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getBeerTypeDescription() {
+        return beerTypeDescription;
+    }
+
+    public void setBeerTypeDescription(String beerTypeDescription) {
+        this.beerTypeDescription = beerTypeDescription;
     }
 }

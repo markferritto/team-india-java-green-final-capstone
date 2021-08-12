@@ -11,8 +11,7 @@
           <h1 class="title">
             {{ brewery.name }}
           </h1>
-          <div class="rounded-pill img-raised rating-section">
-pus            
+          <div class="rounded-pill img-raised rating-section">            
             <i
               v-for="n in Math.round(brewery.rating)"
               v-bind:key="n.id"

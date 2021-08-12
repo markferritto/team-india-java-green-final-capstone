@@ -11,6 +11,7 @@ import SingleBrewery from './pages/SingleBrewery';
 import BeerReview from './pages/BeerReview';
 import Logout from './pages/Logout';
 import Register from './pages/Register.vue'
+import AboutUs from './pages/AboutUs.vue'
 
 Vue.use(Router);
 
@@ -93,6 +94,14 @@ export default new Router({
       path: '/register',
       name: 'register',
       components: { default: Register, header: MainNavbar },
+      props: {
+        header: { colorOnScroll: 400 }
+      }
+    },
+    {
+      path: '/about-us',
+      name: '/about-us',
+      components: { default: AboutUs, header: MainNavbar },
       props: {
         header: { colorOnScroll: 400 }
       }

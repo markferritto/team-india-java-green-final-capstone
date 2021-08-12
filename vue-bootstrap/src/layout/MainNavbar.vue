@@ -103,5 +103,7 @@ export default {
 </script>
 
 <style scoped>
-
+router-link {
+  font-size: 20px;
+}
 </style>

@@ -133,14 +133,18 @@ INSERT INTO type (type_id, name) VALUES (4, 'Regional Brewery');
 INSERT INTO type (type_id, name) VALUES (5, 'Contract Brewing Company');
 INSERT INTO type (type_id, name) VALUES (6, 'Alternating Proprietor');
 
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (1, 'John Doe Beer', 'Place for anyone and no one at the same time.', 1, 'testwebsite1.com', '614-555-9991', '1210 Georgesville Rd', 'Columbus', 'OH', '43228');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (2, 'Six-One-Pour', 'The biggest, small brewery you''ll ever see.', 3, 'testwebsite2.com', '614-555-9992', '1661 Hilliard Rome Rd', 'Columbus', 'OH', '43228');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (3, 'Encapsulate Brewing', 'Only go-getters allowed.', 2, 'testwebsite3.com', '614-555-9993', '1275 Kinnear Rd', 'Columbus', 'OH', '43212');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (4, 'The Lone Swallowtail', 'Standard of Ohio.', 4, 'testwebsite4.com', '614-555-9994', '33 East Gay St', 'Columbus', 'OH', '43215');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (5, 'Deck Escalator', 'Hang out and talk DIY projects around the house with the other dads.', 2, 'testwebsite5.com', '614-555-9995', '525 East Tompkins St', 'Columbus', 'OH', '43202');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (6, 'Ope Brewing', 'Oh oops, can I just get by ya there? "It''s an Ohio thing".', 4, 'testwebsite6.com', '614-555-9996', '577 South State St', 'Columbus', 'OH', '43081');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (7, 'Brewmeysa Contract Brewing', 'The beer that scatters dust and hides the footprints and tracks.', 5, 'testwebsite5.com', '614-555-9997', '907 Morse Rd', 'Columbus', 'OH', '43229');
-INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (8, 'Brewtus Custom Brewhouse', 'A collective of local, passionate brewers.', 6, 'testwebsite6.com', '614-555-9998', '2650 South Hamilton Rd', 'Columbus', 'OH', '43232');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (1, 'John Doe Beer', 'Place for anyone and no one at the same time.', 1, 'johndoebeer.com', '614-555-9991', '1210 Georgesville Rd', 'Columbus', 'OH', '43228');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (2, 'Six-One-Pour', 'The biggest, small brewery you''ll ever see.', 3, 'sixonepour.com', '614-555-9992', '1661 Hilliard Rome Rd', 'Columbus', 'OH', '43228');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (3, 'Encapsulate Brewing', 'Only go-getters allowed.', 2, 'encapsulatebrewing.com', '614-555-9993', '1275 Kinnear Rd', 'Columbus', 'OH', '43212');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (4, 'The Lone Swallowtail', 'Standard of Ohio.', 4, 'loneswallowtail.com', '614-555-9994', '33 East Gay St', 'Columbus', 'OH', '43215');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (5, 'Deck Escalator', 'Hang out and talk DIY projects around the house with the other dads.', 2, 'deckescalate.com', '614-555-9995', '525 East Tompkins St', 'Columbus', 'OH', '43202');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (6, 'Ope Brewing', 'Oh oops, can I just get by ya there? "It''s an Ohio thing."', 4, 'opebrewingco.com', '614-555-9996', '577 South State St', 'Columbus', 'OH', '43081');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (7, 'Brewmeysa Contract Brewing', 'The beer that scatters dust and hides the footprints and tracks.', 5, 'brewmeysabrewing.com', '614-555-9997', '907 Morse Rd', 'Columbus', 'OH', '43229');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (8, 'Brewtus Custom Brewhouse', 'A collective of local, passionate brewers.', 6, 'brewtusbeers.com', '614-555-9998', '2650 South Hamilton Rd', 'Columbus', 'OH', '43232');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (9, 'One Direction Fan Club Brewery', 'We''re all about One Direction here!', 1, 'onedirectionbrewing.com', '614-555-9978', '1174 Northwest Blvd', 'Columbus', 'OH', '43221');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (10, 'South High Brewing', 'Great southern tradition right here up north.', 1, 'southhighbrewco.com', '614-555-9991', '3691 South High St', 'Columbus', 'OH', '43207');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (11, 'Lucky Stars Brewing', 'Fortune flavors the bold.', 4, 'luckystarsbrew.com', '614-555-9984', '321 Noe-Bixby Rd', 'Columbus', 'OH', '43213');
+INSERT INTO brewery (brewery_id, name, description, type_id, website_url, phone_number, street_address, city, state, zip) VALUES (12, 'Out Of Bounds Alehouse', 'No index is too high for us!', 3, 'outofboundsale.com', '614-555-9914', '180 Groveport Rd', 'Canal Winchester', 'OH', '43110');
 
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (1, 1);
 INSERT INTO owned_brewery (brewery_id, user_id) VALUES (2, 2);
@@ -152,13 +156,13 @@ INSERT INTO beer_type (beer_type_id, name, description) VALUES (4, 'Stout', 'Ver
 INSERT INTO beer_type (beer_type_id, name, description) VALUES (5, 'Pilsner', 'Pilseners offer clean, bready maltiness and plenty of hop character.');
 INSERT INTO beer_type (beer_type_id, name, description) VALUES (6, 'Porter', 'A porter is dark in color with flavors of chocolate, light coffee, nut and caramel.');
 
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Coaches Beer', 6, 'Classic, aged to perfection.', '6.2');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Coache''s Beer', 6, 'Classic, aged to perfection.', '6.2');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'The Malt in our Stars', 5, 'Profound and original taste.', '4');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (1, 'Who is Jim', 1, 'Smooth and floral.', '5.7');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Kevins Beer', 2, 'Del corazon de San Salvador.', '7');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Kevin''s Beer', 2, 'Del corazon de San Salvador.', '7');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Cask and Ye Shall Receive', 4, 'Serendipitous coupling of taste and smoothness.', '4.5');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (4, 'Back-Draught', 1, 'Quench the dryest thirst.', '5.4');
-INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Shareeques Beer', 3, 'Air Force One of a beer.', '4');
+INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Shareeque''s Beer', 3, 'Air Force One of a beer.', '4');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Barley and Me', 4, 'Will bring you to tears.', '5');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (5, 'Hops, in the Name of Love', 6, 'Before you break my heart.', '9');
 INSERT INTO beers (brewery_id, name, beer_type_id, description, ABV) VALUES (2, 'The Real MVC', 3, 'Stop dorkin'' around.', '4.5');
@@ -189,6 +193,18 @@ INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VA
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (8, 'I came to have a good time, I left with three different blueprints for a doghouse', 1, 'Lumber nerds', 'yousername');
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (7, 'Milquetoast but charming', 4, 'Well-mannered and unsurprising', 'Nunya Bidness');
 INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (1, 'It seemed like they got this beer from someone who made it in their basement', 1, 'Bootleg beer', 'Sharkbait');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (1, 'So nice not to be cooped up anymore', 5, 'Wonderful scenery', 'Backintothefryingpan');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (2, 'Good staff but I dont like beer', 4, 'Fun place, cant wait to return!', 'PaulAndCo');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (3, 'My family liked it but I wanted more from the selection', 2, 'Less than I had hoped for', 'DancesWithBeers');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (4, 'Not bad, nothing to write home about.', 3, 'Good time, not great', 'CorinneFromCanada');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (5, 'I just like trying new things, this was new', 4, 'Pretty okay!', 'TrialRun');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (6, 'Perfect Friday', 5, 'Excellent place on a night out with friends', 'Goose');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (2, 'Has an air of pretension, but overall live up to the billing', 4, 'well acquitted', 'Writing4U');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (3, 'Even if the staff was rude, and they werent, I loved my time there', 5, 'Everything was delicious', 'Jreviews');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (4, 'Best place to come in Columbus', 5, 'Ive been all over town and this is, hands down, where I want to be', 'Bishla');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (8, 'I didnt expect the best part of the brewery to be its patrons', 4, 'Made some new friends', 'Beerficionado');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (7, 'Underwhelming', 2, 'Wanted more top shelf options', 'FrankTheBank');
+INSERT INTO brewery_reviews (brewery_id, description, stars, title, username) VALUES (1, 'Seemed like they werent trying hard enough', 1, 'Very much average', 'MikeyMike');
 
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (1, 'Unbelievably smooth', 5, 5, 5, 5, 5, 'Great taste!', 'BlownAwayUser');
 INSERT INTO beer_reviews (beer_id, description, overall, look, smell, feel, taste, title, username) VALUES (1, 'The kind of beer with which you could lose yourself', 4, 3, 2, 5, 4, 'A new challenge every time', 'Enbrewsiast');

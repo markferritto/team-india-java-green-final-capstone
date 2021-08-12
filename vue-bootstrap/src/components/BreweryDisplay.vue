@@ -25,6 +25,12 @@
       </div>
     </div>
 
+
+    <div class="map-responsive">
+   <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA0s1a7phLN0iaD6-UE7m4qP-z21pH0eSc&q=Columbs+Ohio" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+</div>
+
     <div class="about-background">
       <!-- Nav tabs -->
       <tabs
@@ -483,5 +489,20 @@ table th {
 	border-radius: 50%;
 	box-shadow: inset 0 0 0 2px white,
 					0 0 0 4px white;
+}
+
+.map-responsive{
+    overflow:hidden;
+    padding-bottom:400px;
+
+    position:relative;
+    height:0;
+}
+.map-responsive iframe{
+    left:0;
+    top:0;
+    height:400px;
+    width:100%;
+    position:absolute;
 }
 </style>

@@ -87,7 +87,7 @@
                   >
 
 
-                    <h6 class="mb-0">Tastegi &nbsp;&nbsp;&nbsp;&nbsp;</h6>
+                    <h6 class="mb-0">Taste&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     <span
                       v-for="n in taste"
                       v-bind:key="n.id"

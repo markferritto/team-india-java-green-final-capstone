@@ -40,7 +40,7 @@
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">Look</h6>
+                    <h6 class="mb-0">Look&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; </h6>
                     <span
                       v-for="n in look"
                       v-bind:key="n.id"
@@ -55,7 +55,7 @@
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">Smell</h6>
+                    <h6 class="mb-0">Smell&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     <span
                       v-for="n in smell"
                       v-bind:key="n.id"
@@ -70,7 +70,7 @@
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">Feel</h6>
+                    <h6 class="mb-0">Feel&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     <span
                       v-for="n in feel"
                       v-bind:key="n.id"
@@ -85,7 +85,9 @@
                   <li
                     class="list-group-item d-flex justify-content-between align-items-center flex-wrap"
                   >
-                    <h6 class="mb-0">Taste</h6>
+
+
+                    <h6 class="mb-0">Tastegi &nbsp;&nbsp;&nbsp;&nbsp;</h6>
                     <span
                       v-for="n in taste"
                       v-bind:key="n.id"
@@ -154,48 +156,43 @@
                       <label class="star star-1" for="star-1"></label>
                     </form>
                   </div>
-                  <div><h5>Overall</h5> </div>
+                  <div><h5></h5> </div>
                 </div>
 
-                <div class="form-group">
-                  <label for="title">Title</label>
-                  <input
-                    id="title"
-                    type="text"
-                    class="form-control"
-                    v-model="review.title"
-                  />
-                </div>
+               <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                id="title"
+                type="text"
+                class="form-control"
+                v-model="review.title"
+              />
+            </div>
 
-                <div class="name">
-                  <label for="name">Name</label>
-                  <input
-                    id="name"
-                    type="text"
-                    class="form-control"
-                    v-model="review.username"
-                  />
-                </div>
+            <div class="name">
+              <label for="name">Name</label>
+              <input
+                id="name"
+                type="text"
+                class="form-control"
+                v-model="review.username"
+              />
+            </div>
 
-                <div class="form-group">
-                  <label for="description">Description</label>
-                  <input
-                    id="mlsNumber"
-                    type="text"
-                    class="form-control"
-                    v-model="review.description"
-                  />
-                </div>
+            <div class="form-group">
+              <label for="description">Description</label>
+              <textarea type="text" class="form-control" v-model="review.description"></textarea>
+            </div>
 
-                <button class="btn btn-submit">Submit</button>
-                <button
-                  v-on:click.prevent="resetForm"
-                  class="btn btn-cancel"
-                  type="cancel"
-                >
-                  Cancel
-                </button>
-              </form>
+            <button class="btn btn-submit">Submit</button>
+            <button
+              v-on:click.prevent="resetForm"
+              class="btn btn-cancel"
+              type="cancel"
+            >
+              Cancel
+            </button>
+          </form>
             </div>
             <div class="row">
               <div class="col-sm-11 mx-auto bg-white rounded shadow div">
@@ -389,12 +386,13 @@ select.form-control {
   display: inline-block;
   margin: 10px 20px 10px 10px;
 }
+
 .btn-submit {
   color: #fff;
   padding: 10px 24px;
-  background-color: #38b412;
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
+  margin-right: 25px;
 }
 
 .btn-cancel {
@@ -406,14 +404,14 @@ select.form-control {
 .btn-submit:hover {
   color: #fff;
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: rgb(231, 157, 83);
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }
 
 .btn-cancel:hover {
   padding: 10px 24px;
-  background-color: #65f307;
+  background-color: rgb(231, 157, 83);
   box-shadow: 0 12px 26px 0 rgba(0, 0, 0, 0.24),
     0 17px 50px 0 rgba(0, 0, 0, 0.19);
 }

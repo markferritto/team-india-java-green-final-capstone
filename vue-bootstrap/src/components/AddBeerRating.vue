@@ -275,7 +275,7 @@ export default {
       look: 4,
       smell: 3,
       taste: 4,
-      feel: 2,
+      feel: 4,
       overall: 5,
     };
   },
